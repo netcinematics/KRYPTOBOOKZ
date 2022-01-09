@@ -14,15 +14,15 @@ The BEHAVIOR needs to be:
 ### DESIGN~STRUCTURE
 > FRANCHISE, SERIES,
 - EPIC: IMG, TXT, SND, VID, TOK
-- SERIESID, EPICID, CONTENTID
-    > SRZID, EPID, COID.
-- Solidity:METANET
-    > Map of Maps of Maps.
-    > IDT is TIMESTAMP IDs
+> SERIESID, EPICID, CONTENTID
+    - SRZID, EPID, COID.
+> Solidity:METANET
+    - Map of Maps of Maps (or struct)
+    - IDT is TIMESTAMP IDs
 - IDX-2-IPFS and IPFX to ...
-- Web3:METANET
-    > Convert IDX 2 IPFS.
-    > IPFX is IPFS token Num.
+> Web3:METANET
+    - Convert IDX 2 IPFS.
+    - IPFX is IPFS token Num.
 
 ### TODO
 - TEST cheaper GAS: Maps or Structs.
