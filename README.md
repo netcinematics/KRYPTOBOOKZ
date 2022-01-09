@@ -39,7 +39,7 @@ The BEHAVIOR needs to be:
 
 > CHALLENGE: Everything Connects.
 - DESCRIPTION: Like CSS: {top,tr,right,br,bottom,bl,l}
-- SOLUTION: 8GRID CONTENT MAP.
+- SOLUTION: GRID9 CONTENT MAP.
 
 > CHALLENGE: INFINITE-REPLACEABILITY.
 - DESCRIPTION: All Content Override.
@@ -48,7 +48,7 @@ The BEHAVIOR needs to be:
 
 > CHALLENGE: INFINITE-EXTENSIBILITY.
 - DESCRIPTION: Add Content Anywhere.
-- SOLUTION: Map of Map of Maps, 8GRID.
+- SOLUTION: Map of Map of Maps, GRID9.
 
 > CHALLENGE: INFINITE-SERIES.
 - SOLUTION: PROXY
