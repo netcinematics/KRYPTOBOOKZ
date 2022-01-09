@@ -1,5 +1,7 @@
 # KRYPTOBOOKZ
-## PURPOSE innovative NFTS, to be more entertaining.
+## PURPOSE:
+
+innovative NFTS to be entertaining.
 
 ### OVERVIEW
 The vision is for NFTs as unique pages of a PICTURE~BOOK.
