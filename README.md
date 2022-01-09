@@ -1,4 +1,7 @@
 # KRYPTOBOOKZ
+
+LINK: https://netcinematics.github.io/KRYPTOBOOKZ/
+
 ## PURPOSE:
 
 innovative NFTS to be entertaining.
