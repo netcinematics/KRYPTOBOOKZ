@@ -4,7 +4,8 @@ LINK: https://netcinematics.github.io/KRYPTOBOOKZ/
 
 ## PURPOSE:
 
-innovative NFTS to be entertaining.
+- innovate NFTS to be entertaining.
+- NFT SERIES, GALLERY, MARQUEE, and EPICs.
 
 ### OVERVIEW
 The vision is for NFTs as unique pages of a PICTURE~BOOK.
