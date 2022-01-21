@@ -12,23 +12,83 @@ The vision is for NFTs as unique pages of a PICTURE~BOOK.
 Where every component is an NFT. Not just the PAGE.
 Also the TITLE PAGE as a PROMO. The SNDTRACK.
 So we need a STRUCTURE for this, and a CONTRACT.
+
+And a few important TRICKY CHARACTERISTICS.
 The BEHAVIOR needs to be:
 > COMPOSEABLE, EXTENSIBLE, UPGRADEABLE.
 
 ### DESIGN~STRUCTURE
-> FRANCHISE, SERIES,
-- EPIC: IMG, TXT, SND, VID, TOK
-> SERIESID, EPICID, CONTENTID
-- SRZID, EPID, COID.   
+> FRANCHISE, SERIES, 
+- EPIC-BITZ: IMG, TXT, SND, VID, DAT, VIS.
+> IDX: SERIESID, EPICID, CONTENTID
+- IDX: SRZID, EPID, COID,
+
 > Solidity:METANET
 - Map of Maps of Maps (or struct)
 - IDT is TIMESTAMP IDs
 - IDX-2-IPFS and IPFX to ...
+
 > Web3:METANET
 - Convert IDX 2 IPFS.
 - IPFX is IPFS token Num.
 
+> DATESTAMP- IDX - FORMAT
+- YEAR_MO_DA_HR-MN.TITLE_NUM.idx
+- EXTENSIBILITY ACHIEVED (above), with ...
+- Ability to LAYER on VERSIONS, with ...
+- TIMESTAMP INDEXES, and GRID9.
+
+### TXT-BITZ phases
+- How To make a Crypto Book, 
+- Start with the TXT-BITZ.
+- Core SCRIPT, perfected WORDS.
+- VINTAGE Style - Display CONCEPT!!!
+- OLD WORLD, EASY 2 READ - TEXTS.
+- ~~~ with *ornamentation* ...
+- NO GRAPHICS. NO AUDIO. JUST TXT. WHY???
+- TXT separated, is FREE TXT.
+
+> FREE-TXT Technique
+- The story needs to get out. 
+- This TECHNIQUE... of TXT-BITZ does that.
+- Print it to BLOCKCHAIN. 
+- Little BITZ, that form together into a STORY.
+- into a KRYPTOBOOK.
+- The IMAGES (IMGS) come LATER. 
+- In ANY FORMAT and MANY FORMAT.
+
+> 2nd CHALLENGE FOR KRYPTOBOOKS:
+- EXTENSIBLE, and REPLACEABLE
+- REPLACEABLE, is done with JS slight of hand.
+- If the base IDX is STRING ID, it has no override.
+- If the base IDX is ARRAY, [0] is original, with [1] OVERRIDE LAYER.
+- The Web3 Rendering Engine - renders the OVERRIDE.
+- Behold, a KRYPTORENDERER. 
+
+I think that is cool. : )
+In this PROJECT, down in the ENGINE, will be...
+A Render Loop, checking the 9GRID for every EPIC-BIT.
+- for each BIT, is it CONTENT or OVERRIDE.
+- LOOKUP and RENDER as CARD by VIS:{settings}.
+
+### ATTRIBUTES of the EPIC-BITZ:
+{
+    franchise:"",
+    publisher:"",
+    creator:"",
+    copyright:"",
+    trademark:"",
+    projectStartDate:"",
+    projectEndDate:"",
+    epic:{},
+    series:{},
+    content:{},
+    //IMG, TXT, SND, VID, DAT, VIS.
+    vis:{}
+}
+
 ### TODO
+- MOVED ALL the KRYPTOBOOK logic to Web3 KRYPTORENDERER.
 - TEST cheaper GAS: Maps or Structs.
 - TEST proxy for SERIES extensible []...
 - TEST solution for REPLACEABLE [...]
