@@ -122,9 +122,11 @@
     <!-- <section id="statusDisplay1">< ~ ></section> -->
 </header>
 <article>
-    <section id="nftDisplay1" style="padding:0.222em; border:1px solid darkslateblue; border-radius:13px; width:85%; margin:0 auto; border-radius:22px; max-width: 44em;"> </section>
+    <section id="nftDisplay1" style="display:none; padding:0.222em; border:1px solid darkslateblue; border-radius:13px; width:85%; margin:0 auto; border-radius:22px; max-width: 44em;"> </section>
 </article>
-
+<article>
+    <section id="kryptobookDisplay1" style="padding:0.222em; border:1px solid darkslateblue; border-radius:13px; width:85%; margin:0 auto; border-radius:22px; max-width: 70em;"> </section>
+</article>
 
 <section style="padding: 0.444em;">
     <!-- <span style="font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.222em;text-shadow: 1px 1px 1px white;">EPICs:</span> -->
@@ -168,7 +170,7 @@
         </div>
         <div class="menu" style="font-size:0.666em;">
             <div style="line-height: 1.444em;padding-top: 1.666em;">  
-                 ~ OrbyOrbot™, DocCozmo™, Dr.Becky™, MaxzaDratz™, Marzamoon™, Kryptospaze™, KryptoHeroz™, KryptoCardz™, KryptoVidz™, Kryptobookz™ 
+                 ~ OrbyOrbot™, DocCozmo™, Dr.Becky™, MaxzaDratz™, Marzamoon™, KryptoSpaze™, <!--KryptoHeroz™, KryptoCardz™, KryptoVidz™,--> KryptoBookz™ 
                  2020 - <script>document.write( new Date().getFullYear() );</script>
             </div>
         </div>
@@ -180,6 +182,7 @@
 // let mainView = null;
 // const loginButton = document.getElementById('loginBtn')
 const nftDisplay1 = document.getElementById('nftDisplay1')
+const kryptobookDisplay1 = document.getElementById('kryptobookDisplay1')
 // const statusDisplay1 = document.getElementById('statusDisplay1')
 class MainVw {
     constructor(account){
@@ -876,6 +879,7 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         pageFrame.style.borderRadius = "10px";
         pageFrame.style.padding = "0.111em";
         pageFrame.style.margin = "0.444em";
+        pageFrame.style.boxShadow = "1px 1px 20px 0px blue";
 
         var IMGBIT = document.createElement('article');
         IMGBIT.style.backgroundColor = 'black';
@@ -884,7 +888,7 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         IMGBIT.style.borderRadius = "13px"
         IMGBIT.style.padding = "0.888em"
         IMGBIT.style.margin = "0.88em auto"
-        IMGBIT.style.maxWidth = "36em"
+        IMGBIT.style.maxWidth = "44em"
 
         var TXTBIT = document.createElement('article');
         TXTBIT.style.backgroundColor = 'black';
@@ -893,7 +897,7 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         TXTBIT.style.borderRadius = "13px"
         TXTBIT.style.padding = "0.888em"
         TXTBIT.style.margin = "0.88em auto"
-        TXTBIT.style.maxWidth = "36em"
+        TXTBIT.style.maxWidth = "44em"
 
 
         // var pageCard = document.createElement('article');
@@ -907,7 +911,8 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         // if (pageFrame && pageCard) { pageFrame.insertAdjacentElement('beforeend', pageCard); }
         if (pageFrame && IMGBIT) { pageFrame.insertAdjacentElement('beforeend', IMGBIT); }
         if (pageFrame && TXTBIT) { pageFrame.insertAdjacentElement('beforeend', TXTBIT); }
-        if (nftDisplay1) { nftDisplay1.insertAdjacentElement('beforeend', pageFrame); }
+        if (kryptobookDisplay1) { kryptobookDisplay1.insertAdjacentElement('beforeend', pageFrame); }
+        // if (nftDisplay1) { nftDisplay1.insertAdjacentElement('beforeend', pageFrame); }
 
     // function createTitleCard(nftCollection){
 
