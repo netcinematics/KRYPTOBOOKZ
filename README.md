@@ -73,19 +73,38 @@ A Render Loop, checking the 9GRID for every EPIC-BIT.
 
 ### ATTRIBUTES of the EPIC-BITZ:
 {
-    franchise:"",
+    franchiseTXT:"",
     publisher:"",
     creator:"",
-    copyright:"",
-    trademark:"",
+    signatureTXT:"",
+    signatureDate:"",
+    copyrightTXT:"",
+    trademarkTXT:"",
     projectStartDate:"",
     projectEndDate:"",
-    epic:{},
-    series:{},
-    content:{},
+    epic:{}, series:{}, content:{},
     //IMG, TXT, SND, VID, DAT, VIS.
-    vis:{}
+    seriesTXT,"", superTXT:"", mainTXT:"", subTXT:"",
+    location:"", act:"", chapter:"", phase:"", part:"",
+    todo:{},
+    vis:{},
+    symbology:{emote:"!!!",star:'*',hero:'orby'},
+    grid9:{top,tr,r,br,btm,bl,l,tl,content}
 }
+
+### GRID 9
+- grid9:{top,tr,r,br,btm,bl,l,tl,content}
+- that is a SOLUTION for DISPLAYING, INTERCHANGEABLE CONTENT. 
+- SuperTitle, MainTitle, SubTitle - layout.
+- SYMBOLOGY. Random symbol - focal point, and EMOTE.
+
+
+### AUTO PLAYBACK FEATURE
+- simple timer, countdown to flip
+- autoplayback: true
+- autoTIME: 10
+2  
+
 
 ### TODO
 - MOVED ALL the KRYPTOBOOK logic to Web3 KRYPTORENDERER.
