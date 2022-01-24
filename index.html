@@ -850,8 +850,8 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         // });
 
         let data = [
-            {IMG:"./copyrightNetCinematics/IMG-BITZ_template-1.png",
-             TXT:"./copyrightNetCinematics/originz_bit1.1_laundry1080.png"},
+            {IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_1.1_laundryIMG.png",
+             TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_1.1_laundryTXT.png"},
             {IMG:"./copyrightNetCinematics/IMG-BITZ_template-2.png"},
             {IMG:"./copyrightNetCinematics/IMG-BITZ_template-3.png"},
             {IMG:"./copyrightNetCinematics/IMG-BITZ_template-4.png"},
@@ -912,11 +912,15 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         TXTBIT.style.maxWidth = "44em"
         TXTBIT.style.overflow = "hidden";     //CROP
         TXTBIT.style.marginBottom = "1em";   //CROP
+        TXTBIT.style.marginTop = "-6em";    //OVERLAP
+        TXTBIT.style.borderTop = "none";    //OVERLAP
 
         var txtCard2 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
         txtCard2.src = bitz.TXT; //large 600 size
         txtCard2.style.width = "100%"
-        txtCard2.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
+        txtCard2.style.maxWidth = "32em"
+        // txtCard2.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
+        txtCard2.style.boxShadow = "inset rgb(30 84 200) 2px 2px 14px 8px"
         txtCard2.style.borderRadius = "18px"
         txtCard2.style.marginBottom = "-8em"
 
