@@ -75,7 +75,8 @@
 </head>
 <body>
 
-<section style="padding:0.444em;box-shadow:3px -1px 10px 0px lightyellow;margin:1em;border-radius: 8px;">
+
+<section style="padding:0.444em;box-shadow:3px -1px 10px 0px lightyellow;margin:1em;border-radius:30px;width:44%;margin:1em auto;">
     <!-- <span style="font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.222em;text-shadow: 1px 1px 1px white;">EPICs:</span> -->
     <button id="NavBtn1" class="menuBtn" onclick="menuFn(event)"}>
         <i class="fas fa-home" style="color:darkorange">&nbsp;WEBz</i></a>
@@ -93,29 +94,29 @@
     <!-- <a href="#main" class="button"><i class="fas fa-book" style="color:lightskyblue">&nbsp;</i>TXTz</a> -->
 </section>
 
-<section style="padding: 0.444em; font-size:0.888em;">
+<!-- <section style="padding: 0.444em; font-size:0.888em;">
     
     <span style="font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.222em;text-shadow: 1px 1px 1px purple;">NFTs:</span>
-    <a href="https://opensea.io/accounts/kryptospaze" target="_blank" class="button"><i class="fas fa-asterisk" style="color:darkorange">&nbsp;OpenSea</i></a>
+    <a href="https://opensea.io/accounts/kryptospaze" target="_blank" class="button"><i class="fas fa-asterisk" style="color:#4a79ff">&nbsp;OpenSea</i></a>
     <i class="fas fa-asterisk" style="color:lightskyblue">&nbsp;ETH</i>
     <i class="fas fa-asterisk" style="color:darkseagreen">&nbsp;SOL</i>
     <i class="fas fa-asterisk" style="color:mediumpurple">&nbsp;ADA</i>
     <i class="fas fa-asterisk" style="color:indianred">&nbsp;MATIC</i>
     <i class="fas fa-asterisk" style="color:rgb(153 74 241);">&nbsp;ALL</i>
         
-</section>  
+</section>   -->
 <script>
 
 </script>
 <header style="padding:0.666em;">
     <section>
         <span style="    font-size:0.444em; font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.0888em;text-shadow: 1px 1px 1px purple;"><&nbsp;</span>
-        <span>KRYPTOBOOKZ</span>
+        <span style="font-size:2em">KRYPTOSPAZE</span>
         <span style="    font-size:0.444em; font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.0888em;text-shadow: 1px 1px 1px purple;">>&nbsp;</span>
     </section>
     <section style="padding:0.777em;">
         <span style="    font-size:0em; font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.0888em;text-shadow: 1px 1px 1px skyblue;">~&nbsp;</span>
-        <span style="font-style:italic">by spazeFalcon</span>
+        <span style="font-style:italic;color:#4b00ff">by spazeFalcon</span>
         <span style="    font-size:0em; font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.0888em;text-shadow: 1px 1px 1px skyblue;">~&nbsp;</span>
     </section>
     <section id="statusDisplay1" style="font-size: 0.666em;">ETHEREUM NFTs on OpenSea.io</section>
@@ -150,9 +151,9 @@
 
 
 <section style="padding: 0.444em; font-size:0.888em;">
-    
+    <div style="font-size:2em;margin-bottom: 0.888em;">KRYPTOBOOKZ</div>
     <span style="font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.222em;text-shadow: 1px 1px 1px purple;">NFTs:</span>
-    <a href="https://opensea.io/accounts/kryptospaze" target="_blank" class="button"><i class="fas fa-asterisk" style="color:darkorange">&nbsp;OpenSea</i></a>
+    <a href="https://opensea.io/accounts/kryptospaze" target="_blank" class="button"><i class="fas fa-asterisk" style="color:#4a79ff">&nbsp;OpenSea</i></a>
     <i class="fas fa-asterisk" style="color:lightskyblue">&nbsp;ETH</i>
     <i class="fas fa-asterisk" style="color:darkseagreen">&nbsp;SOL</i>
     <i class="fas fa-asterisk" style="color:mediumpurple">&nbsp;ADA</i>
@@ -889,6 +890,17 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         IMGBIT.style.padding = "0.888em"
         IMGBIT.style.margin = "0.88em auto"
         IMGBIT.style.maxWidth = "44em"
+        IMGBIT.style.overflow = "hidden";     //CROP
+        IMGBIT.style.marginBottom = "0em";   //CROP
+
+
+        var imgCard1 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
+        imgCard1.src = bitz.IMG; //large 600 size
+        imgCard1.style.width = "100%"
+        imgCard1.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
+        imgCard1.style.borderRadius = "18px"
+        imgCard1.style.marginBottom = "-6.666em"
+
 
         var TXTBIT = document.createElement('article');
         TXTBIT.style.backgroundColor = 'black';
@@ -898,6 +910,15 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         TXTBIT.style.padding = "0.888em"
         TXTBIT.style.margin = "0.88em auto"
         TXTBIT.style.maxWidth = "44em"
+        TXTBIT.style.overflow = "hidden";     //CROP
+        TXTBIT.style.marginBottom = "1em";   //CROP
+
+        var txtCard2 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
+        txtCard2.src = bitz.TXT; //large 600 size
+        txtCard2.style.width = "100%"
+        txtCard2.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
+        txtCard2.style.borderRadius = "18px"
+        txtCard2.style.marginBottom = "-8em"
 
 
         // var pageCard = document.createElement('article');
@@ -909,6 +930,8 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         // pageCard.style.maxWidth = "36em"
         
         // if (pageFrame && pageCard) { pageFrame.insertAdjacentElement('beforeend', pageCard); }
+        IMGBIT.insertAdjacentElement('afterbegin', imgCard1);
+        TXTBIT.insertAdjacentElement('afterbegin', txtCard2);
         if (pageFrame && IMGBIT) { pageFrame.insertAdjacentElement('beforeend', IMGBIT); }
         if (pageFrame && TXTBIT) { pageFrame.insertAdjacentElement('beforeend', TXTBIT); }
         if (kryptobookDisplay1) { kryptobookDisplay1.insertAdjacentElement('beforeend', pageFrame); }
