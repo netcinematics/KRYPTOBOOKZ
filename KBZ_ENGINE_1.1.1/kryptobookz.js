@@ -16,8 +16,8 @@ import { viz } from "./kryptoviz.js";
 
 // let mainView = null;
 // const loginButton = document.getElementById('loginBtn')
-const nftDisplay1 = document.getElementById('nftDisplay1')
-const kryptobookDisplay1 = document.getElementById('kryptobookDisplay1')
+// const nftDisplay1 = document.getElementById('nftDisplay1')
+let KRYPTOBOOKFrame1;// = document.getElementById('KRYPTOBOOKFrame1')
 // const statusDisplay1 = document.getElementById('statusDisplay1')
 class MainVw {
     constructor(account){
@@ -51,6 +51,7 @@ function menuFn(e){ //ALL MENU BEHAVIOR in 1 FACTORY fn.
 }
 
 function initPage(){
+    KRYPTOBOOKFrame1 = document.getElementById('KRYPTOBOOKFrame1')
 /***************************************************************************************************\
  * META - ability for page to override and change dynamically-. - : )
 \***************************************************************************************************/
@@ -302,7 +303,7 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         artFrame.style.padding = "0.111em";
         artFrame.style.margin = "0.444em";
         let artCard = document.createElement('article');
-        artCard.style.backgroundColor = getRandoColor();
+        artCard.style.backgroundColor = viz.getRandoColor();
         artCard.style.border = "1px solid steelblue"
         artCard.style.borderRadius = "13.333px"
         artCard.style.padding = "0.888em"
@@ -313,7 +314,7 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         artCardIMG.style.padding = "0.888em"
         artCardIMG.style.width = "88.8%"
         artCardIMG.style.maxWidth = "33em"
-        artCardIMG.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
+        artCardIMG.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
         artCardIMG.style.borderRadius = "6.666px"
         artCardIMG.style.marginBottom = "1em"
         artCardIMG.style.zIndex = "9"
@@ -332,7 +333,7 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
             artCardVID.style.padding = "0.888em"
             artCardVID.style.width = "100%"
             artCardVID.style.maxWidth = "33em"
-            artCardVID.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
+            artCardVID.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
             artCardVID.style.borderRadius = "6.666px"
             artCardVID.style.marginBottom = "1em"
             // artCardVID.style.maxHeight = "55px"
@@ -372,7 +373,7 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
             artCardSND.style.padding = "0.888em"
             artCardSND.style.width = "100%"
             artCardSND.style.maxWidth = "28em"
-            artCardSND.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
+            artCardSND.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
             artCardSND.style.borderRadius = "6.666px"
             artCardSND.style.marginBottom = "1em"
             artCardSND.style.maxHeight = "55px"
@@ -464,7 +465,7 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         artFrame.style.padding = "0.111em";
         artFrame.style.margin = "0.444em";
         let artCard = document.createElement('article');
-        artCard.style.backgroundColor = getRandoColor();
+        artCard.style.backgroundColor = viz.getRandoColor();
         artCard.style.border = "1px solid steelblue"
         artCard.style.borderRadius = "13.333px"
         artCard.style.padding = "0.888em"
@@ -475,7 +476,7 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         artCardIMG.style.padding = "0.888em"
         artCardIMG.style.width = "88.8%"
         artCardIMG.style.maxWidth = "33em"
-        artCardIMG.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
+        artCardIMG.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
         artCardIMG.style.borderRadius = "6.666px"
         artCardIMG.style.marginBottom = "1em"
         artCardIMG.src = nft.image_url;   //large 600 size  //OTHER IMAGE TYPES HERE:
@@ -487,7 +488,7 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         // artCardSND.style.padding = "0.888em"
         // artCardSND.style.width = "100%"
         // artCardSND.style.maxWidth = "28em"
-        // artCardSND.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
+        // artCardSND.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
         // artCardSND.style.borderRadius = "6.666px"
         // artCardSND.style.marginBottom = "1em"
         // artCardSND.style.maxHeight = "55px"
@@ -569,7 +570,7 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         artFrame.style.padding = "0.111em";
         artFrame.style.margin = "0.444em";
         var artCard = document.createElement('article');
-        artCard.style.backgroundColor = getRandoColor();
+        artCard.style.backgroundColor = viz.getRandoColor();
         artCard.style.border = "1px solid steelblue"
         artCard.style.borderRadius = "13px"
         artCard.style.padding = "0.888em"
@@ -585,7 +586,7 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         var artCardIMG2 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
         artCardIMG2.src = nftCollection.featured_image_url;   //large 600 size
         artCardIMG2.style.width = "55%"
-        artCardIMG2.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
+        artCardIMG2.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
         artCardIMG2.style.borderRadius = "4px"
         artCardIMG2.style.marginBottom = "1em"
         // artCardIMG.src = nftCollection.image_original_url; //giant original size ~
@@ -611,12 +612,12 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
 /***************************************************************************************************\
  * UTILITY - all types of helperFunctions here-. - : )
 \***************************************************************************************************/
-    function getRandoColor(){
-        const h = Math.floor(Math.random() * 344); //360
-        const s = Math.floor(Math.random() * 88); //100
-        const l = Math.floor(Math.random() * 88); //100
-        return `hsl(${h}deg, ${s}%, ${l}%)`;
-    }
+    // function getRandoColor(){
+    //     const h = Math.floor(Math.random() * 344); //360
+    //     const s = Math.floor(Math.random() * 88); //100
+    //     const l = Math.floor(Math.random() * 88); //100
+    //     return `hsl(${h}deg, ${s}%, ${l}%)`;
+    // }
    
     function getIconLink(node, url){
         node.style.marginTop = "-1em";
@@ -682,173 +683,40 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         //         showKRYPTOBOOK(0);
 
         // });
-
-        let data = [
-            {IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_1.1_laundryIMG.png",
-             TXT:"./copyrightNetCinematics/TXT_TEMPLATE_4.png"},
-            {IMG:"./copyrightNetCinematics/IMG-BITZ_template-2.png",
-             TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_1.1_laundryTXT.png"},
-            {IMG:"./copyrightNetCinematics/IMG-BITZ_template-3.png"},
-            {IMG:"./copyrightNetCinematics/IMG-BITZ_template-4.png"},
-            {IMG:"./copyrightNetCinematics/IMG-BITZ_template-5.png"}
-        ]
-
-        showKRYPTOBOOK(0,data);
+        showKRYPTOBOOK(0,SPAZEBOOK_KRYPTOBITZ1);
     }
 
-    function showKRYPTOBOOK(idx, data){
+}  //END MASSIVE INITPAGE FN. //todo move above krypto fns?
 
-        // if(!data || !data.IMG){
-        //    console.log('error no img')                
-        // }
-        // if(data && data.TXT){
-        //    console.log('render TXT')            
-        // }
+let SPAZEBOOK_IDX = 0;
+let SPAZEBOOK_KRYPTOBITZ1 = [
+    {IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_1.1_laundryIMG.png",
+     TXT:"./copyrightNetCinematics/TXT_TEMPLATE_4.png"},
+    {IMG:"./copyrightNetCinematics/IMG-BITZ_template-2.png",
+     TXT:"./copyrightNetCinematics/originz_bit1.2_spazebot1080.png"},
+    {IMG:"./copyrightNetCinematics/IMG-BITZ_template-3.png"},
+    {IMG:"./copyrightNetCinematics/IMG-BITZ_template-4.png"},
+    {IMG:"./copyrightNetCinematics/IMG-BITZ_template-5.png"}
+]
 
-        createKRYPTOPAGE(data[0]); //createMETACARD(nft)
-    }
-    
-    function createKRYPTOPAGE(bitz){
-    //todo move to VIS
-        let pageFrame = document.createElement('section');
-        pageFrame.style.backgroundColor = 'black';
-        pageFrame.style.borderRadius = "10px";
-        pageFrame.style.padding = "0.111em";
-        pageFrame.style.margin = "0.444em";
-        pageFrame.style.boxShadow = "1px 1px 20px 0px blue";
-
-        var IMGBIT = document.createElement('article');
-        IMGBIT.style.backgroundColor = 'black';
-        // IMGBIT.style.backgroundColor = getRandoColor();
-        IMGBIT.style.border = "1px solid steelblue"
-        IMGBIT.style.borderRadius = "13px"
-        IMGBIT.style.padding = "0.888em"
-        IMGBIT.style.margin = "0.88em auto"
-        IMGBIT.style.maxWidth = "44em"
-        IMGBIT.style.overflow = "hidden";     //CROP
-        IMGBIT.style.marginBottom = "0em";   //CROP
-
-
-        var imgCard1 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
-        imgCard1.src = bitz.IMG; //large 600 size
-        imgCard1.style.width = "100%"
-        imgCard1.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
-        imgCard1.style.borderRadius = "18px"
-        imgCard1.style.marginBottom = "-6.666em"
-
-
-        var TXTBIT = document.createElement('article');
-        TXTBIT.style.backgroundColor = 'black';
-        // TXTBIT.style.backgroundColor = getRandoColor();
-        TXTBIT.style.boxShadow = "0px 0px 20px 1px blue"
-        TXTBIT.style.border = "1px solid purple"
-        TXTBIT.style.borderRadius = "13px"
-        TXTBIT.style.padding = "0.888em"
-        TXTBIT.style.margin = "0.88em auto"
-        TXTBIT.style.maxWidth = "42em"
-        TXTBIT.style.overflow = "hidden";     //CROP
-        TXTBIT.style.marginBottom = "1em";   //CROP
-        TXTBIT.style.marginTop = "-6em";    //OVERLAP
-        TXTBIT.style.borderTop = "none";    //OVERLAP
-
-        var txtCard2 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
-        txtCard2.src = bitz.TXT; //large 600 size
-        txtCard2.style.width = "100%"
-        txtCard2.style.maxWidth = "32em"
-        // txtCard2.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
-        txtCard2.style.boxShadow = "inset rgb(30 84 200) 2px 2px 14px 8px"
-        txtCard2.style.borderRadius = "18px"
-        // txtCard2.style.marginBottom = "-6em"
-        txtCard2.style.marginBottom = "-5.666em"
-        txtCard2.style.marginTop = "3em"
-
-
-        // var pageCard = document.createElement('article');
-        // pageCard.style.backgroundColor = getRandoColor();
-        // pageCard.style.border = "1px solid steelblue"
-        // pageCard.style.borderRadius = "13px"
-        // pageCard.style.padding = "0.888em"
-        // pageCard.style.margin = "0.88em auto"
-        // pageCard.style.maxWidth = "36em"
-        
-        // if (pageFrame && pageCard) { pageFrame.insertAdjacentElement('beforeend', pageCard); }
-        IMGBIT.insertAdjacentElement('afterbegin', imgCard1);
-        TXTBIT.insertAdjacentElement('afterbegin', txtCard2);
-        if (pageFrame && IMGBIT) { pageFrame.insertAdjacentElement('beforeend', IMGBIT); }
-        if (pageFrame && TXTBIT) { pageFrame.insertAdjacentElement('beforeend', TXTBIT); }
-        if (kryptobookDisplay1) { kryptobookDisplay1.insertAdjacentElement('beforeend', pageFrame); }
-        // if (nftDisplay1) { nftDisplay1.insertAdjacentElement('beforeend', pageFrame); }
-
-    // function createTitleCard(nftCollection){
-
-        // let artFrame = document.createElement('section');
-        // artFrame.style.backgroundColor = 'black';
-        // artFrame.style.borderRadius = "10px";
-        // artFrame.style.padding = "0.111em";
-        // artFrame.style.margin = "0.444em";
-        // var artCard = document.createElement('article');
-        // artCard.style.backgroundColor = getRandoColor();
-        // artCard.style.border = "1px solid steelblue"
-        // artCard.style.borderRadius = "13px"
-        // artCard.style.padding = "0.888em"
-        // artCard.style.margin = "0.88em auto"
-        // artCard.style.maxWidth = "36em"
-        // // artCard.innerText = nftCollection.name; //NAME
-        // var artCardIMG1 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
-        // // artCardIMG1.src = nftCollection.image_url;   //large 600 size
-        // artCardIMG1.src = bitz.TXT;   //large 600 size
-        // // artCardIMG1.style.borderRadius = "100%"
-        // artCardIMG1.style.marginLeft = "-22%"
-        // artCardIMG1.style.width = "44%"
-        // artCardIMG1.style.position = 'relative';
-        // // artCardIMG1.style.left = "-29%";
-        // artCardIMG1.style.marginTop = "-50%";
-        // // artCardIMG.src = nftCollection.banner_image_url;   //Collection BANNER size 1020+
-        // var artCardIMG2 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
-        // // artCardIMG2.src = nftCollection.featured_image_url;   //large 600 size
-        // artCardIMG2.src = bitz.IMG; //large 600 size
-        // artCardIMG2.style.width = "100%"
-        // artCardIMG2.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
-        // artCardIMG2.style.borderRadius = "4px"
-        // artCardIMG2.style.marginBottom = "1em"
-        // // artCardIMG.src = nftCollection.image_original_url; //giant original size ~
-        // // artCardIMG.src = nftCollection.image_preview_url;      //medium 350 size
-        // // artCardIMG.src = nftCollection.image_thumbnail_url;   //small 200 size
-        // artCard.insertAdjacentElement('afterbegin', artCardIMG1);
-        // artCard.insertAdjacentElement('afterbegin', artCardIMG2);
-        // let artCardMainTitle = document.createElement('section'); //Title 1
-        // artCardMainTitle.style.padding = "0.444em"
-        // artCardMainTitle.style.borderRadius = "13px"
-        // artCardMainTitle.style.border = "1px solid steelblue"
-        // artCardMainTitle.innerText = "bitz.MainTTL"; //NAME
-        // artCardMainTitle.style.backgroundColor = "#05112a"
-        // let artCardSubTitle = document.createElement('section'); //Title 2
-        // artCardSubTitle.style.padding = "0.111em"
-        // artCardSubTitle.innerText = "..."; //NAME
-        // artCardSubTitle.style.textShadow = "1px 2px 1px black";
-        // if (artCard) { artCard.insertAdjacentElement('beforeend',artCardMainTitle); }
-        // if (artCard) { artCard.insertAdjacentElement('beforeend',artCardSubTitle); }
-        // if (artFrame && artCard) { artFrame.insertAdjacentElement('beforeend', artCard); }
-        // if (nftDisplay1) { nftDisplay1.insertAdjacentElement('beforeend', artFrame); }
-    } //END CREATE KRYPTO PAGE   
+function nextPage(){
+    showKRYPTOBOOK(++SPAZEBOOK_IDX,SPAZEBOOK_KRYPTOBITZ1);
+    setTimeout(function(){
+        document.querySelector('#copyright').scrollIntoView({ behavior: 'smooth' });
+    },1000)
 }
 
-
-
+function showKRYPTOBOOK(idx, data){
+    viz.createKRYPTOPAGE(data[idx]); //createMETACARD(nft)
+}
 
 //IMPORTANT INITIALIZE KRYPTOBOOKZ
 let kbz = {
-    name:44,
     viz:viz,
     MainVw:MainVw,
-    initPage:initPage
-   }
-
-
-
-
-
-
+    initPage:initPage,
+    nextPage:nextPage
+}
 
 export { kbz };
 
