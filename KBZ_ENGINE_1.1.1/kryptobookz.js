@@ -715,13 +715,13 @@ function nextPage(){
         showKRYPTOBOOK(++SPAZEBOOK_IDX,SPAZEBOOK_KRYPTOBITZ1); //ADD PAGE.
         setTimeout(function(){
             document.querySelector('#copyright').scrollIntoView({ behavior: 'smooth' });
-        },1000)
+        },800)
     } else { //SHOW NEXT PAGE
         let nextIDX = SPAZEBOOK_KRYPTOBITZ1[++SPAZEBOOK_IDX].IDX
         setTimeout(function(){
             document.getElementById(nextIDX).scrollIntoView({ behavior: 'smooth' });
             // document.querySelector('#'+nextIDX).scrollIntoView({ behavior: 'smooth' });
-        },1000)
+        },800)
     }
     updatePageState();
 }
@@ -742,7 +742,7 @@ function lastPage(){ //use current idx to get last item.
     if(lastID){
         setTimeout(function(){
             document.getElementById(lastID).scrollIntoView({ behavior: 'smooth' });
-        },1000)
+        },800)
     }
 }
 
@@ -760,7 +760,7 @@ function updatePageState(){ // grey page btns,
     }else{
         ui.mainRGTBTN.classList.remove("disabledBTN");
     }
-    
+
     ui.mainRGTBTN.classList.remove("glowBTN");
 
 }
