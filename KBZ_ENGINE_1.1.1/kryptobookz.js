@@ -690,20 +690,79 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
 
 let SPAZEBOOK_IDX = 0;
 let SPAZEBOOK_KRYPTOBITZ1 = [
-    {IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_1.1_laundryIMG.png",
+    {IDX:'1.1',
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_1.1_laundryIMG.png",
      TXT:"./copyrightNetCinematics/TXT_TEMPLATE_4.png"},
-    {IMG:"./copyrightNetCinematics/IMG-BITZ_template-2.png",
+    {IDX:'1.2',
+     IMG:"./copyrightNetCinematics/IMG-BITZ_template-2.png",
      TXT:"./copyrightNetCinematics/originz_bit1.2_spazebot1080.png"},
-    {IMG:"./copyrightNetCinematics/IMG-BITZ_template-3.png"},
-    {IMG:"./copyrightNetCinematics/IMG-BITZ_template-4.png"},
-    {IMG:"./copyrightNetCinematics/IMG-BITZ_template-5.png"}
+    {IDX:'1.3',
+     IMG:"./copyrightNetCinematics/IMG-BITZ_template-3.png"},
+    {IDX:'1.4',
+     IMG:"./copyrightNetCinematics/IMG-BITZ_template-4.png"},
+    {IDX:'1.5',
+     IMG:"./copyrightNetCinematics/IMG-BITZ_template-5.png"}
 ]
 
 function nextPage(){
-    showKRYPTOBOOK(++SPAZEBOOK_IDX,SPAZEBOOK_KRYPTOBITZ1);
-    setTimeout(function(){
-        document.querySelector('#copyright').scrollIntoView({ behavior: 'smooth' });
-    },1000)
+
+    //is it loaded or not? 
+    let renderedBitz = document.getElementsByClassName("bit-item")
+    if(SPAZEBOOK_IDX+1 === SPAZEBOOK_KRYPTOBITZ1.length){return;}
+    // let nextIDX = (SPAZEBOOK_IDX+1 === renderedBitz.length) ? ++SPAZEBOOK_IDX: SPAZEBOOK_IDX = renderedBitz.length -1;
+    if(SPAZEBOOK_IDX+1 === renderedBitz.length){ //CREATE NEW PAGE-.
+        // showKRYPTOBOOK(nextIDX,SPAZEBOOK_KRYPTOBITZ1); //ADD PAGE.
+        showKRYPTOBOOK(++SPAZEBOOK_IDX,SPAZEBOOK_KRYPTOBITZ1); //ADD PAGE.
+        setTimeout(function(){
+            document.querySelector('#copyright').scrollIntoView({ behavior: 'smooth' });
+        },1000)
+    } else { //SHOW NEXT PAGE
+        let nextIDX = SPAZEBOOK_KRYPTOBITZ1[++SPAZEBOOK_IDX].IDX
+        setTimeout(function(){
+            document.getElementById(nextIDX).scrollIntoView({ behavior: 'smooth' });
+            // document.querySelector('#'+nextIDX).scrollIntoView({ behavior: 'smooth' });
+        },1000)
+    }
+    updatePageState();
+}
+
+
+function lastPage(){ //use current idx to get last item.
+    if(SPAZEBOOK_IDX === 0){return;}
+    --SPAZEBOOK_IDX;
+    updatePageState();
+    // if(lastPageIDX <= 0){//grey out LASTBTN
+    //     let lastBtn = document.querySelector('#mainLFTBTN');
+    //     lastBtn.classList.remove("disabledBTN");
+    //     return; //no action
+    // }
+    // let lastPageIDX = SPAZEBOOK_IDX - 1;
+    let lastID = SPAZEBOOK_KRYPTOBITZ1[SPAZEBOOK_IDX].IDX;//.replace('.','-');
+    if(SPAZEBOOK_IDX === 0){ lastID = "pageTitle"} // top page, not top item.
+    if(lastID){
+        setTimeout(function(){
+            document.getElementById(lastID).scrollIntoView({ behavior: 'smooth' });
+        },1000)
+    }
+}
+
+function updatePageState(){ // grey page btns,
+    //LAST BTN
+    if(SPAZEBOOK_IDX <= 0){ //DISABLE UP ARROW-.
+        ui.mainLFTBTN.classList.add("disabledBTN");
+    }else{ //ENABLE UP ARROW.
+        ui.mainLFTBTN.classList.remove("disabledBTN");
+    }
+
+    //DISABLE DOWN ARROW
+    if(SPAZEBOOK_IDX + 1 >= SPAZEBOOK_KRYPTOBITZ1.length){
+        ui.mainRGTBTN.classList.add("disabledBTN"); //DISABLE AT "THE END"
+    }else{
+        ui.mainRGTBTN.classList.remove("disabledBTN");
+    }
+    
+    ui.mainRGTBTN.classList.remove("glowBTN");
+
 }
 
 function showKRYPTOBOOK(idx, data){
@@ -715,7 +774,8 @@ let kbz = {
     viz:viz,
     MainVw:MainVw,
     initPage:initPage,
-    nextPage:nextPage
+    nextPage:nextPage,
+    lastPage:lastPage
 }
 
 export { kbz };

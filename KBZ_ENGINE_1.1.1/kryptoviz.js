@@ -22,6 +22,9 @@ function createKRYPTOPAGE(bitz){
     pageFrame.style.padding = "0.111em";
     pageFrame.style.margin = "0.444em";
     pageFrame.style.boxShadow = "1px 1px 20px 0px blue";
+    pageFrame.classList.add('bit-item');
+    pageFrame.id = bitz.IDX;//.replace('.','-'));
+    console.log("render: ",bitz.IDX)
 
     var IMGBIT = document.createElement('article');
     IMGBIT.style.backgroundColor = 'black';

@@ -116,11 +116,12 @@
 
 <!-- GRID9 MINIMUM EXAMPLE | ui side -->
 <style>.disabledBTN{ color: #677093; background: #444444; border: 1px solid #673ab7; opacity: 0.444; cursor: not-allowed;}</style>
+<style>.glowBTN{box-shadow: 0px -1px 8px 4px #525245;}</style>
 <a href="https://netcinematics.github.io/KRYPTOSPAZE/" target="_blank">
 <button id="mainTOPLFTBTN" class="steelNeonIconBtn" style='position:fixed;top:1%;left:0.5%;z-index:1111'><i class="fa fa-house-damage"></i></button>
 </a>
 <button id="mainTOPRGTBTN" class="steelNeonIconBtn disabledBTN" style='position:fixed;top:1%;right:0.5%;z-index:1111'><i class="fa fa-bars"></i></button>
-<button id="mainRGTBTN" class="steelNeonIconBtn" style='position:fixed;top:50%;right:0.5em;z-index:1111'><i class="fa fa-chevron-circle-down" style="font-size:1em;"></i></button>
+<button id="mainRGTBTN" class="steelNeonIconBtn glowBTN" style='position:fixed;top:50%;right:0.5em;z-index:1111'><i class="fa fa-chevron-circle-down" style="font-size:1em;"></i></button>
 <button id="mainLFTBTN" class="steelNeonIconBtn disabledBTN" style='position:fixed;top:50%;left:0.5em;z-index:1111'><i class="fa fa-chevron-circle-up" style="font-size:1em;"></i></button>
 <script>
     window.ui = {}; //GRID9 - pre data integration
@@ -133,14 +134,13 @@
     ui.mainTOPRGTBTN.addEventListener("click", ()=> { debugger;  })      
     ui.mainRGTBTN = document.getElementById('mainRGTBTN');
     ui.mainRGTBTN.addEventListener("click", ()=> { 
-        ui.nextPage();
+        kbz.nextPage();
     })      
     ui.mainLFTBTN = document.getElementById('mainLFTBTN');
-    ui.mainLFTBTN.addEventListener("click", ()=> { debugger;  })  
-    
-    ui.nextPage = function(){
-        kbz.nextPage();
-    }
+    ui.mainLFTBTN.addEventListener("click", ()=> { 
+        kbz.lastPage();
+    })  
+
 </script>
 
 
@@ -177,7 +177,7 @@
 <script>
 
 </script>
-<header style="padding:0.666em;">
+<header id="pageTitle" style="padding:0.666em;">
     <section style="margin: 0.222em;">
         <!-- <span style="    font-size:0.444em; font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.0888em;text-shadow: 1px 1px 1px purple;"><&nbsp;</span> -->
         <span style="font-size:3.222em; text-shadow: 6px 1px 14px purple;">KRYPTOBOOKZ</span>
