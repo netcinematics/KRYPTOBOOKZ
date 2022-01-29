@@ -691,17 +691,32 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
 let SPAZEBOOK_IDX = 0;
 let SPAZEBOOK_KRYPTOBITZ1 = [
     {IDX:'1.1',
-     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_1.1_laundryIMG.png",
-     TXT:"./copyrightNetCinematics/TXT_TEMPLATE_4.png"},
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.1_laundry1.png",
+     TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.1_laundry_5x4_TXT.png"},
     {IDX:'1.2',
-     IMG:"./copyrightNetCinematics/IMG-BITZ_template-2.png",
-     TXT:"./copyrightNetCinematics/originz_bit1.2_spazebot1080.png"},
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.2_spazebot1.png",
+     TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.2_spazebot_5x4_TXT.png"},
     {IDX:'1.3',
-     IMG:"./copyrightNetCinematics/IMG-BITZ_template-3.png"},
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.3_spazewarz1.png",
+     TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.3_spazewarz_5x4_TXT.png"},
+    {IDX:'1.3.1',
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.3.1_orbylook1.png"//,
+    //  TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.3_spazewarz_5x4_TXT.png"
+    },
     {IDX:'1.4',
-     IMG:"./copyrightNetCinematics/IMG-BITZ_template-4.png"},
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.4_myheart1.png",
+     TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.4_myheart_5x4_TXT.png"},
+    {IDX:'1.4.1',
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.4.1_recharging1.png"},
     {IDX:'1.5',
-     IMG:"./copyrightNetCinematics/IMG-BITZ_template-5.png"}
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.5_spazeboard1.png",
+     TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.5_spazeboard_5x4_TXT.png"},
+    {IDX:'1.6',
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.6_mombot1.png",
+     TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.6_mombot_5x4_TXT.png"},
+    {IDX:'1.7',
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.7_brokenheart1.png",
+     TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.7_brokenheart_5x4_TXT.png"}
 ]
 
 function nextPage(){
@@ -714,7 +729,9 @@ function nextPage(){
         // showKRYPTOBOOK(nextIDX,SPAZEBOOK_KRYPTOBITZ1); //ADD PAGE.
         showKRYPTOBOOK(++SPAZEBOOK_IDX,SPAZEBOOK_KRYPTOBITZ1); //ADD PAGE.
         setTimeout(function(){
-            document.querySelector('#copyright').scrollIntoView({ behavior: 'smooth' });
+            let nextIDX = SPAZEBOOK_KRYPTOBITZ1[SPAZEBOOK_IDX].IDX
+            document.getElementById(nextIDX).scrollIntoView({ behavior: 'smooth' });
+            console.log('subttl')
         },800)
     } else { //SHOW NEXT PAGE
         let nextIDX = SPAZEBOOK_KRYPTOBITZ1[++SPAZEBOOK_IDX].IDX
