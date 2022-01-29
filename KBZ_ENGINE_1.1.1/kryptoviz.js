@@ -37,6 +37,7 @@ function createKRYPTOPAGE(bitz){
     IMGBIT.style.overflow = "hidden";     //CROP
     IMGBIT.style.marginBottom = "0em";   //CROP
 
+
     var imgCard1 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
     imgCard1.src = bitz.IMG; //large 600 size
     imgCard1.style.width = "100%"
@@ -44,19 +45,25 @@ function createKRYPTOPAGE(bitz){
     imgCard1.style.borderRadius = "18px"
     imgCard1.style.marginBottom = "-6.666em"
 
-    var TXTBIT = document.createElement('article');
-    TXTBIT.style.backgroundColor = 'black';
-    // TXTBIT.style.backgroundColor = getRandoColor();
-    TXTBIT.style.boxShadow = "0px 0px 20px 1px blue"
-    TXTBIT.style.border = "1px solid purple"
-    TXTBIT.style.borderRadius = "13px"
-    TXTBIT.style.padding = "0.888em"
-    TXTBIT.style.margin = "0.88em auto"
-    TXTBIT.style.maxWidth = "42em"
-    TXTBIT.style.overflow = "hidden";     //CROP
-    TXTBIT.style.marginBottom = "1em";   //CROP
-    TXTBIT.style.marginTop = "-6em";    //OVERLAP
-    TXTBIT.style.borderTop = "none";    //OVERLAP
+    var TXTBIT = 0;
+    // if(bitz.TXT){
+       TXTBIT = document.createElement('article');
+       TXTBIT.style.backgroundColor = 'black';
+        // TXTBIT.style.backgroundColor = getRandoColor();
+        TXTBIT.style.boxShadow = "0px 0px 20px 1px blue"
+        TXTBIT.style.border = "1px solid purple"
+        TXTBIT.style.borderRadius = "13px"
+        TXTBIT.style.padding = "0.888em"
+        TXTBIT.style.margin = "0.88em auto"
+        TXTBIT.style.maxWidth = "42em"
+        TXTBIT.style.overflow = "hidden";     //CROP
+        TXTBIT.style.marginBottom = "1em";   //CROP
+        TXTBIT.style.marginTop = "-6em";    //OVERLAP
+        TXTBIT.style.borderTop = "none";    //OVERLAP
+    // } else { //no btz.TXT
+    //     IMGBIT.style.marginTop="2.222em";  //no txt padding
+    //     IMGBIT.style.marginBottom="6.666em"; //no txt padding
+    // }
 
     var txtCard2 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
     txtCard2.src = bitz.TXT; //large 600 size
@@ -70,8 +77,8 @@ function createKRYPTOPAGE(bitz){
     txtCard2.style.marginTop = "3em"
 
     // if (pageFrame && pageCard) { pageFrame.insertAdjacentElement('beforeend', pageCard); }
-    IMGBIT.insertAdjacentElement('afterbegin', imgCard1);
-    TXTBIT.insertAdjacentElement('afterbegin', txtCard2);
+    if(imgCard1){IMGBIT.insertAdjacentElement('afterbegin', imgCard1);}
+    if(txtCard2){TXTBIT.insertAdjacentElement('afterbegin', txtCard2);}
     if (pageFrame && IMGBIT) { pageFrame.insertAdjacentElement('beforeend', IMGBIT); }
     if (pageFrame && TXTBIT) { pageFrame.insertAdjacentElement('beforeend', TXTBIT); }
     if (KRYPTOBOOKFrame1) { KRYPTOBOOKFrame1.insertAdjacentElement('beforeend', pageFrame); }
