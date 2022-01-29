@@ -766,9 +766,12 @@ let EVENT_STARTED = 0;
 let EVENT_THE_END = 0;
 function updatePageState(){ // grey page btns,
     EVENT_STARTED += 1;
-    if(EVENT_STARTED === 1){
+    if(EVENT_STARTED >= 1 && EVENT_THE_END===0){
         let tFrame = document.getElementById('subTitleFrame')
-        tFrame.style.marginTop = "20%";
+        tFrame.style.marginTop = "20%"; //POSITION APRON below
+    } else {
+        let tFrame = document.getElementById('subTitleFrame')
+        tFrame.style.marginTop = "0";  //REMOVE APRON below      
     }
     //LAST BTN
     if(SPAZEBOOK_IDX <= 0){ //DISABLE UP ARROW-.
@@ -786,6 +789,8 @@ function updatePageState(){ // grey page btns,
     }
 
     if(EVENT_THE_END){
+        let tFrame = document.getElementById('subTitleFrame')
+        tFrame.style.marginTop = "0";   
         ui.mainRGTBTN.classList.remove("glowBTN");
     } else if (SPAZEBOOK_IDX + 1 <= SPAZEBOOK_KRYPTOBITZ1.length){
         ui.mainRGTBTN.classList.remove("glowBTN");
@@ -799,6 +804,10 @@ function updatePageState(){ // grey page btns,
     } else {
         ui.mainRGTBTN.classList.remove("glowBTN");
     }
+
+    //Set PAGE NUMBER
+    ui.mainPageNums.innerHTML = `${SPAZEBOOK_IDX+1}of${SPAZEBOOK_KRYPTOBITZ1.length}`
+
 
 }
 

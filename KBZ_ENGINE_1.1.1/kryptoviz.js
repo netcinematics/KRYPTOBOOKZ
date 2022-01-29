@@ -46,6 +46,14 @@ function createKRYPTOPAGE(bitz){
         imgCard1.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
         imgCard1.style.borderRadius = "18px"
         imgCard1.style.marginBottom = "-6.666em"
+        imgCard1.addEventListener("click", ()=> {
+            imgCard1.showDetails = (imgCard1.showDetails) ? 0 : 1;
+            if(imgCard1.showDetails){
+                imgCard1.style.marginBottom = "2.222em"
+            }else{
+                imgCard1.style.marginBottom = "-6.666em"
+            }
+        })
     } 
 
     var TXTBIT = 0;
@@ -80,6 +88,14 @@ function createKRYPTOPAGE(bitz){
         // txtCard2.style.marginBottom = "-6em"
         txtCard2.style.marginBottom = "-5.666em"
         txtCard2.style.marginTop = "3em"
+        txtCard2.addEventListener("click", ()=> {
+            txtCard2.showDetails = (txtCard2.showDetails) ? 0 : 1;
+            if(txtCard2.showDetails){
+                txtCard2.style.marginBottom = "0em"
+            }else{
+                txtCard2.style.marginBottom = "-5.666em"
+            }
+        })
     } 
         
     // if (pageFrame && pageCard) { pageFrame.insertAdjacentElement('beforeend', pageCard); }
