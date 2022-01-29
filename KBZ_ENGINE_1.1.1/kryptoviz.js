@@ -38,17 +38,20 @@ function createKRYPTOPAGE(bitz){
     IMGBIT.style.marginBottom = "0em";   //CROP
 
 
-    var imgCard1 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
-    imgCard1.src = bitz.IMG; //large 600 size
-    imgCard1.style.width = "100%"
-    imgCard1.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
-    imgCard1.style.borderRadius = "18px"
-    imgCard1.style.marginBottom = "-6.666em"
+    var imgCard1 = 0;
+    if(bitz.IMG){
+        imgCard1 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
+        imgCard1.src = bitz.IMG; //large 600 size
+        imgCard1.style.width = "100%"
+        imgCard1.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
+        imgCard1.style.borderRadius = "18px"
+        imgCard1.style.marginBottom = "-6.666em"
+    } 
 
     var TXTBIT = 0;
-    // if(bitz.TXT){
-       TXTBIT = document.createElement('article');
-       TXTBIT.style.backgroundColor = 'black';
+    if(bitz.TXT){
+        TXTBIT = document.createElement('article');
+        TXTBIT.style.backgroundColor = 'black';
         // TXTBIT.style.backgroundColor = getRandoColor();
         TXTBIT.style.boxShadow = "0px 0px 20px 1px blue"
         TXTBIT.style.border = "1px solid purple"
@@ -60,25 +63,28 @@ function createKRYPTOPAGE(bitz){
         TXTBIT.style.marginBottom = "1em";   //CROP
         TXTBIT.style.marginTop = "-6em";    //OVERLAP
         TXTBIT.style.borderTop = "none";    //OVERLAP
-    // } else { //no btz.TXT
-    //     IMGBIT.style.marginTop="2.222em";  //no txt padding
-    //     IMGBIT.style.marginBottom="6.666em"; //no txt padding
-    // }
+    } else { //no btz.TXT
+        pageFrame.style.marginTop="6.666em";  //no txt padding
+        pageFrame.style.marginBottom="6.666em"; //no txt padding
+    }
 
-    var txtCard2 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
-    txtCard2.src = bitz.TXT; //large 600 size
-    txtCard2.style.width = "100%"
-    txtCard2.style.maxWidth = "32em"
-    // txtCard2.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
-    txtCard2.style.boxShadow = "inset rgb(30 84 200) 2px 2px 14px 8px"
-    txtCard2.style.borderRadius = "18px"
-    // txtCard2.style.marginBottom = "-6em"
-    txtCard2.style.marginBottom = "-5.666em"
-    txtCard2.style.marginTop = "3em"
-
+    var txtCard2 = 0;
+    if(bitz.TXT){
+        txtCard2 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
+        txtCard2.src = bitz.TXT; //large 600 size
+        txtCard2.style.width = "100%"
+        txtCard2.style.maxWidth = "32em"
+        // txtCard2.style.boxShadow = `2px 2px 8px 4px ${getRandoColor()}`
+        txtCard2.style.boxShadow = "inset rgb(30 84 200) 2px 2px 14px 8px"
+        txtCard2.style.borderRadius = "18px"
+        // txtCard2.style.marginBottom = "-6em"
+        txtCard2.style.marginBottom = "-5.666em"
+        txtCard2.style.marginTop = "3em"
+    } 
+        
     // if (pageFrame && pageCard) { pageFrame.insertAdjacentElement('beforeend', pageCard); }
-    if(imgCard1){IMGBIT.insertAdjacentElement('afterbegin', imgCard1);}
-    if(txtCard2){TXTBIT.insertAdjacentElement('afterbegin', txtCard2);}
+    if(imgCard1 && IMGBIT){IMGBIT.insertAdjacentElement('afterbegin', imgCard1);}
+    if(txtCard2 && TXTBIT){TXTBIT.insertAdjacentElement('afterbegin', txtCard2);}
     if (pageFrame && IMGBIT) { pageFrame.insertAdjacentElement('beforeend', IMGBIT); }
     if (pageFrame && TXTBIT) { pageFrame.insertAdjacentElement('beforeend', TXTBIT); }
     if (KRYPTOBOOKFrame1) { KRYPTOBOOKFrame1.insertAdjacentElement('beforeend', pageFrame); }

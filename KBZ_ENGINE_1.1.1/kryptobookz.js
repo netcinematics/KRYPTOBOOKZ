@@ -762,8 +762,14 @@ function lastPage(){ //use current idx to get last item.
         },800)
     }
 }
-
+let EVENT_STARTED = 0;
+let EVENT_THE_END = 0;
 function updatePageState(){ // grey page btns,
+    EVENT_STARTED += 1;
+    if(EVENT_STARTED === 1){
+        let tFrame = document.getElementById('subTitleFrame')
+        tFrame.style.marginTop = "20%";
+    }
     //LAST BTN
     if(SPAZEBOOK_IDX <= 0){ //DISABLE UP ARROW-.
         ui.mainLFTBTN.classList.add("disabledBTN");
@@ -773,12 +779,26 @@ function updatePageState(){ // grey page btns,
 
     //DISABLE DOWN ARROW
     if(SPAZEBOOK_IDX + 1 >= SPAZEBOOK_KRYPTOBITZ1.length){
+        EVENT_THE_END = 1;
         ui.mainRGTBTN.classList.add("disabledBTN"); //DISABLE AT "THE END"
     }else{
         ui.mainRGTBTN.classList.remove("disabledBTN");
     }
 
-    ui.mainRGTBTN.classList.remove("glowBTN");
+    if(EVENT_THE_END){
+        ui.mainRGTBTN.classList.remove("glowBTN");
+    } else if (SPAZEBOOK_IDX + 1 <= SPAZEBOOK_KRYPTOBITZ1.length){
+        ui.mainRGTBTN.classList.remove("glowBTN");
+        setTimeout(function(){
+            if(!EVENT_THE_END){
+                ui.mainRGTBTN.classList.add("glowBTN");
+            }else {
+                ui.mainRGTBTN.classList.remove("glowBTN"); 
+            }
+        },8888)
+    } else {
+        ui.mainRGTBTN.classList.remove("glowBTN");
+    }
 
 }
 
