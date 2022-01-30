@@ -21,10 +21,23 @@ function createKRYPTOPAGE(bitz){
     pageFrame.style.borderRadius = "10px";
     pageFrame.style.padding = "0.111em";
     pageFrame.style.margin = "0.444em";
+    // pageFrame.style.marginBottom = "8.888%";
     pageFrame.style.boxShadow = "1px 1px 20px 0px blue";
     pageFrame.classList.add('bit-item');
     pageFrame.id = bitz.IDX;//.replace('.','-'));
     console.log("render: ",bitz.IDX)
+
+    let pageSpacer = document.createElement('section');
+    pageSpacer.style.backgroundColor = 'black';
+    pageSpacer.style.borderRadius = "10px";
+    pageSpacer.style.padding = "0.111em";
+    pageSpacer.style.margin = "0.444em";
+    pageSpacer.style.height = "4.444em";
+    // pageSpacer.style.marginBottom = "8.888%";
+    pageSpacer.style.boxShadow = "1px 1px 20px 0px blue";
+    pageSpacer.classList.add('bit-spacer');
+
+
 
     var IMGBIT = document.createElement('article');
     IMGBIT.style.backgroundColor = 'black';
@@ -98,6 +111,7 @@ function createKRYPTOPAGE(bitz){
         })
     } 
         
+    if (KRYPTOBOOKFrame1) { KRYPTOBOOKFrame1.insertAdjacentElement('beforeend', pageSpacer); }
     // if (pageFrame && pageCard) { pageFrame.insertAdjacentElement('beforeend', pageCard); }
     if(imgCard1 && IMGBIT){IMGBIT.insertAdjacentElement('afterbegin', imgCard1);}
     if(txtCard2 && TXTBIT){TXTBIT.insertAdjacentElement('afterbegin', txtCard2);}

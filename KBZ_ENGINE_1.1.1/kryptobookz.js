@@ -700,16 +700,16 @@ let SPAZEBOOK_KRYPTOBITZ1 = [
      IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.3_spazewarz1.png",
      TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.3_spazewarz_5x4_TXT.png"},
     {IDX:'1.3.1',
-     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.3.1_orbylook1.png"//,
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.3.1_orbyzoomout2.png"//,
     //  TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.3_spazewarz_5x4_TXT.png"
     },
     {IDX:'1.4',
-     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.4_myheart1.png",
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.4_chargeit3.png",
      TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.4_myheart_5x4_TXT.png"},
     {IDX:'1.4.1',
-     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.4.1_recharging1.png"},
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.4.1_recharg3.png"},
     {IDX:'1.5',
-     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.5_spazeboard1.png",
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.5_spazeboard2.png",
      TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.5_spazeboard_5x4_TXT.png"},
     {IDX:'1.6',
      IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.6_mombot1.png",
@@ -806,7 +806,7 @@ function updatePageState(){ // grey page btns,
     }
 
     //Set PAGE NUMBER
-    ui.mainPageNums.innerHTML = `${SPAZEBOOK_IDX+1}of${SPAZEBOOK_KRYPTOBITZ1.length}`
+    ui.mainPageNums.innerHTML = `${SPAZEBOOK_IDX+1} of ${SPAZEBOOK_KRYPTOBITZ1.length}`
 
 
 }

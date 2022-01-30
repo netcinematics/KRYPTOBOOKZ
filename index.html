@@ -123,7 +123,8 @@
 <button id="mainTOPRGTBTN" class="steelNeonIconBtn disabledBTN" style='position:fixed;top:1%;right:0.5%;z-index:1111'><i class="fa fa-bars"></i></button>
 <button id="mainRGTBTN" class="steelNeonIconBtn glowBTN" style='position:fixed;top:50%;right:0.5em;z-index:1111'><i class="fa fa-chevron-circle-down" style="font-size:1em;"></i></button>
 <button id="mainLFTBTN" class="steelNeonIconBtn disabledBTN" style='position:fixed;top:50%;left:0.5em;z-index:1111'><i class="fa fa-chevron-circle-up" style="font-size:1em;"></i></button>
-<aside id="mainPageNums" style='position:fixed;bottom:13%;right:0.5em;z-index:1111'></aside>
+<aside id="mainPageNums" style='position:fixed;bottom:13%;right:1em;z-index:1111;font-size: 0.666em;'></aside>
+<aside id="mintDate" style='position:fixed;bottom:13%;left:2em;z-index:1111;font-size: 0.666em;font-style: italic;'>1_<script>document.write( new Date().getFullYear() );</script></aside>
 <script>
     window.ui = {}; //GRID9 - pre data integration
     // ui.mainTOPLFTBTN = document.getElementById('mainTOPLFTBTN');
@@ -131,6 +132,7 @@
     //     debugger;  
     //     // <a href="https://opensea.io/accounts/kryptospaze" target="_blank" class="button">
     // })   
+    ui.mintDate = document.getElementById('mintDate');  
     ui.mainPageNums = document.getElementById('mainPageNums');  
     ui.mainTOPRGTBTN = document.getElementById('mainTOPRGTBTN');
     ui.mainTOPRGTBTN.addEventListener("click", ()=> { debugger;  })      
@@ -182,7 +184,7 @@
 <header id="pageTitle" style="padding:0.666em;">
     <section style="margin: 0.222em;">
         <!-- <span style="    font-size:0.444em; font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.0888em;text-shadow: 1px 1px 1px purple;"><&nbsp;</span> -->
-        <span style="font-size:3.222em; text-shadow: 6px 1px 14px purple;">KRYPTOBOOKZ</span>
+        <span style="font-size:3.222em; text-shadow: 6px 1px 14px purple;">KRYPTOBOOKZ</span><span style="font-size:0.444em;">&trade;</span>
         <!-- <span style="    font-size:0.444em; font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.0888em;text-shadow: 1px 1px 1px purple;">>&nbsp;</span> -->
     </section>
 
