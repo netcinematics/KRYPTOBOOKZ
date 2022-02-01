@@ -47,6 +47,7 @@ function createKRYPTOPAGE(bitz){
     IMGBIT.style.padding = "0.888em"
     IMGBIT.style.margin = "0.88em auto"
     IMGBIT.style.maxWidth = "44em"
+    IMGBIT.style.cursor = "pointer"
     IMGBIT.style.overflow = "hidden";     //CROP
     IMGBIT.style.marginBottom = "0em";   //CROP
 
@@ -80,6 +81,7 @@ function createKRYPTOPAGE(bitz){
         TXTBIT.style.padding = "0.888em"
         TXTBIT.style.margin = "0.88em auto"
         TXTBIT.style.maxWidth = "42em"
+        TXTBIT.style.cursor = "pointer"
         TXTBIT.style.overflow = "hidden";     //CROP
         TXTBIT.style.marginBottom = "1em";   //CROP
         TXTBIT.style.marginTop = "-6em";    //OVERLAP

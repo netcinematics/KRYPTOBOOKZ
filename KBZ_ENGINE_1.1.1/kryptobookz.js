@@ -700,11 +700,11 @@ let SPAZEBOOK_KRYPTOBITZ1 = [
      IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.3_spazewarz1.png",
      TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.3_spazewarz_5x4_TXT.png"},
     {IDX:'1.3.1',
-     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.3.1_orbyzoomout2.png"//,
-    //  TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.3_spazewarz_5x4_TXT.png"
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.3.1_orbyzoomout2.png",
+     TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.3.1_marzamoon_5x4TXT.png"
     },
     {IDX:'1.4',
-     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.4_chargeit3.png",
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.4_chargeit4.png",
      TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.4_myheart_5x4_TXT.png"},
     {IDX:'1.4.1',
      IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.4.1_recharg3.png"},
