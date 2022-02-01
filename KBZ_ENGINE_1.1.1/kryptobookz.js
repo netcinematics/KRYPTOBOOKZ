@@ -690,6 +690,8 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
 
 let SPAZEBOOK_IDX = 0;
 let SPAZEBOOK_KRYPTOBITZ1 = [
+    {IDX:'1.0',
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_TITLEBIT1.png"},
     {IDX:'1.1',
      IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.1_laundry1.png",
      TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.1_laundry_5x4_TXT.png"},
