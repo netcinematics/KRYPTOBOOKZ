@@ -58,11 +58,11 @@ function initPage(){
 /***************************************************************************************************\
  * GETDATA - all types of data requestFunctions here-. - : )
 \***************************************************************************************************/
-    function getNFTFactory(mode){
-        try{
+    function getNFTFactory(mode){ //NOTE: {mode = 7} //kryptobook
+        try{ 
             if (nftDisplay1) { nftDisplay1.innerHTML = ""; } //BLANK data view-.
             if(MainVw.idx){ //load specific index item-.
-                let keys = getNIFTYKeys(); //Search METANET, for SINGULAR LOOKUP-.
+                let keys = getNIFTYKeys(); //TODO rename -Search METANET, for SINGULAR LOOKUP-.
                 if(!keys){mode=6;} //error, render all-.
                 else{ //fetch singular NFT by idx
                     fetch(`https://api.opensea.io/api/v1/asset/${keys.a_c_a}/${keys.t_id}/`,{method: 'GET'})
@@ -139,10 +139,11 @@ function initPage(){
                 let getNFTCollectionsbyOwner={  //GETNFT Collections by Owner. - PLURAL COLLECTIONZ MULTIPLE!    
                     owner:"0x46f3397433384f2e31262596642c811929d6c069"}   
                 getNFTCollections(getNFTCollectionsbyOwner.owner)
-                //****************************************************************************
-            } else if (mode === 7){ //RENDER KRYPTOBOOK!!!
-                getKRYPTOBOOKZ();
-            }
+        //***********************KRYPTOBOOKZ*****************************************************
+        } else if (mode === 7){ //RENDER KRYPTOBOOK!!!
+            getKRYPTOBOOKZ();
+        }
+        //****************************************************************************
         // }); //END: GETNFT button click-.
         }catch(e){
             // statusDisplay1.innerHTML = "ERROR"+" no signal."; //e.message;
@@ -228,7 +229,7 @@ function initNIFTY(nft){
     if(nft.meta.main){ // MAIN - meta configurations
         if(nft.meta.main.snd===1){ //lookup nft data, for meta display
             nft.meta.main.snd = nft.animation_url;
-            //         animation_original_url: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
+            // animation_original_url: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
             // animation_url: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
             // permalink: "https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/32091639769859466206787752406743660124435242419967811135209154766242274344961"
         } else 
@@ -237,7 +238,7 @@ function initNIFTY(nft){
         }
     }
 }
-
+//todo rename to searchMETANET
 function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lookup.
     let idxTGT = (METANET[MainVw.idx]) ? METANET[MainVw.idx].idx : null;
     if(idxTGT){ 
@@ -683,7 +684,12 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         //         showKRYPTOBOOK(0);
 
         // });
-        showKRYPTOBOOK(0,SPAZEBOOK_KRYPTOBITZ1);
+        //TODO (above) LOAD BITZ FROM BLOCKCHAIN. For now... use TEST CONTENT. : ) 
+
+        //LOAD page 0, then by user 1 by 1.
+        // showKRYPTO_Page(0,SPAZEBOOK_KRYPTOBITZ1);
+        //LOAD ALL PAGES, not one by one. Enable scrollability.
+        showKRYPTOBOOK_All(SPAZEBOOK_KRYPTOBITZ1)
     }
 
 }  //END MASSIVE INITPAGE FN. //todo move above krypto fns?
@@ -717,8 +723,10 @@ let SPAZEBOOK_KRYPTOBITZ1 = [
      IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.6_mombot1.png",
      TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.6_mombot_5x4_TXT.png"},
     {IDX:'1.7',
-     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.7_brokenheart1.png",
-     TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.7_brokenheart_5x4_TXT.png"}
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_IMGBIT1.7_brokenheart2.png",
+     TXT:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_bit1.7_brokenheart_5x4_TXT.png"},
+    {IDX:'1.8',
+     IMG:"./copyrightNetCinematics/2022_ORIGINZ_BITZ/originz_ENDBIT1.png"},
 ]
 
 function nextPage(){
@@ -728,19 +736,19 @@ function nextPage(){
     if(SPAZEBOOK_IDX+1 === SPAZEBOOK_KRYPTOBITZ1.length){return;}
     // let nextIDX = (SPAZEBOOK_IDX+1 === renderedBitz.length) ? ++SPAZEBOOK_IDX: SPAZEBOOK_IDX = renderedBitz.length -1;
     if(SPAZEBOOK_IDX+1 === renderedBitz.length){ //CREATE NEW PAGE-.
-        // showKRYPTOBOOK(nextIDX,SPAZEBOOK_KRYPTOBITZ1); //ADD PAGE.
-        showKRYPTOBOOK(++SPAZEBOOK_IDX,SPAZEBOOK_KRYPTOBITZ1); //ADD PAGE.
+        // showKRYPTO_Page(nextIDX,SPAZEBOOK_KRYPTOBITZ1); //ADD PAGE.
+        showKRYPTO_Page(++SPAZEBOOK_IDX,SPAZEBOOK_KRYPTOBITZ1); //ADD PAGE.
         setTimeout(function(){
             let nextIDX = SPAZEBOOK_KRYPTOBITZ1[SPAZEBOOK_IDX].IDX
             document.getElementById(nextIDX).scrollIntoView({ behavior: 'smooth' });
             console.log('subttl')
-        },800)
+        },222)
     } else { //SHOW NEXT PAGE
         let nextIDX = SPAZEBOOK_KRYPTOBITZ1[++SPAZEBOOK_IDX].IDX
         setTimeout(function(){
             document.getElementById(nextIDX).scrollIntoView({ behavior: 'smooth' });
             // document.querySelector('#'+nextIDX).scrollIntoView({ behavior: 'smooth' });
-        },800)
+        },222)
     }
     updatePageState();
 }
@@ -812,9 +820,33 @@ function updatePageState(){ // grey page btns,
 
 
 }
-
-function showKRYPTOBOOK(idx, data){
+//TODO rename to showKRYPTO_Page
+// function showKRYPTOBOOK(idx, data){
+function showKRYPTO_Page(idx, data){
     viz.createKRYPTOPAGE(data[idx]); //createMETACARD(nft)
+}
+
+/*********************************************************************\
+ * SHOW KRYPTO BOOK ALL
+ \********************************************************************/
+function showKRYPTOBOOK_All(data){
+    //TODO this is the layer for 9GRID Integration (links visibility behavior, etc)
+    //TODO that, make the showBitz config object a wrapper around the contentBitz.
+    //TODO then, extend the IDX to pinata IPFS lookup of METANET obj.
+    // let showbitz = {}
+    //TODO solve IMGNOTXT and INTROBITZ TITLEBITZ and ENDBITZ and OUTROBITZ
+    //TODO SOLVE spacer "welcome" and 1|10 10|10
+    //Loop all the pages and render free scroll...
+    for(let i=0; i<data.length;i++){
+        if(i===0){
+            viz.createKRYPTOINTRO(data[i]); 
+        } else if(i==data.length-1){ //outro
+            viz.createKRYPTOINTRO(data[i]); 
+        } else{
+            viz.createKRYPTOPAGE(data[i]); //createMETACARD(nft)
+        }
+    }
+
 }
 
 //IMPORTANT INITIALIZE KRYPTOBOOKZ
