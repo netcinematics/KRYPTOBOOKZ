@@ -689,7 +689,8 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         //LOAD page 0, then by user 1 by 1.
         // showKRYPTO_Page(0,SPAZEBOOK_KRYPTOBITZ1);
         //LOAD ALL PAGES, not one by one. Enable scrollability.
-        showKRYPTOBOOK_All(SPAZEBOOK_KRYPTOBITZ1)
+        //TODO pass KRYPTOBITZ and METANET!!!
+        showKRYPTOBOOK_All(SPAZEBOOK_KRYPTOBITZ1, [])
     }
 
 }  //END MASSIVE INITPAGE FN. //todo move above krypto fns?
@@ -739,14 +740,26 @@ function nextPage(){
         // showKRYPTO_Page(nextIDX,SPAZEBOOK_KRYPTOBITZ1); //ADD PAGE.
         showKRYPTO_Page(++SPAZEBOOK_IDX,SPAZEBOOK_KRYPTOBITZ1); //ADD PAGE.
         setTimeout(function(){
-            let nextIDX = SPAZEBOOK_KRYPTOBITZ1[SPAZEBOOK_IDX].IDX
+            //SCROLL TGT IDX, RESPONSIVE to SCREEN WIDTH
+            let nextIDX = null;
+            if(document.body.clientWidth < 600){
+                nextIDX = 'Spacer_' + SPAZEBOOK_KRYPTOBITZ1[SPAZEBOOK_IDX].IDX
+            } else {
+                nextIDX = SPAZEBOOK_KRYPTOBITZ1[SPAZEBOOK_IDX].IDX
+            }
+            console.log("IDX",nextIDX)
             document.getElementById(nextIDX).scrollIntoView({ behavior: 'smooth' });
-            console.log('subttl')
         },222)
     } else { //SHOW NEXT PAGE
         let nextIDX = SPAZEBOOK_KRYPTOBITZ1[++SPAZEBOOK_IDX].IDX
         setTimeout(function(){
-            document.getElementById(nextIDX).scrollIntoView({ behavior: 'smooth' });
+            //SCROLL TGT IDX, RESPONSIVE to SCREEN WIDTH
+            if(document.body.clientWidth < 600){
+                nextIDX = 'Spacer_' + SPAZEBOOK_KRYPTOBITZ1[SPAZEBOOK_IDX].IDX
+            }           
+            if(nextIDX){
+                document.getElementById(nextIDX).scrollIntoView({ behavior: 'smooth' });
+            }
             // document.querySelector('#'+nextIDX).scrollIntoView({ behavior: 'smooth' });
         },222)
     }
@@ -765,6 +778,7 @@ function lastPage(){ //use current idx to get last item.
     // }
     // let lastPageIDX = SPAZEBOOK_IDX - 1;
     let lastID = SPAZEBOOK_KRYPTOBITZ1[SPAZEBOOK_IDX].IDX;//.replace('.','-');
+    if(document.body.clientWidth < 600){ lastID = "Spacer_"+lastID}
     if(SPAZEBOOK_IDX === 0){ lastID = "pageTitle"} // top page, not top item.
     if(lastID){
         setTimeout(function(){
@@ -816,34 +830,36 @@ function updatePageState(){ // grey page btns,
     }
 
     //Set PAGE NUMBER
-    ui.mainPageNums.innerHTML = `${SPAZEBOOK_IDX+1} of ${SPAZEBOOK_KRYPTOBITZ1.length}`
+    // ui.mainPageNums.innerHTML = `${SPAZEBOOK_IDX+1} of ${SPAZEBOOK_KRYPTOBITZ1.length}`
 
 
 }
 //TODO rename to showKRYPTO_Page
 // function showKRYPTOBOOK(idx, data){
 function showKRYPTO_Page(idx, data){
-    viz.createKRYPTOPAGE(data[idx]); //createMETACARD(nft)
+    viz.createKRYPTO_PAGE(data[idx]); //createMETACARD(nft)
 }
 
 /*********************************************************************\
  * SHOW KRYPTO BOOK ALL
  \********************************************************************/
-function showKRYPTOBOOK_All(data){
+function showKRYPTOBOOK_All(bitz, metanet1){
     //TODO this is the layer for 9GRID Integration (links visibility behavior, etc)
     //TODO that, make the showBitz config object a wrapper around the contentBitz.
     //TODO then, extend the IDX to pinata IPFS lookup of METANET obj.
-    // let showbitz = {}
+    let showbitz = {}
     //TODO solve IMGNOTXT and INTROBITZ TITLEBITZ and ENDBITZ and OUTROBITZ
     //TODO SOLVE spacer "welcome" and 1|10 10|10
+    //TODO metanet has showbitz
     //Loop all the pages and render free scroll...
-    for(let i=0; i<data.length;i++){
-        if(i===0){
-            viz.createKRYPTOINTRO(data[i]); 
-        } else if(i==data.length-1){ //outro
-            viz.createKRYPTOINTRO(data[i]); 
+    for(let i=0; i<bitz.length;i++){
+        if(i===0){ //intro
+            viz.createKRYPTO_INTRO(bitz[i]); //intro
+        } else if(i==bitz.length-1){ //outro
+            //SUPER COOL! this is after end page click! TODO: Hide stuff here. ~ : )
+            viz.createKRYPTO_OUTRO(bitz[i]); 
         } else{
-            viz.createKRYPTOPAGE(data[i]); //createMETACARD(nft)
+            viz.createKRYPTO_PAGE(bitz[i],i,bitz.length-1); //page
         }
     }
 
