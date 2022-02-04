@@ -46,11 +46,12 @@ function createKRYPTO_PAGE(bitz, pgNum, pgTotal){
     pageSpacer.style.boxShadow = "1px 1px 20px 0px blue";
     pageSpacer.classList.add('bit-spacer');
     pageSpacer.id = "Spacer_" + bitz.IDX;
-
+    
     var IMGBIT = document.createElement('article');
     IMGBIT.style.backgroundColor = 'black';
     // IMGBIT.style.backgroundColor = getRandoColor();
     IMGBIT.style.border = "1px solid steelblue"
+    if(document.body.clientWidth > 888){ IMGBIT.style.borderWidth = "0px";  } //RESPONSIVE
     IMGBIT.style.borderRadius = "13px"
     IMGBIT.style.padding = "0.888em"
     IMGBIT.style.margin = "0.88em auto"
@@ -58,6 +59,7 @@ function createKRYPTO_PAGE(bitz, pgNum, pgTotal){
     IMGBIT.style.cursor = "pointer"
     IMGBIT.style.overflow = "hidden";     //CROP
     IMGBIT.style.marginBottom = "0em";   //CROP
+    IMGBIT.classList.add('bluesteel-border-frame');
 
     var imgCard1 = 0;
     if(bitz.IMG){
