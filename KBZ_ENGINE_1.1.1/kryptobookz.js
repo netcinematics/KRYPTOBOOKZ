@@ -856,6 +856,7 @@ function showKRYPTOBOOK_All(bitz, metanet1){
         if(i===0){ //intro
             viz.createKRYPTO_INTRO(bitz[i]); //intro
         } else if(i==bitz.length-1){ //outro
+            debugger;
             //SUPER COOL! this is after end page click! TODO: Hide stuff here. ~ : )
             viz.createKRYPTO_OUTRO(bitz[i]); 
         } else{
