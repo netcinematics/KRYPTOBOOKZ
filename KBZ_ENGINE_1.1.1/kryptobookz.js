@@ -853,14 +853,16 @@ function showKRYPTOBOOK_All(bitz, metanet1){
     //TODO metanet has showbitz
     //Loop all the pages and render free scroll...
     for(let i=0; i<bitz.length;i++){
-        if(i===0){ //intro
-            viz.createKRYPTO_INTRO(bitz[i]); //intro
-        } else if(i==bitz.length-1){ //outro
-            //SUPER COOL! this is after end page click! TODO: Hide stuff here. ~ : )
-            viz.createKRYPTO_OUTRO(bitz[i]); 
-        } else{
-            viz.createKRYPTO_PAGE(bitz[i],i,bitz.length-1); //page
-        }
+        setTimeout(function(){ //DELAY-RENDER-.
+            if(i===0){ //intro
+                viz.createKRYPTO_INTRO(bitz[i]); //intro
+            } else if(i==bitz.length-1){ //outro
+                //SUPER COOL! this is after end page click! TODO: Hide stuff here. ~ : )
+                viz.createKRYPTO_OUTRO(bitz[i]); 
+            } else{
+                viz.createKRYPTO_PAGE(bitz[i],i,bitz.length-1); //page
+            }
+        }, i*1000 + 1000 ) //DELAY-RENDER exponent
     }
 
 }
