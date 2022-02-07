@@ -32,11 +32,12 @@ function createKRYPTO_PAGE(bitz, pgNum, pgTotal){
     let pageSpacer = document.createElement('section');
     pageSpacer.style.backgroundColor = 'black';
     pageSpacer.style.borderRadius = "10px";
-    pageSpacer.style.padding = "0.111em";
+    // pageSpacer.style.padding = "0.111em";
     pageSpacer.style.margin = "0.444em";
     pageSpacer.style.height = "4.444em";
     pageSpacer.style.fontSize = "8px";
-    pageSpacer.style.paddingTop = "1em"
+    pageSpacer.style.paddingTop = "1.44em"
+    pageSpacer.style.paddingRight = "1em"
     // pageSpacer.style.paddingTop = "auto"
     // pageSpacer.style.paddingBottom = "auto"
     pageSpacer.style.color = '#071d30';

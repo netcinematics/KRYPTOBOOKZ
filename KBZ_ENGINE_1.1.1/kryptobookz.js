@@ -18,6 +18,7 @@ import { viz } from "./kryptoviz.js";
 // const loginButton = document.getElementById('loginBtn')
 // const nftDisplay1 = document.getElementById('nftDisplay1')
 let KRYPTOBOOKFrame1;// = document.getElementById('KRYPTOBOOKFrame1')
+let sonics = {};
 // const statusDisplay1 = document.getElementById('statusDisplay1')
 class MainVw {
     constructor(account){
@@ -613,44 +614,11 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
 /***************************************************************************************************\
  * UTILITY - all types of helperFunctions here-. - : )
 \***************************************************************************************************/
-    // function getRandoColor(){
-    //     const h = Math.floor(Math.random() * 344); //360
-    //     const s = Math.floor(Math.random() * 88); //100
-    //     const l = Math.floor(Math.random() * 88); //100
-    //     return `hsl(${h}deg, ${s}%, ${l}%)`;
-    // }
    
     function getIconLink(node, url){
         node.style.marginTop = "-1em";
         return node.innerHTML=`<a href="${url}" target="_blank"><img src="../images/osblue.png" class="hoverGlow" style="width:2em;border-radius:100%;"/></a>`          
     }
-// function loadMETA(nft.meta, {TR:TR,UP:UP,TL:TL,BR:BR,DWN:DWN,BL:BL}){
-//     if(nft.id && METANET[nft.id]){
-
-//     }
-// }  
-    // getNFTBtn.addEventListener('click',()=>{  //debugger;   //GET-NFT-BUTTON!
-        //***********************************************************//OpenSea API : getNFT (single)
-//     statusDisplay1.innerHTML = "TEST";
-    
-    // try{
-    //     let getNFTbyContractAndToken={  //GETNFT by Contract and tokenId.
-    //         assetContractAddr:"0x495f947276749Ce646f68AC8c248420045cb7b5e", 
-    //         tokenId:"32091639769859466206787752406743660124435242419967811135209154768441297600513"}
-    //     // getNFT(getNFTbyContractAndToken)
-    //     //****************************************************************************
-    //     let getNFTSbyOwner={  //GETNFTS by Owner. - PLURAL NFTZ MULTIPLE!
-    //         owner:"0x46f3397433384f2e31262596642c811929d6c069"}
-    //     getNFTs(getNFTSbyOwner.owner)
-    //     //*********************************************************//OpenSea API : getNFTs (multiple) 
-    //     let getNFTCollectionsbyOwner={  //GETNFT Collections by Owner. - PLURAL COLLECTIONZ MULTIPLE!    
-    //         owner:"0x46f3397433384f2e31262596642c811929d6c069"}   
-    //     getNFTCollections(getNFTCollectionsbyOwner.owner)
-    //     //****************************************************************************
-    // // }); //END: GETNFT button click-.
-    // }catch(e){
-    //     statusDisplay1.innerHTML = "ERROR"+" no signal."; //e.message;
-    // }
 
     function getKRYPTOBOOKZ(){
         //LOAD ARRAY OF IMAGES.
@@ -772,7 +740,7 @@ function lastPage(){ //use current idx to get last item.
     --SPAZEBOOK_IDX;
     updatePageState();
     // if(lastPageIDX <= 0){//grey out LASTBTN
-    //     let lastBtn = document.querySelector('#mainLFTBTN');
+    //     let lastBtn = document.querySelector('#mainUPBTN');
     //     lastBtn.classList.remove("disabledBTN");
     //     return; //no action
     // }
@@ -799,34 +767,34 @@ function updatePageState(){ // grey page btns,
     }
     //LAST BTN
     if(SPAZEBOOK_IDX <= 0){ //DISABLE UP ARROW-.
-        ui.mainLFTBTN.classList.add("disabledBTN");
+        ui.mainUPBTN.classList.add("disabledBTN");
     }else{ //ENABLE UP ARROW.
-        ui.mainLFTBTN.classList.remove("disabledBTN");
+        ui.mainUPBTN.classList.remove("disabledBTN");
     }
 
     //DISABLE DOWN ARROW
     if(SPAZEBOOK_IDX + 1 >= SPAZEBOOK_KRYPTOBITZ1.length){
         EVENT_THE_END = 1;
-        ui.mainRGTBTN.classList.add("disabledBTN"); //DISABLE AT "THE END"
+        ui.mainDWNBTN.classList.add("disabledBTN"); //DISABLE AT "THE END"
     }else{
-        ui.mainRGTBTN.classList.remove("disabledBTN");
+        ui.mainDWNBTN.classList.remove("disabledBTN");
     }
 
     if(EVENT_THE_END){
         let tFrame = document.getElementById('subTitleFrame')
         tFrame.style.marginTop = "0";   
-        ui.mainRGTBTN.classList.remove("glowBTN");
+        ui.mainDWNBTN.classList.remove("glowBTN");
     } else if (SPAZEBOOK_IDX + 1 <= SPAZEBOOK_KRYPTOBITZ1.length){
-        ui.mainRGTBTN.classList.remove("glowBTN");
+        ui.mainDWNBTN.classList.remove("glowBTN");
         setTimeout(function(){
             if(!EVENT_THE_END){
-                ui.mainRGTBTN.classList.add("glowBTN");
+                ui.mainDWNBTN.classList.add("glowBTN");
             }else {
-                ui.mainRGTBTN.classList.remove("glowBTN"); 
+                ui.mainDWNBTN.classList.remove("glowBTN"); 
             }
         },8888)
     } else {
-        ui.mainRGTBTN.classList.remove("glowBTN");
+        ui.mainDWNBTN.classList.remove("glowBTN");
     }
 
     //Set PAGE NUMBER
@@ -867,13 +835,44 @@ function showKRYPTOBOOK_All(bitz, metanet1){
 
 }
 
-//IMPORTANT INITIALIZE KRYPTOBOOKZ
+let audio_IDX = 0;
+function toggleSound(toggleOn){
+    if(toggleOn){
+        audio_IDX++;
+        if(audio_IDX%2===0){
+            sonics.track2.play();
+        } else {
+            sonics.track1.play();
+        }
+    } else {
+        sonics.track1.pause();
+        sonics.track1.currentTime = 0;
+        sonics.track2.pause();
+        sonics.track2.currentTime = 0;
+        // sonics.track1.stop();
+        // sonics.track2.stop();
+    }
+}
+
+function initSonics(){
+    // sonics.spaceWind3= new BABYLON.Sound("spaceWind3","./copyrightnetcinematics/sonicz/nxSpaceWind3.mp3", nx.scene, null, { loop: false, autoplay: false, volume:0.44 });
+    sonics.track1 = new Audio("./copyrightNetCinematics/SONICS/track1.mp3");
+    sonics.track2 = new Audio("./copyrightNetCinematics/SONICS/track2.mp3");
+
+
+
+}
+
+//IMPORTANT: INITIALIZE KRYPTOBOOKZ
 let kbz = {
     viz:viz,
+    sonics,sonics,
     MainVw:MainVw,
     initPage:initPage,
+    initSonics:initSonics,
     nextPage:nextPage,
-    lastPage:lastPage
+    lastPage:lastPage,
+    toggleSound:toggleSound
 }
 
 export { kbz };
