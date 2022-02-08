@@ -858,9 +858,6 @@ function initSonics(){
     // sonics.spaceWind3= new BABYLON.Sound("spaceWind3","./copyrightnetcinematics/sonicz/nxSpaceWind3.mp3", nx.scene, null, { loop: false, autoplay: false, volume:0.44 });
     sonics.track1 = new Audio("./copyrightNetCinematics/SONICS/track1.mp3");
     sonics.track2 = new Audio("./copyrightNetCinematics/SONICS/track2.mp3");
-
-
-
 }
 
 //IMPORTANT: INITIALIZE KRYPTOBOOKZ

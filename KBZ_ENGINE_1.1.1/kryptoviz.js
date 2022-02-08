@@ -188,6 +188,10 @@ function createKRYPTO_PAGE(bitz, pgNum, pgTotal){
         })
     } 
 
+    //OPENSEA-LINK
+    // let OSBTN = document.createElement('button');
+    // OSBTN.innerHTML = `<span>${getOpenSeaIconLink(OSBTN, 'https://opensea.io/accounts/kryptospaze')}</span>`
+
     // var TXTBIT = 0;
     // if(bitz.TXT){
     //     TXTBIT = document.createElement('article');
@@ -233,6 +237,7 @@ function createKRYPTO_PAGE(bitz, pgNum, pgTotal){
     //TODO Logic to add remove PAGE_SPACER, title page somehow...   
     // if (KRYPTOBOOKFrame1 && bitz.IDX!="1.0") { KRYPTOBOOKFrame1.insertAdjacentElement('beforeend', pageSpacer); }
     // if (pageFrame && pageCard) { pageFrame.insertAdjacentElement('beforeend', pageCard); }
+    // if(OSBTN && IMGBIT){IMGBIT.insertAdjacentElement('beforeend', OSBTN);}
     if(imgCard1 && IMGBIT){IMGBIT.insertAdjacentElement('afterbegin', imgCard1);}
     // if(txtCard2 && TXTBIT){TXTBIT.insertAdjacentElement('afterbegin', txtCard2);}
     if (pageFrame && IMGBIT) { pageFrame.insertAdjacentElement('beforeend', IMGBIT); }
@@ -345,6 +350,12 @@ function createKRYPTO_PAGE(bitz, pgNum, pgTotal){
     // if (pageFrame && TXTBIT) { pageFrame.insertAdjacentElement('beforeend', TXTBIT); }
     if (KRYPTOBOOKFrame1) { KRYPTOBOOKFrame1.insertAdjacentElement('beforeend', pageFrame); }
 } //END CREATE KRYPTO OUTRO
+
+// BR.innerHTML = `<span>${getOpenSeaIconLink(BR, 'https://opensea.io/accounts/kryptospaze')}</span>`
+// function getOpenSeaIconLink(node, url){
+//     node.style.marginTop = "-1em";
+//     return node.innerHTML=`<a href="${url}" target="_blank"><img src="../images/osblue.png" class="hoverGlow" style="width:2em;border-radius:100%;"/></a>`          
+// }
 
 function getRandoColor(){
     const h = Math.floor(Math.random() * 344); 
