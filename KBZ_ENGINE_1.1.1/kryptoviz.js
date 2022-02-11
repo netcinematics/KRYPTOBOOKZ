@@ -364,7 +364,168 @@ function getRandoColor(){
     return `hsl(${h}deg, ${s}%, ${l}%)`;
 }
 
+function create_META_VIEW(nft){
+        //BUILD ARTCARD DISPLAY
+        let artFrame = document.createElement('section');
+        artFrame.style.backgroundColor = 'black';
+        artFrame.style.borderRadius = "10px";
+        artFrame.style.padding = "0.111em";
+        artFrame.style.margin = "0.444em";
+        let artCard = document.createElement('article');
+        artCard.style.backgroundColor = viz.getRandoColor();
+        artCard.style.border = "1px solid steelblue"
+        artCard.style.borderRadius = "13.333px"
+        artCard.style.padding = "0.888em"
+        artCard.style.margin = "0.88em auto"
+        artCard.style.maxWidth = "36em"
+        //CARD IMG
+        let artCardIMG = document.createElement('img'); //IMG
+        artCardIMG.style.padding = "0.888em"
+        artCardIMG.style.width = "88.8%"
+        artCardIMG.style.maxWidth = "33em"
+        artCardIMG.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
+        artCardIMG.style.borderRadius = "6.666px"
+        artCardIMG.style.marginBottom = "1em"
+        artCardIMG.style.zIndex = "9"
+        artCardIMG.src = nft.PATH;   //large 600 size  //OTHER IMAGE TYPES HERE:
+        // artCardIMG.src = nft.image_url;   //large 600 size  //OTHER IMAGE TYPES HERE:
+        // artCardIMG.src = nft.image_original_url; //giant original size
+        // artCardIMG.src = nft.image_preview_url;      //medium 350 size
+        // artCardIMG.src = nft.image_thumbnail_url;   //small 200 size
+
+        // debugger;
+        let artCardVID = null;
+        let artCardVIDBTN = null;
+        // if(nft.meta.main.vid){ //SOUND-FLAG, render AUDIO-DISPLAY
+        //     artCardVID = document.createElement('video'); //MP3
+        //     artCardVID.src = nft.meta.main.vid; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
+        //     // artCardVID.src = nft.animation_original_url; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
+        //     artCardVID.style.padding = "0.888em"
+        //     artCardVID.style.width = "100%"
+        //     artCardVID.style.maxWidth = "33em"
+        //     artCardVID.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
+        //     artCardVID.style.borderRadius = "6.666px"
+        //     artCardVID.style.marginBottom = "1em"
+        //     // artCardVID.style.maxHeight = "55px"
+        //     artCardVID.controls = true;
+        //     artCardVID.style.display = 'none';
+        //     // artCardIMG = null; //do not show art card default
+        //     artCardVIDBTN = document.createElement('section')
+        //     artCardVIDBTN.innerHTML = `<div class="hoverGlowPlay" style="border-radius:100%; background:grey; padding: 0.444em;box-shadow:-2px 0px 2px 2px deepskyblue;">
+        //         <i class="fas fa-play" style="font-size:2em;color:white;border:1px solid skyblue;border-radius:100%;padding:0.2em;"></i>
+        //         </div>`
+        //     // artCardVIDBTN.style.cssText = "background: none; border: 0px;"
+        //     // artCardVIDBTN.style.zIndex = "10"
+        //     artCardVIDBTN.style.display = 'flex';
+        //     artCardVIDBTN.style.marginTop = "-5em";
+        //     artCardVIDBTN.style.marginLeft = "1em";
+        //     // artCardVIDBTN.style.backgroundColor = "grey";
+        //     artCardVIDBTN.style.borderRadius = "100%";
+        //     artCardVIDBTN.addEventListener("click", ()=> {
+        //         let vidz = document.getElementsByTagName('video') //stop all other vids
+        //         for(vid of vidz){ vid.pause() }
+        //         artCardVIDBTN.style.display = 'none';
+        //         // artCardIMG.style.display = 'none'
+        //         artCardIMG.style.cssText = 'height:12em;width:auto'
+        //         artCardVID.style.display = '';
+        //         artCardVID.play();
+        //     })
+        //     // artCardVIDBTN.classList.add("hoverGlowPlay");
+        // }
+
+
+        let artCardSND = null;
+        // if(nft.meta.main.snd){ //SOUND-FLAG, render AUDIO-DISPLAY
+        //     artCardSND = document.createElement('video'); //MP3
+        //     artCardSND.src = nft.meta.main.snd; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
+        //     // artCardSND.src = nft.animation_original_url; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
+        //     artCardSND.style.padding = "0.888em"
+        //     artCardSND.style.width = "100%"
+        //     artCardSND.style.maxWidth = "28em"
+        //     artCardSND.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
+        //     artCardSND.style.borderRadius = "6.666px"
+        //     artCardSND.style.marginBottom = "1em"
+        //     artCardSND.style.maxHeight = "55px"
+        //     artCardSND.controls = true;
+        // }
+        // let artCardLINK = document.createElement('a'); //IMG LINK parent
+        // artCard.src = nft.url
+        //MAINTITLE
+        let artCardMainTitle = document.createElement('section'); //Title 1
+        artCardMainTitle.style.padding = "0.444em"
+        artCardMainTitle.style.borderRadius = "13px"
+        artCardMainTitle.style.border = "1px solid steelblue"
+        artCardMainTitle.innerText = nft.id; //NAME
+        artCardMainTitle.style.backgroundColor = "#05112a"
+        //SUBTITLE
+        let artCardSubTitle = document.createElement('section'); //Title 2
+        artCardSubTitle.style.padding = "0.111em"
+        artCardSubTitle.style.textShadow = "1px 2px 1px black";
+        artCardSubTitle.style.display = "flex";
+        artCardSubTitle.style.justifyContent = "space-between";
+        //THREE-PART-SUB-TITLE
+        let BR = document.createElement('aside'); //sub
+        let DWN = document.createElement('aside'); //sub
+        let BL = document.createElement('aside'); //sub
+        BR.innerHTML = "<span>\\</span>"
+        // BR.innerHTML = `<span>${getIconLink(BR, 'https://opensea.io/accounts/kryptospaze')}</span>`
+        DWN.innerHTML = "<span>~</span>"
+        BL.innerHTML = "<span>2021</span>"
+        // setMETA(nft)
+
+        
+        // if(nft.meta){ //loadMETA(nft.meta, {TR:TR,UP:UP,TL:TL,BR:BR,DWN:DWN,BL:BL}) }
+        //     if(nft.meta.BR){ (nft.meta.BR.url) ? getIconLink(BR, {url: 'https://opensea.io/accounts/kryptospaze'}) : BR.innerHTML = nft.meta.BR}
+        // }
+
+
+        //SUPERTITLE
+        let artCardSuperTitle = document.createElement('section'); //Title 2
+        artCardSuperTitle.style.padding = "0.111em"
+        artCardSuperTitle.style.textShadow = "1px 2px 1px black";
+        artCardSuperTitle.style.display = "flex";
+        artCardSuperTitle.style.justifyContent = "space-between";
+        artCardSuperTitle.style.marginTop =  "-0.444em";
+        artCardSuperTitle.style.paddingBottom = "0.888em";
+        //THREE-PART-SUPER-TITLE
+        let TR = document.createElement('aside'); //super
+        let UP = document.createElement('aside'); //super
+        let TL = document.createElement('aside'); //super
+        TR.innerHTML = "<span>\\</span>"
+        UP.innerHTML = `<span>${nft.id}</span>`
+        TL.innerHTML = "<span>2021</span>"
+        // debugger; //METACARD useMETA for display
+        
+        // setMETA(nft)
+        // if(nft.meta){ //loadMETA(nft.meta, {TR:TR,UP:UP,TL:TL,BR:BR,DWN:DWN,BL:BL}) }
+        //     //for(nftLink of nft.meta) //TODO
+        //     // if(nft.meta.TL){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :TL.innerHTML = nft.meta.TL}
+        //     // if(nft.meta.UP){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :UP.innerHTML = nft.meta.UP}
+        //     // if(nft.meta.TR){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :TR.innerHTML = nft.meta.TR}
+        //     // if(nft.meta.BL) (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :{BL.innerHTML = nft.meta.BL}
+        //     // if(nft.meta.DWN){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :DWN.innerHTML = nft.meta.DWN}
+        //     if(nft.meta.BR){ (nft.meta.BR.url) ? getIconLink(BR, nft.meta.BR.url) : BR.innerHTML = nft.meta.BR}
+        // }
+        //INSERT INTO DOM-.
+        if (artCard && artCardVID) { artCard.insertAdjacentElement('afterbegin', artCardVID); }
+        if (artCard && artCardSND) { artCard.insertAdjacentElement('afterbegin', artCardSND); }
+        if (artCard && artCardVIDBTN) { artCard.insertAdjacentElement('afterbegin', artCardVIDBTN); }
+        if (artCard && artCardIMG) { artCard.insertAdjacentElement('afterbegin', artCardIMG); }
+        if (artCardSuperTitle) { artCardSuperTitle.insertAdjacentElement('beforeend',TR); }
+        if (artCardSuperTitle) { artCardSuperTitle.insertAdjacentElement('beforeend',UP); }
+        if (artCardSuperTitle) { artCardSuperTitle.insertAdjacentElement('beforeend',TL); }
+        if (artCard) { artCard.insertAdjacentElement('afterbegin',artCardSuperTitle); }
+        if (artCardSubTitle) { artCardSubTitle.insertAdjacentElement('beforeend',BL); }
+        if (artCardSubTitle) { artCardSubTitle.insertAdjacentElement('beforeend',DWN); }
+        if (artCardSubTitle) { artCardSubTitle.insertAdjacentElement('beforeend',BR); }
+        if (artCard) { artCard.insertAdjacentElement('beforeend',artCardMainTitle); }
+        if (artCard) { artCard.insertAdjacentElement('beforeend',artCardSubTitle); }
+        if (artFrame && artCard) { artFrame.insertAdjacentElement('beforeend', artCard); }
+        if (nftDisplay1) { nftDisplay1.insertAdjacentElement('beforeend', artFrame); }
+    } //END CREATE META CARD
+
 let viz = {
+ create_META_VIEW:create_META_VIEW,
  createKRYPTO_INTRO:createKRYPTO_INTRO,
  createKRYPTO_OUTRO:createKRYPTO_OUTRO,
  createKRYPTO_PAGE:createKRYPTO_PAGE,
