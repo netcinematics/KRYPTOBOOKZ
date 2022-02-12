@@ -59,6 +59,7 @@ function initPage(){
         //GET LOCAL METANET.
         try{ 
             if (nftDisplay1) { nftDisplay1.innerHTML = ""; } //BLANK data view-.
+            if (KRYPTOBOOKFrame1) { KRYPTOBOOKFrame1.innerHTML = ""; } //BLANK data view-.
             // if(MainVw.idx){ //load specific index item-.
             //     let keys = getNIFTYKeys(); //TODO rename -Search METANET, for SINGULAR LOOKUP-.
             //     if(!keys){mode=6;} //error, render all-.
