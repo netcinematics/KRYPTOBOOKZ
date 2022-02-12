@@ -118,7 +118,7 @@
 <button id="mainRGTBTN" class="steelNeonIconBtn  disabledBTN" style='position:fixed;top:33%;right:1%;z-index:1111'><i class="fa fa-chevron-circle-right" style="font-size:1em;"></i></button>
 <button id="mainUPBTN" class="steelNeonIconBtn disabledBTN" style='position:fixed;top:50%;left:1%;z-index:1111'><i class="fa fa-chevron-circle-up" style="font-size:1em;"></i></button>
 <button id="mainDWNBTN" class="steelNeonIconBtn glowBTN" style='position:fixed;top:50%;right:1%;z-index:1111'><i class="fa fa-chevron-circle-down" style="font-size:1em;"></i></button>
-<button id="mainSONICBTN" class="steelNeonIconBtn sonicOff" style='position:fixed;top:16%;right:1%;z-index:1111'><i class="fa fa-volume-off" style="font-size:1em;"></i></button>
+<button id="mainSONICBTN" class="steelNeonIconBtn hoverGlow sonicOff" style='position:fixed;top:16%;right:1%;z-index:1111'><i class="fa fa-volume-off" style="font-size:1em;"></i></button>
 <a href="https://netcinematics.github.io/KRYPTOSPAZE/" target="_blank">
     <button id="mainBTMLFTBTN" class="steelNeonIconBtn" style='position:fixed;top:1%;left:0.5%;z-index:1111'><i class="fa fa-house-damage"></i></button>
     </a>
@@ -127,7 +127,7 @@
 <a href="https://twitter.com/spazefalcon" target="_blank">
     <img src="./images/twtblue.png" class="hoverGlow" style="width:2em;border-radius:100%;position:fixed;bottom:3%;left: 1%;"/></a>
 <a href="https://www.instagram.com/spazefalcon/" target="_blank">
-    <img src="./images/insta1.png" class="hoverGlow" style="width:2em;border-radius:100%;position:fixed;bottom:10%;left: 1%;"/></a>
+    <img src="./images/instablue.png" class="hoverGlow" style="width:2em;border-radius:100%;position:fixed;bottom:10%;left: 1%;"/></a>
 <!-- <aside id="mainPageNums" style='position:fixed;bottom:44%;right:1.444em;z-index:1111;font-size: 0.666em;'></aside> -->
 <aside id="mintDate" style='position:fixed;bottom:1%;right:1%;z-index:1111;font-size: 0.666em;font-style: italic;'>1-<script>document.write( new Date().getFullYear() );</script></aside>
 <script>
@@ -261,7 +261,7 @@ put all your mobile styles above*/
 </section>
 
 
-<section style="padding: 0.444em;">
+<!-- <section style="padding: 0.444em;">
     <button id="socialBtn6" class="menuBtn" onclick="menuFn(event)"}>
         <i class="fa fa-external-link-alt" style="color:darkorange">&nbsp;INSTAGRAM</i></a>
     <button id="socialBtn7" class="menuBtn" onclick="menuFn(event)"}>
@@ -270,7 +270,7 @@ put all your mobile styles above*/
         <i class="fa fa-external-link-alt" style="color:darkseagreen">&nbsp;META</i></a>
     <button id="socialBtn9"  class="menuBtn" onclick="menuFn(event)"}>
         <i class="fa fa-external-link-alt" style="color:mediumpurple">&nbsp;YOUTUBE</i></a>
-</section>
+</section> -->
 
 <section style="padding: 0.444em;">
     <!-- <span style="font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.222em;text-shadow: 1px 1px 1px white;">EPICs:</span> -->
@@ -279,11 +279,13 @@ put all your mobile styles above*/
     <button id="NavBtn7" class="menuBtn" onclick="menuFn(event)"}>
         <i class="fas fa-photo-video" style="color:lightskyblue">&nbsp;CARDz</i></a>
     <button id="NavBtn8"  class="menuBtn" onclick="menuFn(event)"}>
-        <i class="fas fa-book" style="color:darkseagreen">&nbsp;HEROz</i></a>
+        <i class="fas fa-book" style="color:darkseagreen">&nbsp;BITz</i></a>
     <button id="NavBtn9"  class="menuBtn" onclick="menuFn(event)"}>
         <i class="fas fa-music" style="color:mediumpurple">&nbsp;JAMz</i></a>
     <button id="NavBtn10"  class="menuBtn" onclick="menuFn(event)"}>
         <i class="fas fa-video" style="color:indianred">&nbsp;VIDz</i></a>
+    <button id="NavBtn11"  class="menuBtn" onclick="menuFn(event)"}>
+        <i class="fas fa-book-open" style="color:yellow">&nbsp;BOOKz</i></a>
 </section>
     
 
@@ -301,7 +303,7 @@ put all your mobile styles above*/
 
 
 
-<section style="padding: 0.444em; font-size:0.888em;">
+<!-- <section style="padding: 0.444em; font-size:0.888em;">
    
     <span style="font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.222em;text-shadow: 1px 1px 1px purple;">NFTs:</span>
     <a href="https://opensea.io/accounts/kryptospaze" target="_blank" class="button"><i class="fas fa-asterisk" style="color:#4a79ff">&nbsp;OpenSea</i></a>
@@ -311,7 +313,7 @@ put all your mobile styles above*/
     <i class="fas fa-asterisk" style="color:indianred">&nbsp;MATIC</i>
     <i class="fas fa-asterisk" style="color:rgb(153 74 241);">&nbsp;ALL</i>
         
-</section>  
+</section>   -->
 
 <footer>
     <div id="copyright" style="background: #000004;	box-shadow: 1px 1px 8px 0px lightyellow;
@@ -350,6 +352,27 @@ put all your mobile styles above*/
 window.onbeforeunload = function () {
     window.scrollTo(0,0);
 };
+
+function menuFn(e){ //ALL MENU BEHAVIOR in 1 FACTORY fn.
+    // debugger;
+    switch (e.target.parentElement.id){
+        case 'NavBtn1' : window.open("https://netcinematics.github.io/KRYPTOSPAZE/", '_blank'); break;
+        case 'NavBtn2' : kbz.MainVw.getNFTFactory(2); break;
+        case 'NavBtn3' : kbz.MainVw.getNFTFactory(3); break;
+        case 'NavBtn4' : kbz.MainVw.getNFTFactory(4); break;
+        case 'NavBtn5' : kbz.MainVw.getNFTFactory(5); break;
+        case 'NavBtn6' : window.open("https://netcinematics.github.io/KRYPTOSPAZE/", '_blank'); break;
+        case 'NavBtn7' : kbz.MainVw.getNFTFactory(2); break;
+        case 'NavBtn8' : kbz.MainVw.getNFTFactory(3); break;
+        case 'NavBtn9' : kbz.MainVw.getNFTFactory(4); break;
+        case 'NavBtn10' : kbz.MainVw.getNFTFactory(5); break;
+        case 'NavBtn11' : kbz.MainVw.getNFTFactory(7); break;
+        // case 'NavBtn11' : kbz.MainVw.getNFTFactory(11); break;
+        case 'NavBtn12' : kbz.MainVw.getNFTFactory(12); break;
+        default : return;
+    }
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{
   
     kbz.initPage();
@@ -363,6 +386,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     if(!mode){mode = 7} //kryptobook
     // if(!mode){mode = 6} //display all
     kbz.MainVw.getNFTFactory(mode); //default load
+
 
 
 

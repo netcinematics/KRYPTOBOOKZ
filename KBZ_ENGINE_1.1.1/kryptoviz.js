@@ -396,58 +396,60 @@ function create_META_VIEW(nft){
         // debugger;
         let metaCardVID = null;
         let metaCardVIDBTN = null;
-        // if(nft.meta.main.vid){ //SOUND-FLAG, render AUDIO-DISPLAY
-        //     metaCardVID = document.createElement('video'); //MP3
-        //     metaCardVID.src = nft.meta.main.vid; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
-        //     // metaCardVID.src = nft.animation_original_url; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
-        //     metaCardVID.style.padding = "0.888em"
-        //     metaCardVID.style.width = "100%"
-        //     metaCardVID.style.maxWidth = "33em"
-        //     metaCardVID.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
-        //     metaCardVID.style.borderRadius = "6.666px"
-        //     metaCardVID.style.marginBottom = "1em"
-        //     // metaCardVID.style.maxHeight = "55px"
-        //     metaCardVID.controls = true;
-        //     metaCardVID.style.display = 'none';
-        //     // metaCardIMG = null; //do not show meta card default
-        //     metaCardVIDBTN = document.createElement('section')
-        //     metaCardVIDBTN.innerHTML = `<div class="hoverGlowPlay" style="border-radius:100%; background:grey; padding: 0.444em;box-shadow:-2px 0px 2px 2px deepskyblue;">
-        //         <i class="fas fa-play" style="font-size:2em;color:white;border:1px solid skyblue;border-radius:100%;padding:0.2em;"></i>
-        //         </div>`
-        //     // metaCardVIDBTN.style.cssText = "background: none; border: 0px;"
-        //     // metaCardVIDBTN.style.zIndex = "10"
-        //     metaCardVIDBTN.style.display = 'flex';
-        //     metaCardVIDBTN.style.marginTop = "-5em";
-        //     metaCardVIDBTN.style.marginLeft = "1em";
-        //     // metaCardVIDBTN.style.backgroundColor = "grey";
-        //     metaCardVIDBTN.style.borderRadius = "100%";
-        //     metaCardVIDBTN.addEventListener("click", ()=> {
-        //         let vidz = document.getElementsByTagName('video') //stop all other vids
-        //         for(vid of vidz){ vid.pause() }
-        //         metaCardVIDBTN.style.display = 'none';
-        //         // metaCardIMG.style.display = 'none'
-        //         metaCardIMG.style.cssText = 'height:12em;width:auto'
-        //         metaCardVID.style.display = '';
-        //         metaCardVID.play();
-        //     })
-        //     // metaCardVIDBTN.classList.add("hoverGlowPlay");
-        // }
+        if(nft.VIDPATH){ //SOUND-FLAG, render AUDIO-DISPLAY
+            metaCardVID = document.createElement('video'); //MP3
+            metaCardVID.src = nft.VIDPATH; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
+            // metaCardVID.src = nft.meta.main.vid; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
+            // metaCardVID.src = nft.animation_original_url; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
+            metaCardVID.style.padding = "0.888em"
+            metaCardVID.style.width = "100%"
+            metaCardVID.style.maxWidth = "33em"
+            metaCardVID.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
+            metaCardVID.style.borderRadius = "6.666px"
+            metaCardVID.style.marginBottom = "1em"
+            // metaCardVID.style.maxHeight = "55px"
+            metaCardVID.controls = true;
+            metaCardVID.style.display = 'none';
+            // metaCardIMG = null; //do not show meta card default
+            metaCardVIDBTN = document.createElement('section')
+            metaCardVIDBTN.innerHTML = `<div class="hoverGlowPlay" style="border-radius:100%; background:grey; padding: 0.444em;box-shadow:-2px 0px 2px 2px deepskyblue;">
+                <i class="fas fa-play" style="font-size:2em;color:white;border:1px solid skyblue;border-radius:100%;padding:0.2em;"></i>
+                </div>`
+            // metaCardVIDBTN.style.cssText = "background: none; border: 0px;"
+            // metaCardVIDBTN.style.zIndex = "10"
+            metaCardVIDBTN.style.display = 'flex';
+            metaCardVIDBTN.style.marginTop = "-5em";
+            metaCardVIDBTN.style.marginLeft = "1em";
+            // metaCardVIDBTN.style.backgroundColor = "grey";
+            metaCardVIDBTN.style.borderRadius = "100%";
+            metaCardVIDBTN.addEventListener("click", ()=> {
+                let vidz = document.getElementsByTagName('video') //stop all other vids
+                for(vid of vidz){ vid.pause() }
+                metaCardVIDBTN.style.display = 'none';
+                // metaCardIMG.style.display = 'none'
+                metaCardIMG.style.cssText = 'height:12em;width:auto'
+                metaCardVID.style.display = '';
+                metaCardVID.play();
+            })
+            // metaCardVIDBTN.classList.add("hoverGlowPlay");
+        }
 
 
         let metaCardSND = null;
-        // if(nft.meta.main.snd){ //SOUND-FLAG, render AUDIO-DISPLAY
-        //     metaCardSND = document.createElement('video'); //MP3
-        //     metaCardSND.src = nft.meta.main.snd; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
-        //     // metaCardSND.src = nft.animation_original_url; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
-        //     metaCardSND.style.padding = "0.888em"
-        //     metaCardSND.style.width = "100%"
-        //     metaCardSND.style.maxWidth = "28em"
-        //     metaCardSND.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
-        //     metaCardSND.style.borderRadius = "6.666px"
-        //     metaCardSND.style.marginBottom = "1em"
-        //     metaCardSND.style.maxHeight = "55px"
-        //     metaCardSND.controls = true;
-        // }
+        if(nft.SONICPATH){ //SOUND-FLAG, render AUDIO-DISPLAY
+            metaCardSND = document.createElement('video'); //MP3
+            metaCardSND.src = nft.SONICPATH; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
+            // metaCardSND.src = nft.meta.main.snd; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
+            // metaCardSND.src = nft.animation_original_url; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
+            metaCardSND.style.padding = "0.888em"
+            metaCardSND.style.width = "100%"
+            metaCardSND.style.maxWidth = "28em"
+            metaCardSND.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
+            metaCardSND.style.borderRadius = "6.666px"
+            metaCardSND.style.marginBottom = "1em"
+            metaCardSND.style.maxHeight = "55px"
+            metaCardSND.controls = true;
+        }
         // let metaCardLINK = document.createElement('a'); //IMG LINK parent
         // metaCard.src = nft.url
         //MAINTITLE

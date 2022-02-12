@@ -34,24 +34,6 @@ class MainVw {
     }
 }
 
-function menuFn(e){ //ALL MENU BEHAVIOR in 1 FACTORY fn.
-    switch (e.target.parentElement.id){
-        case 'NavBtn1' : window.open("https://netcinematics.github.io/KRYPTOSPAZE/", '_blank'); break;
-        case 'NavBtn2' : MainVw.getNFTFactory(2); break;
-        case 'NavBtn3' : MainVw.getNFTFactory(3); break;
-        case 'NavBtn4' : MainVw.getNFTFactory(4); break;
-        case 'NavBtn5' : MainVw.getNFTFactory(5); break;
-        case 'NavBtn6' : window.open("https://netcinematics.github.io/KRYPTOSPAZE/", '_blank'); break;
-        case 'NavBtn7' : MainVw.getNFTFactory(2); break;
-        case 'NavBtn8' : MainVw.getNFTFactory(3); break;
-        case 'NavBtn9' : MainVw.getNFTFactory(4); break;
-        case 'NavBtn10' : MainVw.getNFTFactory(5); break;
-        case 'NavBtn11' : MainVw.getNFTFactory(11); break;
-        case 'NavBtn12' : MainVw.getNFTFactory(12); break;
-        default : return;
-    }
-}
-
 
 /***************************************************************************************************\
  * METANET_LOCAL: if provider or IPFS have nothing, show LOCAL DATA - : )
@@ -115,7 +97,18 @@ function initPage(){
                 //         console.error(err)
                 //     });
             } else 
-            if(mode===3){  //heroz
+            if(mode===3){  //bitz
+
+                let bitzMetaNet = [];
+                let bitzENUM = {PATH:'./copyrightNetCinematics/KRYPTOBITZ/set002', START:1, STOP:22}
+                for ( let i=bitzENUM.START; i<=bitzENUM.STOP; i++ ){
+                    bitzMetaNet.push({id:i,IMGPATH:`${bitzENUM.PATH}/${i}.png`})
+                }
+                for(let bit of bitzMetaNet){
+                    viz.create_META_VIEW(bit);
+                }//ENUM LOAD
+                nftDisplay1.style.display = 'block';
+                KRYPTOBOOKFrame1.style.display = 'none';
 
                 //just lukkee dargon
                 // fetch('https://api.opensea.io/api/v1/asset/0x495f947276749Ce646f68AC8c248420045cb7b5e/32091639769859466206787752406743660124435242419967811135209154770640320856065/',{method: 'GET'})
@@ -127,8 +120,7 @@ function initPage(){
 
             } else 
             if(mode===4){  //sonicz
-                debugger;
-                //generate IMG PATH dynamically with ENUM.
+                //generate PATH dynamically with ENUM.
                 let soniczENUM = {START:1, STOP:2,PATH:'./copyrightNetCinematics/KRYPTOSONICZ' }
                 let soniczMetaNet = [];
                 for ( let i=soniczENUM.START; i<=soniczENUM.STOP; i++ ){
@@ -144,8 +136,6 @@ function initPage(){
                 nftDisplay1.style.display = 'block';
                 KRYPTOBOOKFrame1.style.display = 'none';
 
-
-
                 // fetch('https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&collection=cozmosonicz',{method: 'GET'})
                 //     .then(response => response.json())
                 //     .then((data) => { //debugger; console.log(data);
@@ -154,6 +144,22 @@ function initPage(){
                 //     .catch(err => console.error(err));
             } else 
             if(mode===5){  //vidz
+                let vidzENUM = {START:1, STOP:6,PATH:'./copyrightNetCinematics/KRYPTOVIDZ' }
+                let vidzMetaNet = [];
+                for ( let i=vidzENUM.START; i<=vidzENUM.STOP; i++ ){
+                    vidzMetaNet.push(
+                        {id:i, IMGPATH:`${vidzENUM.PATH}/img${i}.png`
+                        // ,
+                        //   VIDPATH:`${vidzENUM.PATH}/vid${i}.mp4`
+                        }
+                    );
+                }
+                for(let vid of vidzMetaNet){
+                    viz.create_META_VIEW(vid);
+                }//ENUM LOAD
+                nftDisplay1.style.display = 'block';
+                KRYPTOBOOKFrame1.style.display = 'none';
+
                     // fetch('https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&collection=cozmospaze',{method: 'GET'})
                     // .then(response => response.json())
                     // .then((data) => { //debugger; console.log(data);
@@ -178,6 +184,9 @@ function initPage(){
         //***********************KRYPTOBOOKZ*****************************************************
         } else if (mode === 7){ //RENDER KRYPTOBOOK!!!
             getKRYPTOBOOKZ();
+
+            nftDisplay1.style.display = 'none';
+            KRYPTOBOOKFrame1.style.display = 'block';
         }
         //****************************************************************************
         // }); //END: GETNFT button click-.
@@ -945,16 +954,19 @@ function showKRYPTOBOOK_All(bitz, metanet1){
     //TODO metanet has showbitz
     //Loop all the pages and render free scroll...
     for(let i=0; i<bitz.length;i++){
-        setTimeout(function(){ //DELAY-RENDER-.
-            if(i===0){ //intro
-                viz.createKRYPTO_INTRO(bitz[i]); //intro
-            } else if(i==bitz.length-1){ //outro
-                //SUPER COOL! this is after end page click! TODO: Hide stuff here. ~ : )
-                viz.createKRYPTO_OUTRO(bitz[i]); 
-            } else{
-                viz.createKRYPTO_PAGE(bitz[i],i,bitz.length-1); //page
-            }
-        }, i*1000 + 1000 ) //DELAY-RENDER exponent
+
+        if(i===0){ //intro
+            viz.createKRYPTO_INTRO(bitz[i]); //intro
+        } else {
+            setTimeout(function(){ //DELAY-RENDER-.
+                if(i==bitz.length-1){ //outro
+                    //SUPER COOL! this is after end page click! TODO: Hide stuff here. ~ : )
+                    viz.createKRYPTO_OUTRO(bitz[i]); 
+                } else{
+                    viz.createKRYPTO_PAGE(bitz[i],i,bitz.length-1); //page
+                }
+            }, i*1000 + 4444 ) //DELAY-RENDER exponent
+        }
     }
 
 }
