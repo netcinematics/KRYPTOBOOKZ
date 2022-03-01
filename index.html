@@ -125,7 +125,7 @@
 <a href="https://netcinematics.github.io/KRYPTOSPAZE/" target="_blank">
 <button id="mainTOPLFTBTN" class="steelNeonIconBtn" style='position:fixed;top:1%;left:0.5%;z-index:1111'><i class="fa fa-house-damage"></i></button>
 </a>
-<button id="mainTOPRGTBTN" class="steelNeonIconBtn disabledBTN" style='position:fixed;top:1%;right:0.5%;z-index:1111'><i class="fa fa-bars"></i></button>
+<button id="mainTOPRGTBTN" class="steelNeonIconBtn" style='position:fixed;top:1%;right:0.5%;z-index:1111'><i class="fa fa-bars"></i></button>
 <button id="mainLFTBTN" class="steelNeonIconBtn disabledBTN" style='position:fixed;top:33%;left:1%;z-index:1111'><i class="fa fa-chevron-circle-left" style="font-size:1em;"></i></button>
 <button id="mainRGTBTN" class="steelNeonIconBtn  disabledBTN" style='position:fixed;top:33%;right:1%;z-index:1111'><i class="fa fa-chevron-circle-right" style="font-size:1em;"></i></button>
 <button id="mainUPBTN" class="steelNeonIconBtn disabledBTN" style='position:fixed;top:50%;left:1%;z-index:1111'><i class="fa fa-chevron-circle-up" style="font-size:1em;"></i></button>
@@ -168,7 +168,7 @@
     ui.mintDate = document.getElementById('mintDate');  
     // ui.mainPageNums = document.getElementById('mainPageNums');  
     ui.mainTOPRGTBTN = document.getElementById('mainTOPRGTBTN');
-    ui.mainTOPRGTBTN.addEventListener("click", ()=> { debugger;  })      
+    ui.mainTOPRGTBTN.addEventListener("click", ()=> { scrollToTop();  })      
     ui.mainDWNBTN = document.getElementById('mainDWNBTN');
     ui.mainDWNBTN.addEventListener("click", ()=> { 
         kbz.nextPage();
@@ -304,6 +304,9 @@ put all your mobile styles above*/
 
 
 <script>
+var scrollToTop = function () {
+    window.scrollTo(0,0);
+};    
 window.onbeforeunload = function () {
     window.scrollTo(0,0);
 };
