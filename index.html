@@ -334,10 +334,12 @@ var mainMenuBtnClick = function(){
         ui.nftDisplay1.style.display = 'none';
         if(ui.KRYPTOBOOKFrame1.style.display==='block'){ui.lastView=ui.KRYPTOBOOKFrame1}
         ui.KRYPTOBOOKFrame1.style.display = 'none';
-
+        
     }else{
-        ui.topMenuFrame.style.display = 'none';
-        ui.GalleryDISPLAYFRAME1.style.display = 'none';
+        clearAllDisplays();
+        // ui.nftDisplay1.style.display = 'none';
+        // ui.topMenuFrame.style.display = 'none';
+        // ui.GalleryDISPLAYFRAME1.style.display = 'none';
         ui.lastView.style.display = 'block';
     }
     // showHideMainGallery();
@@ -389,11 +391,40 @@ function menuFn(e){ //ALL MENU BEHAVIOR in 1 FACTORY fn.
     }
 }
 
-let galleryClick  = function(e){
+let galleryBOOKClick  = function(e){
 
     let tgtContent = e.currentTarget.id
+    clearAllDisplays();
+
+    //Click ID to LINKPATH - with cID to METANET, from vis. 
+    // let LINKPATH = [{cID:'s1.e1.img1'},{cID:'s1.e1.txt1'}];
+
+    //TODO get LINKPATH from METANET.
+    let LINKPATH = {bID:'s1.e1.ch1'};
+    loadBOOKDisplay(LINKPATH);
+}
+
+let galleryINFOClick  = function(e){
+
+debugger; //TODO get the IMAGE EXPANDER CODE.
+
+//TODO copy the INFO-EXPANDER, into a TXT-EXPANDER, under TTL.
+}
+
+let clearAllDisplays = function(){
+    ui.nftDisplay1.style.display = 'none';
+    ui.topMenuFrame.style.display = 'none';
+    ui.GalleryDISPLAYFRAME1.style.display = 'none';
+    // ui.lastView.style.display = 'block';
+}
+
+//TODO move to vis?
+let loadBOOKDisplay = function(LINKPATH){
     debugger; //1
-    //Load View based on Click ID
+    let METANET = {
+        's1.e1.ch1':`<h1>hi!</h1>`, 
+        's1.e1.ch2':`<h1>hi!</h1>`, 
+    }
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{

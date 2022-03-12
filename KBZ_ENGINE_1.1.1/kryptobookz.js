@@ -1051,9 +1051,10 @@ function loadGalleryView(){ //
     for(let i=0; i<galleryITEMS.length;i++){
         galleryITEM = galleryITEMS[i];
         galleryViewMarkup += `
-            <article id='gID${i}' class='galleryItemFrame'  onclick='galleryClick(event)'>
-                <img class='mainGalleryIMG' src= ${galleryITEM.IMGPATH} />
-                <section class='galleryINFO'>
+            <article id='gID${i}' class='galleryItemFrame'>
+                <img class='mainGalleryIMG' src= ${galleryITEM.IMGPATH}
+                    onclick='galleryBOOKClick(event)' />
+                <section class='galleryINFO' onclick='galleryINFOClick(event)'>
                     <span>${galleryITEM.sNUM}&nbsp;|&nbsp;${galleryITEM.mainTTL}</span><br>
                     <span>${galleryITEM.eNUM}&nbsp;|&nbsp;${galleryITEM.subTTL}</span><br>
                     <span>INFO:${galleryITEM.INFO}</span>
