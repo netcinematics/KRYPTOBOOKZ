@@ -99,11 +99,23 @@
                 height:2em;
             }
 
+            .mainGalleryIMG{
+                width: 95%;
+                max-width: 444px;
+                border-radius: 1em;
+                border: solid 1px skyblue;
+                box-shadow: 1px 2px 6px 0px yellow;
+            }
 
+            .galleryTextTTL{
+                display: flex;
+                margin: 0.5em 0;
+                justify-content: center;
+            }
       </style>
 
 <!-- TOP MENU -->
-<section style="padding: 0.444em;">
+<section id="topMenuFrame" style="padding: 0.444em; display:none;">
     <!-- <span style="font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.222em;text-shadow: 1px 1px 1px white;">EPICs:</span> -->
     <button id="topNavBtn6" class="menuBtn" onclick="menuFn(event)"}>
         <i class="fas fa-home" style="color:darkorange">&nbsp;WEBz</i></a>
@@ -147,47 +159,9 @@
     padding: 1px;"/></a>
 <!-- <aside id="mainPageNums" style='position:fixed;bottom:44%;right:1.444em;z-index:1111;font-size: 0.666em;'></aside> -->
 <aside id="mintDate" style='position:fixed;bottom:1%;right:1%;z-index:1111;font-size: 0.666em;font-style: italic;'>1-<script>document.write( new Date().getFullYear() );</script></aside>
-<script>
-    window.ui = {}; //GRID9 - pre data integration
-    // ui.mainTOPLFTBTN = document.getElementById('mainTOPLFTBTN');
-    // ui.mainTOPLFTBTN.addEventListener("click", ()=> { 
-    //     debugger;  
-    //     // <a href="https://opensea.io/accounts/kryptospaze" target="_blank" class="button">
-    // })   
-    ui.mainSONICBTN = document.getElementById('mainSONICBTN');  
-    ui.mainSONICBTN.addEventListener("click", ()=> { 
-        var toggleOn = ui.mainSONICBTN.classList.contains('sonicOff'); //if sound is on-.
-        if(toggleOn){
-            ui.mainSONICBTN.classList.remove('sonicOff');
-            ui.mainSONICBTN.classList.add('sonicOn');
-            //   nx.sonics.on=1;
-        }else { //sound off
-            ui.mainSONICBTN.classList.remove('sonicOn');
-            ui.mainSONICBTN.classList.add('sonicOff');
-            //   nx.ui.audioToggle1.addClass('sonicOff');
-            //   nx.sonics.stopAllSonics();
-            //   nx.sonics.on=0;
-        }
-        if(kbz && kbz.toggleSound){ kbz.toggleSound(toggleOn) }
-    })      
-    ui.mintDate = document.getElementById('mintDate');  
-    // ui.mainPageNums = document.getElementById('mainPageNums');  
-    ui.mainTOPRGTBTN = document.getElementById('mainTOPRGTBTN');
-    ui.mainTOPRGTBTN.addEventListener("click", ()=> { scrollToTop();  })      
-    ui.mainDWNBTN = document.getElementById('mainDWNBTN');
-    ui.mainDWNBTN.addEventListener("click", ()=> { 
-        kbz.nextPage();
-    })      
-    ui.mainUPBTN = document.getElementById('mainUPBTN');
-    ui.mainUPBTN.addEventListener("click", ()=> { 
-        kbz.lastPage();
-    })  
-
-</script>
-
-<script>
-
-</script>
+<article>
+    <section id="GalleryDISPLAYFRAME1" style="display:none; padding:0.222em; border:1px solid darkslateblue; border-radius:13px; width:85%; margin:0 auto; border-radius:22px; max-width: 44em;">hi </section>
+</article>
 <header id="pageTitle" style="padding:0.666em;">
     <section style="margin: 0.222em;">
         <!-- <span style="    font-size:0.444em; font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.0888em;text-shadow: 1px 1px 1px purple;"><&nbsp;</span> -->
@@ -234,6 +208,7 @@ put all your mobile styles above*/
 
     <!-- <section id="statusDisplay1">< ~ ></section> -->
 </header>
+
 <article>
     <section id="nftDisplay1" style="display:none; padding:0.222em; border:1px solid darkslateblue; border-radius:13px; width:85%; margin:0 auto; border-radius:22px; max-width: 44em;"> </section>
 </article>
@@ -245,18 +220,6 @@ put all your mobile styles above*/
 <section id="subTitleFrame" style="margin-top:0;" >
     <div id="subTitle" class="pageTitleTXT"  style="margin-top:0.444em;color:#5f00b5;padding:0.111em; text-shadow: 5px -6px 16px blue;">KRYPTOSPAZE<span class="tradeMark">&trade;</span></div>
 </section>
-
-
-<!-- <section style="padding: 0.444em;">
-    <button id="socialBtn6" class="menuBtn" onclick="menuFn(event)"}>
-        <i class="fa fa-external-link-alt" style="color:darkorange">&nbsp;INSTAGRAM</i></a>
-    <button id="socialBtn7" class="menuBtn" onclick="menuFn(event)"}>
-        <i class="fa fa-external-link-alt" style="color:lightskyblue">&nbsp;TWITTER</i></a>
-    <button id="socialBtn8"  class="menuBtn" onclick="menuFn(event)"}>
-        <i class="fa fa-external-link-alt" style="color:darkseagreen">&nbsp;META</i></a>
-    <button id="socialBtn9"  class="menuBtn" onclick="menuFn(event)"}>
-        <i class="fa fa-external-link-alt" style="color:mediumpurple">&nbsp;YOUTUBE</i></a>
-</section> -->
 
 <section style="padding: 0.444em;">
     <!-- <span style="font-weight:bold; font-family:impact; color:steelblue; letter-spacing:0.222em;text-shadow: 1px 1px 1px white;">EPICs:</span> -->
@@ -300,6 +263,49 @@ put all your mobile styles above*/
 
 </body>
 
+<script>
+    window.ui = {}; //GRID9 - pre data integration
+    // ui.mainTOPLFTBTN = document.getElementById('mainTOPLFTBTN');
+    // ui.mainTOPLFTBTN.addEventListener("click", ()=> { 
+    //     debugger;  
+    //     // <a href="https://opensea.io/accounts/kryptospaze" target="_blank" class="button">
+    // })   
+    ui.mainSONICBTN = document.getElementById('mainSONICBTN');  
+    ui.mainSONICBTN.addEventListener("click", ()=> { 
+        var toggleOn = ui.mainSONICBTN.classList.contains('sonicOff'); //if sound is on-.
+        if(toggleOn){
+            ui.mainSONICBTN.classList.remove('sonicOff');
+            ui.mainSONICBTN.classList.add('sonicOn');
+            //   nx.sonics.on=1;
+        }else { //sound off
+            ui.mainSONICBTN.classList.remove('sonicOn');
+            ui.mainSONICBTN.classList.add('sonicOff');
+            //   nx.ui.audioToggle1.addClass('sonicOff');
+            //   nx.sonics.stopAllSonics();
+            //   nx.sonics.on=0;
+        }
+        if(kbz && kbz.toggleSound){ kbz.toggleSound(toggleOn) }
+    })      
+    ui.mintDate = document.getElementById('mintDate');  
+    // ui.mainPageNums = document.getElementById('mainPageNums');  
+    ui.topMenuFrame = document.getElementById('topMenuFrame');
+
+    ui.nftDisplay1 = document.getElementById('nftDisplay1'); 
+    ui.KRYPTOBOOKFrame1 = document.getElementById('KRYPTOBOOKFrame1'); 
+    ui.GalleryDISPLAYFRAME1 = document.getElementById('GalleryDISPLAYFRAME1'); 
+    ui.mainTOPRGTBTN = document.getElementById('mainTOPRGTBTN');
+    ui.mainTOPRGTBTN.addEventListener("click", ()=> {   mainMenuBtnClick();  })      
+    ui.mainDWNBTN = document.getElementById('mainDWNBTN');
+    ui.mainDWNBTN.addEventListener("click", ()=> { 
+        kbz.nextPage();
+    })      
+    ui.mainUPBTN = document.getElementById('mainUPBTN');
+    ui.mainUPBTN.addEventListener("click", ()=> { 
+        kbz.lastPage();
+    })  
+
+</script>
+
 <script type="module">
     //LOAD-KRYPTOBOOKZ before view paint-.
     import { kbz } from "./KBZ_ENGINE_1.1.1/kryptobookz.js";
@@ -309,6 +315,33 @@ put all your mobile styles above*/
 
 
 <script>
+// var onGalleryView = false, lastView = null;
+ui.onGalleryView = false; ui.lastView = null;
+var mainMenuBtnClick = function(){
+    ui.onGalleryView = !ui.onGalleryView;
+    if(ui.onGalleryView){ //show gallery
+        ui.topMenuFrame.style.display = 'block';
+        ui.GalleryDISPLAYFRAME1.style.display = 'block';
+        if(ui.nftDisplay1.style.display==='block'){ui.lastView=ui.nftDisplay1}
+        ui.nftDisplay1.style.display = 'none';
+        if(ui.KRYPTOBOOKFrame1.style.display==='block'){ui.lastView=ui.KRYPTOBOOKFrame1}
+        ui.KRYPTOBOOKFrame1.style.display = 'none';
+
+    }else{
+        ui.topMenuFrame.style.display = 'none';
+        ui.GalleryDISPLAYFRAME1.style.display = 'none';
+        ui.lastView.style.display = 'block';
+    }
+    // showHideMainGallery();
+    scrollToTop();
+}
+// var showHideMainGallery = function(){
+//     if(onGalleryView){
+//         ui.GalleryDISPLAYFRAME1.style.display = 'block';
+//     }else{
+//         ui.GalleryDISPLAYFRAME1.style.display = 'none';
+//     }
+// }
 var scrollToTop = function () {
     window.scrollTo(0,0);
 };    
@@ -348,10 +381,18 @@ function menuFn(e){ //ALL MENU BEHAVIOR in 1 FACTORY fn.
     }
 }
 
+let galleryClick  = function(e){
+
+    let tgtContent = e.currentTarget.id
+    debugger; //1
+    //Load View based on Click ID
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{
   
     kbz.initPage();
     kbz.initSonics();
+    kbz.loadGalleryView();
     //dynamic NFT loading-.
     const urlParams = new URLSearchParams(window.location.search);
     let mode = parseInt(urlParams.get('m')); //mode for display

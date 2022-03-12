@@ -57,9 +57,14 @@ function initPage(){
         // getNFTOpenSea(mode); //legacy
         // return;
         //GET LOCAL METANET.
+
         try{ 
+            if (ui.onGalleryView) {ui.onGalleryView = false}
+            if (ui.topMenuFrame) { ui.topMenuFrame.style.display = 'none'; }
             if (nftDisplay1) { nftDisplay1.innerHTML = ""; } //BLANK data view-.
             if (KRYPTOBOOKFrame1) { KRYPTOBOOKFrame1.innerHTML = ""; } //BLANK data view-.
+    
+
             // if(MainVw.idx){ //load specific index item-.
             //     let keys = getNIFTYKeys(); //TODO rename -Search METANET, for SINGULAR LOOKUP-.
             //     if(!keys){mode=6;} //error, render all-.
@@ -86,6 +91,7 @@ function initPage(){
                 }//ENUM LOAD
                 nftDisplay1.style.display = 'block';
                 KRYPTOBOOKFrame1.style.display = 'none';
+                if (ui.GalleryDISPLAYFRAME1) { ui.GalleryDISPLAYFRAME1.style.display = 'none'; } 
                 // viz.createCARDZ_VIEW(cardzMetaNet); //ENUM LOAD
                 // viz.createCARDZ_VIEW(METANET_LOCAL_DEFAULT.cardz); //ENUM LOAD
                 // fetch('https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&collection=cozmocardz',{method: 'GET'})
@@ -110,6 +116,7 @@ function initPage(){
                 }//ENUM LOAD
                 nftDisplay1.style.display = 'block';
                 KRYPTOBOOKFrame1.style.display = 'none';
+                if (ui.GalleryDISPLAYFRAME1) { ui.GalleryDISPLAYFRAME1.style.display = 'none'; } 
 
                 //just lukkee dargon
                 // fetch('https://api.opensea.io/api/v1/asset/0x495f947276749Ce646f68AC8c248420045cb7b5e/32091639769859466206787752406743660124435242419967811135209154770640320856065/',{method: 'GET'})
@@ -136,6 +143,7 @@ function initPage(){
                 }//ENUM LOAD
                 nftDisplay1.style.display = 'block';
                 KRYPTOBOOKFrame1.style.display = 'none';
+                if (ui.GalleryDISPLAYFRAME1) { ui.GalleryDISPLAYFRAME1.style.display = 'none'; } 
 
                 // fetch('https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&collection=cozmosonicz',{method: 'GET'})
                 //     .then(response => response.json())
@@ -160,6 +168,7 @@ function initPage(){
                 }//ENUM LOAD
                 nftDisplay1.style.display = 'block';
                 KRYPTOBOOKFrame1.style.display = 'none';
+                if (ui.GalleryDISPLAYFRAME1) { ui.GalleryDISPLAYFRAME1.style.display = 'none'; } 
 
                     // fetch('https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&collection=cozmospaze',{method: 'GET'})
                     // .then(response => response.json())
@@ -188,6 +197,7 @@ function initPage(){
 
             nftDisplay1.style.display = 'none';
             KRYPTOBOOKFrame1.style.display = 'block';
+            if (ui.GalleryDISPLAYFRAME1) { ui.GalleryDISPLAYFRAME1.style.display = 'none'; } 
         }
         //****************************************************************************
         // }); //END: GETNFT button click-.
@@ -990,6 +1000,40 @@ function toggleSound(toggleOn){
         // sonics.track2.stop();
     }
 }
+function loadGalleryView(){ //
+    let galleryITEMS = [
+        {sNUM:'S1',eNUM:'EP1',mainTTL:'ORBOT~ORIGINZ',subTTL:'Go find your Dad for me!',info:'made in Dreams',
+          IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/originz_TITLEBIT1.png'},
+        {sNUM:'S1',eNUM:'EP2',mainTTL:'TRIAL of OrbyOrbot',subTTL:'MomBot, I fail you.',info:'made in Dreams',
+          IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/img0.png'},
+        {sNUM:'S2',eNUM:'EP3',mainTTL:'Search NORTH~CRATER~LAKE',subTTL:'THE SPAZECRASH!!!',info:'made in VR',
+          IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/img3.png'},
+        {sNUM:'S2',eNUM:'EP6',mainTTL:'Lost in EAST~DUNE~SEA',subTTL:'BadBUGZ!?!',info:'made in Dreams',
+          IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/img6.png'},
+    ];
+    ui.GalleryDISPLAYFRAME1.innerHTML = '';
+    let galleryITEM = {}, galleryViewMarkup='';
+    for(let i=0; i<galleryITEMS.length;i++){
+        galleryITEM = galleryITEMS[i];
+        galleryViewMarkup += `
+            <article id='gID${i}' class='galleryItemFrame'  onclick='galleryClick(event)'>
+                <section class='galleryTextTTL'>
+                    <article>${galleryITEM.sNUM}</article>&nbsp;|&nbsp;
+                    <article>${galleryITEM.mainTTL}</article>
+                </section>
+                <img class='mainGalleryIMG' src= ${galleryITEM.IMGPATH} />
+                <section class='galleryTextTTL'>
+                    <article>${galleryITEM.eNUM}</article>&nbsp;|&nbsp;
+                    <article>${galleryITEM.subTTL}</article>
+                </section>
+
+
+                <hr>
+            </article>
+        `;
+    }
+    ui.GalleryDISPLAYFRAME1.innerHTML = galleryViewMarkup;
+}
 
 function initSonics(){
     // sonics.spaceWind3= new BABYLON.Sound("spaceWind3","./copyrightnetcinematics/sonicz/nxSpaceWind3.mp3", nx.scene, null, { loop: false, autoplay: false, volume:0.44 });
@@ -1004,6 +1048,7 @@ let kbz = {
     MainVw:MainVw,
     initPage:initPage,
     initSonics:initSonics,
+    loadGalleryView:loadGalleryView,
     nextPage:nextPage,
     lastPage:lastPage,
     toggleSound:toggleSound
