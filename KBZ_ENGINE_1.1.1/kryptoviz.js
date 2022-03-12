@@ -137,6 +137,14 @@ function createKRYPTO_PAGE(bitz, pgNum, pgTotal){
  * Render KRYPTO INTRO.
  \********************************************************/
  function createKRYPTO_INTRO(bitz){  
+
+//TODO Page Title???
+{/* <header id="pageTitle" style="padding:0.666em;">
+    <section style="margin: 0.222em;">
+        <span class="pageTitleTXT" style=" text-shadow: 6px 1px 14px purple;">KRYPTOBOOKZ</span><span class="tradeMark">&trade;</span>
+    </section>
+</header> */}
+
     let pageFrame = document.createElement('section');
     pageFrame.style.backgroundColor = 'black';
     pageFrame.style.borderRadius = "10px";

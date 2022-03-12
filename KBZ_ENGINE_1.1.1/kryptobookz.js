@@ -17,7 +17,7 @@ import { viz } from "./kryptoviz.js";
 // let mainView = null;
 // const loginButton = document.getElementById('loginBtn')
 // const nftDisplay1 = document.getElementById('nftDisplay1')
-let nftDisplay1;
+let nftDisplay1; //TODO move these to ui.nftDisplay
 let KRYPTOBOOKFrame1;// = document.getElementById('KRYPTOBOOKFrame1')
 let sonics = {};
 // const statusDisplay1 = document.getElementById('statusDisplay1')
@@ -410,6 +410,15 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
 //todo remove to VIS
     function showNFTs(assets){ //debugger; //TODO switch by DISPLAY-FACTORY-. RENAME showNIFTYactory
         // let hidden = 0 //TODO : move this to initNIFTY()
+
+//TODO TITLE???
+{/* <header id="pageTitle" style="padding:0.666em;">
+    <section style="margin: 0.222em;">
+        <span class="pageTitleTXT" style=" text-shadow: 6px 1px 14px purple;">COZMOCARDZ</span><span class="tradeMark">&trade;</span>
+    </section>
+</header> */}
+
+
         for(let nft of assets){ //console.log("displaying",nft.id)
             console.log("RENDER: ", nft.id, nft.name)
             setMETA(nft); ///set meta from metanet if found-.
@@ -802,6 +811,8 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
         // showKRYPTO_Page(0,SPAZEBOOK_KRYPTOBITZ1);
         //LOAD ALL PAGES, not one by one. Enable scrollability.
         //TODO pass KRYPTOBITZ and METANET!!!
+
+        //TODO - simplify???
         showKRYPTOBOOK_All(SPAZEBOOK_KRYPTOBITZ1, [])
     }
 
@@ -963,6 +974,18 @@ function showKRYPTOBOOK_All(bitz, metanet1){
     //TODO solve IMGNOTXT and INTROBITZ TITLEBITZ and ENDBITZ and OUTROBITZ
     //TODO SOLVE spacer "welcome" and 1|10 10|10
     //TODO metanet has showbitz
+
+
+//TODO TITLE???
+{/* <header id="pageTitle" style="padding:0.666em;">
+    <section style="margin: 0.222em;">
+        <span class="pageTitleTXT" style=" text-shadow: 6px 1px 14px purple;">KRYPTOBOOKZ</span><span class="tradeMark">&trade;</span>
+    </section>
+</header> */}
+
+
+
+
     //Loop all the pages and render free scroll...
     for(let i=0; i<bitz.length;i++){
 
@@ -1002,29 +1025,38 @@ function toggleSound(toggleOn){
 }
 function loadGalleryView(){ //
     let galleryITEMS = [
-        {sNUM:'S1',eNUM:'EP1',mainTTL:'ORBOT~ORIGINZ',subTTL:'Go find your Dad for me!',info:'made in Dreams',
-          IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/originz_TITLEBIT1.png'},
         {sNUM:'S1',eNUM:'EP2',mainTTL:'TRIAL of OrbyOrbot',subTTL:'MomBot, I fail you.',info:'made in Dreams',
-          IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/img0.png'},
+          IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/img0.png',
+          INFO:'buncha stuff, buncha buncha stuff'},
+        {sNUM:'S1',eNUM:'EP1',mainTTL:'ORBOT~ORIGINZ',subTTL:'Go find your Dad for me!',info:'made in Dreams',
+          IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/originz_TITLEBIT1.png',
+          INFO:'buncha stuff, buncha buncha stuff'},
         {sNUM:'S2',eNUM:'EP3',mainTTL:'Search NORTH~CRATER~LAKE',subTTL:'THE SPAZECRASH!!!',info:'made in VR',
-          IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/img3.png'},
+          IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/img3.png',
+          INFO:'buncha stuff, buncha buncha stuff'},
         {sNUM:'S2',eNUM:'EP6',mainTTL:'Lost in EAST~DUNE~SEA',subTTL:'BadBUGZ!?!',info:'made in Dreams',
-          IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/img6.png'},
+          IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/img6.png',
+          INFO:'buncha stuff, buncha buncha stuff'},
     ];
+    
     ui.GalleryDISPLAYFRAME1.innerHTML = '';
-    let galleryITEM = {}, galleryViewMarkup='';
+    let galleryITEM = {};
+    let galleryViewMarkup=`
+        <header id="pageTitle" style="padding:0.666em;">
+            <section style="margin: 0.222em;">
+                <span class="pageTitleTXT" style=" text-shadow: 6px 1px 14px purple;">KRYPTOBOOKZ</span><span class="tradeMark">&trade;</span>
+            </section>
+        </header>
+    `;
     for(let i=0; i<galleryITEMS.length;i++){
         galleryITEM = galleryITEMS[i];
         galleryViewMarkup += `
             <article id='gID${i}' class='galleryItemFrame'  onclick='galleryClick(event)'>
-                <section class='galleryTextTTL'>
-                    <article>${galleryITEM.sNUM}</article>&nbsp;|&nbsp;
-                    <article>${galleryITEM.mainTTL}</article>
-                </section>
                 <img class='mainGalleryIMG' src= ${galleryITEM.IMGPATH} />
-                <section class='galleryTextTTL'>
-                    <article>${galleryITEM.eNUM}</article>&nbsp;|&nbsp;
-                    <article>${galleryITEM.subTTL}</article>
+                <section class='galleryINFO'>
+                    <span>${galleryITEM.sNUM}&nbsp;|&nbsp;${galleryITEM.mainTTL}</span><br>
+                    <span>${galleryITEM.eNUM}&nbsp;|&nbsp;${galleryITEM.subTTL}</span><br>
+                    <span>INFO:${galleryITEM.INFO}</span>
                 </section>
 
 
