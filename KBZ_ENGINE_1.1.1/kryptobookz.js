@@ -54,11 +54,14 @@ function initPage(){
  * GETDATA - all types of data requestFunctions here-. - : )
 \***************************************************************************************************/
     function runDISPLAYFactory(mode, bID){ //NOTE: {mode = 1} //gallery; {mode = 7} //kryptobook
+        console.log("TEST:",mode,bID)
         try{ 
             if (ui.onGalleryView) {ui.onGalleryView = false}
             if (ui.topMenuFrame) { ui.topMenuFrame.style.display = 'none'; }
-            if (nftDisplay1) { nftDisplay1.innerHTML = ""; } //BLANK data view-.
-            if (KRYPTOBOOKFrame1) { KRYPTOBOOKFrame1.innerHTML = ""; } //BLANK data view-.
+            if (nftDisplay1) { nftDisplay1.style.display = 'none'; }
+            if (KRYPTOBOOKFrame1) { KRYPTOBOOKFrame1.style.display = 'none'; }
+            // if (nftDisplay1) { nftDisplay1.innerHTML = ""; } //BLANK data view-.
+            // if (KRYPTOBOOKFrame1) { KRYPTOBOOKFrame1.innerHTML = ""; } //BLANK data view-.
             scrollToTop();
             if(mode===1){// gallery
                 clearAllDisplays();
@@ -122,8 +125,8 @@ function initPage(){
                 for ( let i=vidzENUM.START; i<=vidzENUM.STOP; i++ ){
                     vidzMetaNet.push(
                         {id:i, IMGPATH:`${vidzENUM.PATH}/img${i}.png`
-                        // ,
-                        //   VIDPATH:`${vidzENUM.PATH}/vid${i}.mp4`
+                        ,
+                          VIDPATH:`${vidzENUM.PATH}/vid${i}.mp4`
                         }
                     );
                 }
@@ -150,6 +153,7 @@ function initPage(){
                 getNFTCollections(getNFTCollectionsbyOwner.owner)
             //***********************KRYPTOBOOKZ*****************************************************
             } else if (mode === 7){ //RENDER KRYPTOBOOK!!!
+                KRYPTOBOOKFrame1.style.display = 'block';
                 getKRYPTOBOOKZ(bID);
 
                 nftDisplay1.style.display = 'none';
@@ -177,50 +181,6 @@ const METANET = { //ATTRIBUTE OVERRIDES BY TOKEN ID,
     '80447251':{ idx:{id:80447251,t_id:'32091639769859466206787752406743660124435242419967811135209154770640320856065',a_c_address:'0x495f947276749Ce646f68AC8c248420045cb7b5e'}},
 };
 
-function setMETA(nft){ //METANET lookup by ID. Set to meta on NFT.
-    // let dupeCheck = null;
-    // for(key in METANET){ for(tgt in METANET){ if(key===tgt){dupeCheck=1; break}} if(dupeCheck){console.log('DUPE IN METANET!',key); break}}
-    if(nft.id && METANET[nft.id]){ nft.meta = METANET[nft.id];} //lookup nft id in the METANET.
-    else{ return; } //not found
-}  
-//set meta data onto token nft of matching id, to configure super and sub titles.
-function initNIFTY(nft){
-    //--IFRAME - CRYPTO.
-     //HYPER_META_SEQUENCING_SYSTEM-. OVERVIEW:
-     //--initialize NIFTY~GALLERY display settings
-     //--initialize CARD display settings
-     //--initialize IMAGE display settings
-     //--initialize HIDDEN displays
-     //--initialize SOUND display settings
-     //--initialize VIDEO display settings
-     //--initialize MINT DATE display
-     //--initialize PERMLINK btn
-     //--initialize GAME display settings
-     //--initialize TEXT display
-     //----------------------------------------------
-     //--initialize SOUND settings
-    if(!nft || !nft.meta){return;} //inversion error trap, clean up code above, in factory.
-    // if(nft.idx){debugger;}
-    if(nft.meta.main){ // MAIN - meta configurations
-        if(nft.meta.main.snd===1){ //lookup nft data, for meta display
-            nft.meta.main.snd = nft.animation_url;
-            // animation_original_url: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
-            // animation_url: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
-            // permalink: "https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/32091639769859466206787752406743660124435242419967811135209154766242274344961"
-        } else 
-        if(nft.meta.main.vid){
-            nft.meta.main.vid = nft.animation_url; //signal meta display
-        }
-    }
-}
-//todo rename to searchMETANET
-function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lookup.
-    let idxTGT = (METANET[MainVw.idx]) ? METANET[MainVw.idx].idx : null;
-    if(idxTGT){ 
-        return{t_id : idxTGT.t_id, a_c_a : idxTGT.a_c_address}
-    }
-    return false;
-}
 /***************************************************************************************************\
  * HIDEDATA or OVERRIDEDATA - use tgt keys to HIDE items here-. Or change them. - : )
 \***************************************************************************************************/
@@ -461,15 +421,19 @@ function loadGalleryView(){ //
     let galleryITEMS = [
         {sNUM:'S1',eNUM:'EP2',mainTTL:'TRIAL of OrbyOrbot',subTTL:'MomBot, I fail you.',info:'made in Dreams',
           IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/img0.png',
+          LINKPATH:'s1.e1.ch1',
           INFO:'buncha stuff, buncha buncha stuff'},
         {sNUM:'S1',eNUM:'EP1',mainTTL:'ORBOT~ORIGINZ',subTTL:'Go find your Dad for me!',info:'made in Dreams',
           IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/originz_TITLEBIT1.png',
+          LINKPATH:'s1.e1.ch1',
           INFO:'buncha stuff, buncha buncha stuff'},
         {sNUM:'S2',eNUM:'EP3',mainTTL:'Search NORTH~CRATER~LAKE',subTTL:'THE SPAZECRASH!!!',info:'made in VR',
           IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/img3.png',
+          LINKPATH:'s1.e1.ch1',
           INFO:'buncha stuff, buncha buncha stuff'},
         {sNUM:'S2',eNUM:'EP6',mainTTL:'Lost in EAST~DUNE~SEA',subTTL:'BadBUGZ!?!',info:'made in Dreams',
           IMGPATH:'copyrightNetCinematics/MAIN_GALLERY/img6.png',
+          LINKPATH:'s1.e1.ch1',
           INFO:'buncha stuff, buncha buncha stuff'},
     ];
     
@@ -488,12 +452,22 @@ function loadGalleryView(){ //
             <article id='gID${i}' class='galleryItemFrame'>
                 <img class='mainGalleryIMG' src= ${galleryITEM.IMGPATH}
                     onclick='galleryBOOKClick(event)' />
-                <section class='galleryINFO' onclick='galleryINFOClick(event)'>
-                    <span>${galleryITEM.sNUM}&nbsp;|&nbsp;${galleryITEM.mainTTL}</span><br>
-                    <span>${galleryITEM.eNUM}&nbsp;|&nbsp;${galleryITEM.subTTL}</span><br>
-                    <span>INFO:${galleryITEM.INFO}</span>
+                <section class='galleryINFO_Frame' onclick='galleryINFOClick(event)'>
+                    <section class='galleryINFO_short'>
+                        <span>${galleryITEM.sNUM}&nbsp;|&nbsp;${galleryITEM.mainTTL}</span><br>
+                        <span>${galleryITEM.eNUM}&nbsp;|&nbsp;${galleryITEM.subTTL}</span><br>
+                        <span>INFO:${galleryITEM.INFO}</span>
+                    </section>
+                    <section class='galleryINFO_long' style='display:none'>
+                        <span>${galleryITEM.sNUM}&nbsp;|&nbsp;${galleryITEM.mainTTL}</span><br>
+                        <span>${galleryITEM.eNUM}&nbsp;|&nbsp;${galleryITEM.subTTL}</span><br>
+                        <span>INFO:${galleryITEM.INFO}</span>
+                        <div onclick='galleryPlayClick(event,"${galleryITEM.LINKPATH}")' class="hoverGlowPlay" style="border-radius:100%; background:grey; padding: 0.444em;box-shadow:-2px 0px 2px 2px deepskyblue;
+                            width:2em;height:2em;margin: 0 auto;margin-right: 0;">
+                        <i class="fas fa-play" style="font-size:1em;color:white;border-radius:100%;"></i>
+                        </div>
+                    </section>
                 </section>
-
 
                 <hr>
             </article>

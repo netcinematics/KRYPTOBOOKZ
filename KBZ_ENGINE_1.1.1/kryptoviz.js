@@ -373,7 +373,6 @@ function getRandoColor(){
 }
 
 function create_Dynamic_TTL(ttltxt, displayFrame){
-
     let dynamicTitleMarkup=`
         <header>
             <section style="margin: 0.222em;">
@@ -382,7 +381,6 @@ function create_Dynamic_TTL(ttltxt, displayFrame){
         </header>
     `;
     displayFrame.innerHTML = dynamicTitleMarkup;
-
 }
 function create_META_VIEW(nft){
         //BUILD METACARD DISPLAY
@@ -493,13 +491,6 @@ function create_META_VIEW(nft){
         // BR.innerHTML = `<span>${getIconLink(BR, 'https://opensea.io/accounts/kryptospaze')}</span>`
         DWN.innerHTML = "<span>~</span>"
         BL.innerHTML = "<span>2021</span>"
-        // setMETA(nft)
-
-        
-        // if(nft.meta){ //loadMETA(nft.meta, {TR:TR,UP:UP,TL:TL,BR:BR,DWN:DWN,BL:BL}) }
-        //     if(nft.meta.BR){ (nft.meta.BR.url) ? getIconLink(BR, {url: 'https://opensea.io/accounts/kryptospaze'}) : BR.innerHTML = nft.meta.BR}
-        // }
-
 
         //SUPERTITLE
         let metaCardSuperTitle = document.createElement('section'); //Title 2
@@ -516,18 +507,7 @@ function create_META_VIEW(nft){
         TR.innerHTML = "<span>\\</span>"
         UP.innerHTML = `<span>${nft.id}</span>`
         TL.innerHTML = "<span>2021</span>"
-        // debugger; //METACARD useMETA for display
-        
-        // setMETA(nft)
-        // if(nft.meta){ //loadMETA(nft.meta, {TR:TR,UP:UP,TL:TL,BR:BR,DWN:DWN,BL:BL}) }
-        //     //for(nftLink of nft.meta) //TODO
-        //     // if(nft.meta.TL){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :TL.innerHTML = nft.meta.TL}
-        //     // if(nft.meta.UP){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :UP.innerHTML = nft.meta.UP}
-        //     // if(nft.meta.TR){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :TR.innerHTML = nft.meta.TR}
-        //     // if(nft.meta.BL) (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :{BL.innerHTML = nft.meta.BL}
-        //     // if(nft.meta.DWN){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :DWN.innerHTML = nft.meta.DWN}
-        //     if(nft.meta.BR){ (nft.meta.BR.url) ? getIconLink(BR, nft.meta.BR.url) : BR.innerHTML = nft.meta.BR}
-        // }
+
         //INSERT INTO DOM-.
         if (metaCard && metaCardVID) { metaCard.insertAdjacentElement('afterbegin', metaCardVID); }
         if (metaCard && metaCardSND) { metaCard.insertAdjacentElement('afterbegin', metaCardSND); }
