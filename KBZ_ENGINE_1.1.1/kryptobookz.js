@@ -53,32 +53,19 @@ function initPage(){
 /***************************************************************************************************\
  * GETDATA - all types of data requestFunctions here-. - : )
 \***************************************************************************************************/
-    function getNFTFactory(mode){ //NOTE: {mode = 7} //kryptobook
-        // getNFTOpenSea(mode); //legacy
-        // return;
-        //GET LOCAL METANET.
-
+    function runDISPLAYFactory(mode, bID){ //NOTE: {mode = 1} //gallery; {mode = 7} //kryptobook
         try{ 
             if (ui.onGalleryView) {ui.onGalleryView = false}
             if (ui.topMenuFrame) { ui.topMenuFrame.style.display = 'none'; }
             if (nftDisplay1) { nftDisplay1.innerHTML = ""; } //BLANK data view-.
             if (KRYPTOBOOKFrame1) { KRYPTOBOOKFrame1.innerHTML = ""; } //BLANK data view-.
-    
-
-            // if(MainVw.idx){ //load specific index item-.
-            //     let keys = getNIFTYKeys(); //TODO rename -Search METANET, for SINGULAR LOOKUP-.
-            //     if(!keys){mode=6;} //error, render all-.
-            //     else{ //fetch singular NFT by idx
-            //         fetch(`https://api.opensea.io/api/v1/asset/${keys.a_c_a}/${keys.t_id}/`,{method: 'GET'})
-            //         .then(response => response.json())
-            //         .then((data) => { debugger; console.log(data);
-            //             showNFTs([data]) //singular item-.
-            //         })
-            //         .catch(err => console.error(err));
-            //         return; //end nav handling-.
-            //     }
-            // } 
-            //mode 1 - get TITLE PAGE 
+            scrollToTop();
+            if(mode===1){// gallery
+                clearAllDisplays();
+                if (ui.GalleryDISPLAYFRAME1) {ui.onGalleryView = true; 
+                    ui.GalleryDISPLAYFRAME1.style.display = 'block'; }
+                if (ui.topMenuFrame) { ui.topMenuFrame.style.display = 'block'; }
+            } 
             if(mode===2){  //cardz
                 //generate IMG PATH dynamically with ENUM.
                 let cardzENUM = {PATH:'./copyrightNetCinematics/KRYPTOCARDZ', START:0, STOP:10}
@@ -86,26 +73,16 @@ function initPage(){
                 for ( let i=cardzENUM.START; i<=cardzENUM.STOP; i++ ){
                     cardzMetaNet.push({id:i,IMGPATH:`${cardzENUM.PATH}/num${i}.png`})
                 }
+                viz.create_Dynamic_TTL('COZMOCARDZ',ui.nftDisplay1);
                 for(let card of cardzMetaNet){
                     viz.create_META_VIEW(card);
                 }//ENUM LOAD
                 nftDisplay1.style.display = 'block';
                 KRYPTOBOOKFrame1.style.display = 'none';
                 if (ui.GalleryDISPLAYFRAME1) { ui.GalleryDISPLAYFRAME1.style.display = 'none'; } 
-                // viz.createCARDZ_VIEW(cardzMetaNet); //ENUM LOAD
-                // viz.createCARDZ_VIEW(METANET_LOCAL_DEFAULT.cardz); //ENUM LOAD
-                // fetch('https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&collection=cozmocardz',{method: 'GET'})
-                //     .then(response => response.json())
-                //     .then((data) => { //debugger; console.log(data);
-                //         showNFTs(data.assets)
-                //     })
-                //     .catch(err => { 
-                //         showNFTs(METANET_LOCAL)
-                //         console.error(err)
-                //     });
             } else 
             if(mode===3){  //bitz
-
+                viz.create_Dynamic_TTL('KRYPTOBITZ',ui.nftDisplay1);
                 let bitzMetaNet = [];
                 let bitzENUM = {PATH:'./copyrightNetCinematics/KRYPTOBITZ/set002', START:1, STOP:22}
                 for ( let i=bitzENUM.START; i<=bitzENUM.STOP; i++ ){
@@ -118,16 +95,9 @@ function initPage(){
                 KRYPTOBOOKFrame1.style.display = 'none';
                 if (ui.GalleryDISPLAYFRAME1) { ui.GalleryDISPLAYFRAME1.style.display = 'none'; } 
 
-                //just lukkee dargon
-                // fetch('https://api.opensea.io/api/v1/asset/0x495f947276749Ce646f68AC8c248420045cb7b5e/32091639769859466206787752406743660124435242419967811135209154770640320856065/',{method: 'GET'})
-                // .then(response => response.json())
-                // .then((data) => { //debugger; console.log(data);
-                //         showNFTs([data])
-                //     })
-                // .catch(err => console.error(err));
-
             } else 
             if(mode===4){  //sonicz
+                viz.create_Dynamic_TTL('KRYPTOSONICZ',ui.nftDisplay1);
                 //generate PATH dynamically with ENUM.
                 let soniczENUM = {START:1, STOP:2,PATH:'./copyrightNetCinematics/KRYPTOSONICZ' }
                 let soniczMetaNet = [];
@@ -144,15 +114,9 @@ function initPage(){
                 nftDisplay1.style.display = 'block';
                 KRYPTOBOOKFrame1.style.display = 'none';
                 if (ui.GalleryDISPLAYFRAME1) { ui.GalleryDISPLAYFRAME1.style.display = 'none'; } 
-
-                // fetch('https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&collection=cozmosonicz',{method: 'GET'})
-                //     .then(response => response.json())
-                //     .then((data) => { //debugger; console.log(data);
-                //         showNFTs(data.assets)
-                //     })
-                //     .catch(err => console.error(err));
             } else 
             if(mode===5){  //vidz
+                viz.create_Dynamic_TTL('KRYPTOVIDZ',ui.nftDisplay1);
                 let vidzENUM = {START:1, STOP:6,PATH:'./copyrightNetCinematics/KRYPTOVIDZ' }
                 let vidzMetaNet = [];
                 for ( let i=vidzENUM.START; i<=vidzENUM.STOP; i++ ){
@@ -169,13 +133,6 @@ function initPage(){
                 nftDisplay1.style.display = 'block';
                 KRYPTOBOOKFrame1.style.display = 'none';
                 if (ui.GalleryDISPLAYFRAME1) { ui.GalleryDISPLAYFRAME1.style.display = 'none'; } 
-
-                    // fetch('https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&collection=cozmospaze',{method: 'GET'})
-                    // .then(response => response.json())
-                    // .then((data) => { //debugger; console.log(data);
-                    //     showNFTs(data.assets)
-                    // })
-                    // .catch(err => console.error(err));
             } else 
             if(mode===6 || mode===12){ //DISPLAY ALL-.
                 //****************************************************************************
@@ -191,155 +148,21 @@ function initPage(){
                 let getNFTCollectionsbyOwner={  //GETNFT Collections by Owner. - PLURAL COLLECTIONZ MULTIPLE!    
                     owner:"0x46f3397433384f2e31262596642c811929d6c069"}   
                 getNFTCollections(getNFTCollectionsbyOwner.owner)
-        //***********************KRYPTOBOOKZ*****************************************************
-        } else if (mode === 7){ //RENDER KRYPTOBOOK!!!
-            getKRYPTOBOOKZ();
+            //***********************KRYPTOBOOKZ*****************************************************
+            } else if (mode === 7){ //RENDER KRYPTOBOOK!!!
+                getKRYPTOBOOKZ(bID);
 
-            nftDisplay1.style.display = 'none';
-            KRYPTOBOOKFrame1.style.display = 'block';
-            if (ui.GalleryDISPLAYFRAME1) { ui.GalleryDISPLAYFRAME1.style.display = 'none'; } 
-        }
+                nftDisplay1.style.display = 'none';
+                KRYPTOBOOKFrame1.style.display = 'block';
+                if (ui.GalleryDISPLAYFRAME1) { ui.GalleryDISPLAYFRAME1.style.display = 'none'; } 
+            }
         //****************************************************************************
         // }); //END: GETNFT button click-.
         }catch(e){
             // statusDisplay1.innerHTML = "ERROR"+" no signal."; //e.message;
         }
-    } MainVw.getNFTFactory = getNFTFactory; //Connect to main scope-.
+    } MainVw.runDISPLAYFactory = runDISPLAYFactory; //Connect to main scope-.
 
-    function getNFTOpenSea ( mode){ //todo this may be retired
-        try{ 
-            if (nftDisplay1) { nftDisplay1.innerHTML = ""; } //BLANK data view-.
-            if(MainVw.idx){ //load specific index item-.
-                let keys = getNIFTYKeys(); //TODO rename -Search METANET, for SINGULAR LOOKUP-.
-                if(!keys){mode=6;} //error, render all-.
-                else{ //fetch singular NFT by idx
-                    fetch(`https://api.opensea.io/api/v1/asset/${keys.a_c_a}/${keys.t_id}/`,{method: 'GET'})
-                    .then(response => response.json())
-                    .then((data) => { debugger; console.log(data);
-                        showNFTs([data]) //singular item-.
-                    })
-                    .catch(err => console.error(err));
-                    return; //end nav handling-.
-                }
-            } 
-            if(mode===2){  //cardz
-                fetch('https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&collection=cozmocardz',{method: 'GET'})
-                    .then(response => response.json())
-                    .then((data) => { //debugger; console.log(data);
-                        showNFTs(data.assets)
-                    })
-                    .catch(err => console.error(err));
-            } else 
-            if(mode===3){  //heroz
-
-                //just lukkee dargon
-                fetch('https://api.opensea.io/api/v1/asset/0x495f947276749Ce646f68AC8c248420045cb7b5e/32091639769859466206787752406743660124435242419967811135209154770640320856065/',{method: 'GET'})
-                .then(response => response.json())
-                .then((data) => { //debugger; console.log(data);
-                        showNFTs([data])
-                    })
-                .catch(err => console.error(err));
-                // fetch('https://api.opensea.io/api/v1/assets?token_ids=32091639769859466206787752406743660124435242419967811135209154760744716206081&order_direction=desc&offset=0&limit=20',{method: 'GET'})
-                // .then(response => response.json())                    
-                // .then((data) => { //debugger; console.log(data);
-                //         showNFTs(data.assets)
-                //     })
-                // .catch(err => console.error(err));
-
-                // fetch('https://api.opensea.io/api/v1/assets?token_ids=32091639769859466206787752406743660124435242419967811135209154750849111556097&order_direction=desc&offset=0&limit=20',{method: 'GET'})
-                // .then(response => response.json())                    
-                // .then((data) => { //debugger; console.log(data);
-                //         showNFTs(data.assets)
-                //     })
-                // .catch(err => console.error(err));
-
-
-
-
-            } else 
-            if(mode===4){  //jamz
-                fetch('https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&collection=cozmosonicz',{method: 'GET'})
-                    .then(response => response.json())
-                    .then((data) => { //debugger; console.log(data);
-                        showNFTs(data.assets)
-                    })
-                    .catch(err => console.error(err));
-            } else 
-            if(mode===5){  //vidz
-                    fetch('https://api.opensea.io/api/v1/assets?order_direction=desc&offset=0&limit=20&collection=cozmospaze',{method: 'GET'})
-                    .then(response => response.json())
-                    .then((data) => { //debugger; console.log(data);
-                        showNFTs(data.assets)
-                    })
-                    .catch(err => console.error(err));
-            } else 
-            if(mode===6 || mode===12){ //DISPLAY ALL-.
-                //****************************************************************************
-                let getNFTbyContractAndToken={  //GETNFT by Contract and tokenId.
-                    assetContractAddr:"0x495f947276749Ce646f68AC8c248420045cb7b5e", 
-                    tokenId:"32091639769859466206787752406743660124435242419967811135209154768441297600513"}
-                // getNFT(getNFTbyContractAndToken)
-                //****************************************************************************
-                let getNFTSbyOwner={  //GETNFTS by Owner. - PLURAL NFTZ MULTIPLE!
-                    owner:"0x46f3397433384f2e31262596642c811929d6c069"}
-                getNFTs(getNFTSbyOwner.owner)
-                //*********************************************************//OpenSea API : getNFTs (multiple) 
-                let getNFTCollectionsbyOwner={  //GETNFT Collections by Owner. - PLURAL COLLECTIONZ MULTIPLE!    
-                    owner:"0x46f3397433384f2e31262596642c811929d6c069"}   
-                getNFTCollections(getNFTCollectionsbyOwner.owner)
-        //***********************KRYPTOBOOKZ*****************************************************
-        } else if (mode === 7){ //RENDER KRYPTOBOOK!!!
-            getKRYPTOBOOKZ();
-        }
-        //****************************************************************************
-        // }); //END: GETNFT button click-.
-        }catch(e){
-            // statusDisplay1.innerHTML = "ERROR"+" no signal."; //e.message;
-        }
-        
-
-    } //END
-
-
-
-     function getNFT(nftFactory){ //todo retire
-        // example:
-        // let nftFactory={
-        //     assetContractAddr:"0x495f947276749Ce646f68AC8c248420045cb7b5e",
-        //     tokenId:"32091639769859466206787752406743660124435242419967811135209154768441297600513"}
-        // OpenSea API: //https://api.opensea.io/api/v1/asset/{asset_contract_address}/{token_id}/
-        fetch(`https://api.opensea.io/api/v1/asset/${nftFactory.assetContractAddr}/${nftFactory.tokenId}/`,{method:'GET'})
-        .then(response => { return response.json() })
-        .then(data => { console.log(data) })
-        .catch(err => { debugger; console.error(err) });
-        /* RETURN DATA : "SINGLE-NFT ASSET"
-            EXAMPLE: https://docs.opensea.io/reference/retrieving-a-single-asset
-         RETURN DATA */
-     }
-     function getNFTs(owner){
-         //OpenSea API: fetch('https://api.opensea.io/api/v1/assets?owner={ownerAddress}&order_direction=desc&offset=0&limit=20', options)
-        fetch(`https://api.opensea.io/api/v1/assets?owner=${owner}&order_direction=desc&offset=0&limit=20`,{method: 'GET'})
-        .then(response => { return response.json() })
-        .then((data) => { //debugger; console.log(data);
-            showNFTs(data.assets)
-        })
-        .catch(err => {debugger; console.error(err)});
-        /* RETURN DATA : "MULTIPLE NFT - ASSETS"
-            EXAMPLE: https://docs.opensea.io/reference/getting-assets
-         RETURN DATA */
-    }
-    function getNFTCollections(owner){
-         //OpenSea API: fetch('https://api.opensea.io/api/v1/collections?offset=0&limit=300',{method: 'GET'})
-        fetch(`https://api.opensea.io/api/v1/collections?asset_owner=${owner}&offset=0&limit=300`,{method: 'GET'})
-        .then(response => response.json())
-        .then((collections) => { //debugger; //console.log(collections);
-            showNFTCollections(collections)
-        })
-        .catch(err => {debugger; console.error(err)});    
-         /* RETURN DATA : "COLLECTIONS" 
-            EXAMPLE: https://docs.opensea.io/reference/retrieving-collections
-          RETURN DATA   */ 
-    }
 /***************************************************************************************************\
  * METADATA - OVERRIDE : Populate META by ID lookup, then override LINKS and other behaviors. - : )
 \***************************************************************************************************/  
@@ -404,416 +227,27 @@ function getNIFTYKeys(){ //search METANET for idx keys for OpenSea individual lo
     let HIDENFTTGTs = [{key:'id',tgt:'268592'},{key:'id',tgt:'91019'}] //TODO move to METAFACTORY
     let HIDECOLLECTIONTGTs = [{key:'image_url',tgt:'https://lh3.googleusercontent.com/C272ZRW1RGGef9vKMePFSCeKc1Lw6U40wl9ofNVxzUxFdj84hH9xJRQNf-7wgs7W8qw8RWe-1ybKp-VKuU5D-tg=s60'}] 
 
-/***************************************************************************************************\
- * SHOWDATA - all types of data displayFunctions here-. - : )
-\***************************************************************************************************/
-//todo remove to VIS
-    function showNFTs(assets){ //debugger; //TODO switch by DISPLAY-FACTORY-. RENAME showNIFTYactory
-        // let hidden = 0 //TODO : move this to initNIFTY()
 
-//TODO TITLE???
-{/* <header id="pageTitle" style="padding:0.666em;">
-    <section style="margin: 0.222em;">
-        <span class="pageTitleTXT" style=" text-shadow: 6px 1px 14px purple;">COZMOCARDZ</span><span class="tradeMark">&trade;</span>
-    </section>
-</header> */}
-
-
-        for(let nft of assets){ //console.log("displaying",nft.id)
-            console.log("RENDER: ", nft.id, nft.name)
-            setMETA(nft); ///set meta from metanet if found-.
-            initNIFTY(nft) //nft.meta.main.snd = nft.animation_url; SND and VID URL
-            if(nft.meta){ //
-                if(nft.meta.main){
-                    if(nft.meta.main.snd || nft.meta.main.vid){ 
-                        createMETACARD(nft)
-                    }
-                }else{
-                    createArtCard(nft)  //render single idx search for img (lukkee)
-                }
-            }
-            else { createArtCard(nft) } //render cardz group imgs
-            // else if(!hidden){ createArtCard(nft) }
-        }       
-    }
-    function showNFTCollections(collections){ //debugger; //TODO switch by DISPLAY-FACTORY-.
-        let hidden = 0
-        for(let collection of collections){ //console.log("displaying",nft.id)
-            hidden = 0; //console.log("HIDE ME",collection.name,collection.id)
-            for(let item of HIDECOLLECTIONTGTs){
-                if( collection[item.key].toString() === item.tgt ){  
-                    console.log("hidden",item.tgt) //HIDE ITEM
-                    hidden = 1;  break;
-                } 
-            }
-            if(!hidden){ createTitleCard(collection) }
-        }          
-    }
-    //todo put in vis - moved to create_META_VIEW
-    // function createMETACARD(nft){
-    //     //BUILD ARTCARD DISPLAY
-    //     let artFrame = document.createElement('section');
-    //     artFrame.style.backgroundColor = 'black';
-    //     artFrame.style.borderRadius = "10px";
-    //     artFrame.style.padding = "0.111em";
-    //     artFrame.style.margin = "0.444em";
-    //     let artCard = document.createElement('article');
-    //     artCard.style.backgroundColor = viz.getRandoColor();
-    //     artCard.style.border = "1px solid steelblue"
-    //     artCard.style.borderRadius = "13.333px"
-    //     artCard.style.padding = "0.888em"
-    //     artCard.style.margin = "0.88em auto"
-    //     artCard.style.maxWidth = "36em"
-    //     //CARD IMG
-    //     let artCardIMG = document.createElement('img'); //IMG
-    //     artCardIMG.style.padding = "0.888em"
-    //     artCardIMG.style.width = "88.8%"
-    //     artCardIMG.style.maxWidth = "33em"
-    //     artCardIMG.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
-    //     artCardIMG.style.borderRadius = "6.666px"
-    //     artCardIMG.style.marginBottom = "1em"
-    //     artCardIMG.style.zIndex = "9"
-    //     artCardIMG.src = nft.image_url;   //large 600 size  //OTHER IMAGE TYPES HERE:
-    //     // artCardIMG.src = nft.image_original_url; //giant original size
-    //     // artCardIMG.src = nft.image_preview_url;      //medium 350 size
-    //     // artCardIMG.src = nft.image_thumbnail_url;   //small 200 size
-
-    //     // debugger;
-    //     let artCardVID = null;
-    //     let artCardVIDBTN = null;
-    //     if(nft.meta.main.vid){ //SOUND-FLAG, render AUDIO-DISPLAY
-    //         artCardVID = document.createElement('video'); //MP3
-    //         artCardVID.src = nft.meta.main.vid; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
-    //         // artCardVID.src = nft.animation_original_url; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
-    //         artCardVID.style.padding = "0.888em"
-    //         artCardVID.style.width = "100%"
-    //         artCardVID.style.maxWidth = "33em"
-    //         artCardVID.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
-    //         artCardVID.style.borderRadius = "6.666px"
-    //         artCardVID.style.marginBottom = "1em"
-    //         // artCardVID.style.maxHeight = "55px"
-    //         artCardVID.controls = true;
-    //         artCardVID.style.display = 'none';
-    //         // artCardIMG = null; //do not show art card default
-    //         artCardVIDBTN = document.createElement('section')
-    //         artCardVIDBTN.innerHTML = `<div class="hoverGlowPlay" style="border-radius:100%; background:grey; padding: 0.444em;box-shadow:-2px 0px 2px 2px deepskyblue;">
-    //             <i class="fas fa-play" style="font-size:2em;color:white;border:1px solid skyblue;border-radius:100%;padding:0.2em;"></i>
-    //             </div>`
-    //         // artCardVIDBTN.style.cssText = "background: none; border: 0px;"
-    //         // artCardVIDBTN.style.zIndex = "10"
-    //         artCardVIDBTN.style.display = 'flex';
-    //         artCardVIDBTN.style.marginTop = "-5em";
-    //         artCardVIDBTN.style.marginLeft = "1em";
-    //         // artCardVIDBTN.style.backgroundColor = "grey";
-    //         artCardVIDBTN.style.borderRadius = "100%";
-    //         artCardVIDBTN.addEventListener("click", ()=> {
-    //             let vidz = document.getElementsByTagName('video') //stop all other vids
-    //             for(vid of vidz){ vid.pause() }
-    //             artCardVIDBTN.style.display = 'none';
-    //             // artCardIMG.style.display = 'none'
-    //             artCardIMG.style.cssText = 'height:12em;width:auto'
-    //             artCardVID.style.display = '';
-    //             artCardVID.play();
-    //         })
-    //         // artCardVIDBTN.classList.add("hoverGlowPlay");
-
-    //     }
-
-
-    //     let artCardSND = null;
-    //     if(nft.meta.main.snd){ //SOUND-FLAG, render AUDIO-DISPLAY
-    //         artCardSND = document.createElement('video'); //MP3
-    //         artCardSND.src = nft.meta.main.snd; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
-    //         // artCardSND.src = nft.animation_original_url; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
-    //         artCardSND.style.padding = "0.888em"
-    //         artCardSND.style.width = "100%"
-    //         artCardSND.style.maxWidth = "28em"
-    //         artCardSND.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
-    //         artCardSND.style.borderRadius = "6.666px"
-    //         artCardSND.style.marginBottom = "1em"
-    //         artCardSND.style.maxHeight = "55px"
-    //         artCardSND.controls = true;
-    //     }
-    //     // let artCardLINK = document.createElement('a'); //IMG LINK parent
-    //     // artCard.src = nft.url
-    //     //MAINTITLE
-    //     let artCardMainTitle = document.createElement('section'); //Title 1
-    //     artCardMainTitle.style.padding = "0.444em"
-    //     artCardMainTitle.style.borderRadius = "13px"
-    //     artCardMainTitle.style.border = "1px solid steelblue"
-    //     artCardMainTitle.innerText = nft.name; //NAME
-    //     artCardMainTitle.style.backgroundColor = "#05112a"
-    //     //SUBTITLE
-    //     let artCardSubTitle = document.createElement('section'); //Title 2
-    //     artCardSubTitle.style.padding = "0.111em"
-    //     artCardSubTitle.style.textShadow = "1px 2px 1px black";
-    //     artCardSubTitle.style.display = "flex";
-    //     artCardSubTitle.style.justifyContent = "space-between";
-    //     //THREE-PART-SUB-TITLE
-    //     let BR = document.createElement('aside'); //sub
-    //     let DWN = document.createElement('aside'); //sub
-    //     let BL = document.createElement('aside'); //sub
-    //     BR.innerHTML = "<span>\\</span>"
-    //     BR.innerHTML = `<span>${getIconLink(BR, 'https://opensea.io/accounts/kryptospaze')}</span>`
-    //     DWN.innerHTML = "<span>~</span>"
-    //     BL.innerHTML = "<span>2021</span>"
-    //     // setMETA(nft)
-
-        
-    //     // if(nft.meta){ //loadMETA(nft.meta, {TR:TR,UP:UP,TL:TL,BR:BR,DWN:DWN,BL:BL}) }
-    //     //     if(nft.meta.BR){ (nft.meta.BR.url) ? getIconLink(BR, {url: 'https://opensea.io/accounts/kryptospaze'}) : BR.innerHTML = nft.meta.BR}
-    //     // }
-
-
-    //     //SUPERTITLE
-    //     let artCardSuperTitle = document.createElement('section'); //Title 2
-    //     artCardSuperTitle.style.padding = "0.111em"
-    //     artCardSuperTitle.style.textShadow = "1px 2px 1px black";
-    //     artCardSuperTitle.style.display = "flex";
-    //     artCardSuperTitle.style.justifyContent = "space-between";
-    //     artCardSuperTitle.style.marginTop =  "-0.444em";
-    //     artCardSuperTitle.style.paddingBottom = "0.888em";
-    //     //THREE-PART-SUPER-TITLE
-    //     let TR = document.createElement('aside'); //super
-    //     let UP = document.createElement('aside'); //super
-    //     let TL = document.createElement('aside'); //super
-    //     TR.innerHTML = "<span>\\</span>"
-    //     UP.innerHTML = `<span>${nft.id}</span>`
-    //     TL.innerHTML = "<span>2021</span>"
-    //     // debugger; //METACARD useMETA for display
-        
-    //     setMETA(nft)
-    //     if(nft.meta){ //loadMETA(nft.meta, {TR:TR,UP:UP,TL:TL,BR:BR,DWN:DWN,BL:BL}) }
-    //         //for(nftLink of nft.meta) //TODO
-    //         // if(nft.meta.TL){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :TL.innerHTML = nft.meta.TL}
-    //         // if(nft.meta.UP){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :UP.innerHTML = nft.meta.UP}
-    //         // if(nft.meta.TR){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :TR.innerHTML = nft.meta.TR}
-    //         // if(nft.meta.BL) (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :{BL.innerHTML = nft.meta.BL}
-    //         // if(nft.meta.DWN){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :DWN.innerHTML = nft.meta.DWN}
-    //         if(nft.meta.BR){ (nft.meta.BR.url) ? getIconLink(BR, nft.meta.BR.url) : BR.innerHTML = nft.meta.BR}
-    //     }
-    //     //INSERT INTO DOM-.
-    //     if (artCard && artCardVID) { artCard.insertAdjacentElement('afterbegin', artCardVID); }
-    //     if (artCard && artCardSND) { artCard.insertAdjacentElement('afterbegin', artCardSND); }
-    //     if (artCard && artCardVIDBTN) { artCard.insertAdjacentElement('afterbegin', artCardVIDBTN); }
-    //     if (artCard && artCardIMG) { artCard.insertAdjacentElement('afterbegin', artCardIMG); }
-    //     if (artCardSuperTitle) { artCardSuperTitle.insertAdjacentElement('beforeend',TR); }
-    //     if (artCardSuperTitle) { artCardSuperTitle.insertAdjacentElement('beforeend',UP); }
-    //     if (artCardSuperTitle) { artCardSuperTitle.insertAdjacentElement('beforeend',TL); }
-    //     if (artCard) { artCard.insertAdjacentElement('afterbegin',artCardSuperTitle); }
-    //     if (artCardSubTitle) { artCardSubTitle.insertAdjacentElement('beforeend',BL); }
-    //     if (artCardSubTitle) { artCardSubTitle.insertAdjacentElement('beforeend',DWN); }
-    //     if (artCardSubTitle) { artCardSubTitle.insertAdjacentElement('beforeend',BR); }
-    //     if (artCard) { artCard.insertAdjacentElement('beforeend',artCardMainTitle); }
-    //     if (artCard) { artCard.insertAdjacentElement('beforeend',artCardSubTitle); }
-    //     if (artFrame && artCard) { artFrame.insertAdjacentElement('beforeend', artCard); }
-    //     if (nftDisplay1) { nftDisplay1.insertAdjacentElement('beforeend', artFrame); }
-    // } //END CREATE META CARD
-
-
-    //TODO on VIS object.
-    function createArtCard(nft){
-        //BUILD ARTCARD DISPLAY
-        let artFrame = document.createElement('section');
-        artFrame.style.backgroundColor = 'black';
-        artFrame.style.borderRadius = "10px";
-        artFrame.style.padding = "0.111em";
-        artFrame.style.margin = "0.444em";
-        let artCard = document.createElement('article');
-        artCard.style.backgroundColor = viz.getRandoColor();
-        artCard.style.border = "1px solid steelblue"
-        artCard.style.borderRadius = "13.333px"
-        artCard.style.padding = "0.888em"
-        artCard.style.margin = "0.88em auto"
-        artCard.style.maxWidth = "36em"
-        //CARD IMG
-        let artCardIMG = document.createElement('img'); //IMG
-        artCardIMG.style.padding = "0.888em"
-        artCardIMG.style.width = "88.8%"
-        artCardIMG.style.maxWidth = "33em"
-        artCardIMG.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
-        artCardIMG.style.borderRadius = "6.666px"
-        artCardIMG.style.marginBottom = "1em"
-        artCardIMG.src = nft.image_url;   //large 600 size  //OTHER IMAGE TYPES HERE:
-        // artCardIMG.src = nft.image_original_url; //giant original size
-        // artCardIMG.src = nft.image_preview_url;      //medium 350 size
-        // artCardIMG.src = nft.image_thumbnail_url;   //small 200 size
-        // artCardSND = document.createElement('video'); //MP3
-        // artCardSND.src = nft.animation_original_url; //: "https://storage.opensea.io/files/2917253280b68adf480bbb4493d881c3.mp3"
-        // artCardSND.style.padding = "0.888em"
-        // artCardSND.style.width = "100%"
-        // artCardSND.style.maxWidth = "28em"
-        // artCardSND.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
-        // artCardSND.style.borderRadius = "6.666px"
-        // artCardSND.style.marginBottom = "1em"
-        // artCardSND.style.maxHeight = "55px"
-        // artCardSND.controls = true;
-        // debugger;
-        // let artCardLINK = document.createElement('a'); //IMG LINK parent
-        // artCard.src = nft.url
-        //MAINTITLE
-        let artCardMainTitle = document.createElement('section'); //Title 1
-        artCardMainTitle.style.padding = "0.444em"
-        artCardMainTitle.style.borderRadius = "13px"
-        artCardMainTitle.style.border = "1px solid steelblue"
-        artCardMainTitle.innerText = nft.name; //NAME
-        artCardMainTitle.style.backgroundColor = "#05112a"
-        //SUBTITLE
-        let artCardSubTitle = document.createElement('section'); //Title 2
-        artCardSubTitle.style.padding = "0.111em"
-        artCardSubTitle.style.textShadow = "1px 2px 1px black";
-        artCardSubTitle.style.display = "flex";
-        artCardSubTitle.style.justifyContent = "space-between";
-        //THREE-PART-SUB-TITLE
-        let BR = document.createElement('aside'); //sub
-        let DWN = document.createElement('aside'); //sub
-        let BL = document.createElement('aside'); //sub
-        BR.innerHTML = "<span>\\</span>"
-        BR.innerHTML = `<span>${getIconLink(BR, 'https://opensea.io/accounts/kryptospaze')}</span>`
-        DWN.innerHTML = "<span>~</span>"
-        BL.innerHTML = "<span>/</span>"
-        if(nft.meta){ //loadMETA(nft.meta, {TR:TR,UP:UP,TL:TL,BR:BR,DWN:DWN,BL:BL}) }
-            if(nft.meta.BR){ (nft.meta.BR.url) ? getIconLink(BR, nft.meta.BR.url) : BR.innerHTML = nft.meta.BR}
-        }
-        //SUPERTITLE
-        let artCardSuperTitle = document.createElement('section'); //Title 2
-        artCardSuperTitle.style.padding = "0.111em"
-        artCardSuperTitle.style.textShadow = "1px 2px 1px black";
-        artCardSuperTitle.style.display = "flex";
-        artCardSuperTitle.style.justifyContent = "space-between";
-        artCardSuperTitle.style.marginTop =  "-0.444em";
-        artCardSuperTitle.style.paddingBottom = "0.888em";
-
-
-        //THREE-PART-SUPER-TITLE
-        let TR = document.createElement('aside'); //super
-        let UP = document.createElement('aside'); //super
-        let TL = document.createElement('aside'); //super
-        TR.innerHTML = "<span>\\</span>"
-        UP.innerHTML = `<span>${nft.id}</span>`
-        TL.innerHTML = "<span>2021</span>"
-        setMETA(nft)
-        if(nft.meta){ //loadMETA(nft.meta, {TR:TR,UP:UP,TL:TL,BR:BR,DWN:DWN,BL:BL}) }
-            //for(nftLink of nft.meta) //TODO
-            // if(nft.meta.TL){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :TL.innerHTML = nft.meta.TL}
-            // if(nft.meta.UP){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :UP.innerHTML = nft.meta.UP}
-            // if(nft.meta.TR){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :TR.innerHTML = nft.meta.TR}
-            // if(nft.meta.BL) (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :{BL.innerHTML = nft.meta.BL}
-            // if(nft.meta.DWN){ (nft.meta..url)?  .innerHTML=`<a href="" target="_blank"><img src=""/></a>`          :DWN.innerHTML = nft.meta.DWN}
-            if(nft.meta.BR){ (nft.meta.BR.url) ? getIconLink(BR, nft.meta.BR.url) : BR.innerHTML = nft.meta.BR}
-        }
-        //INSERT INTO DOM-.
-        // if (artCard) { artCard.insertAdjacentElement('afterbegin', artCardSND); }
-        if (artCard) { artCard.insertAdjacentElement('afterbegin', artCardIMG); }
-        if (artCardSuperTitle) { artCardSuperTitle.insertAdjacentElement('beforeend',TR); }
-        if (artCardSuperTitle) { artCardSuperTitle.insertAdjacentElement('beforeend',UP); }
-        if (artCardSuperTitle) { artCardSuperTitle.insertAdjacentElement('beforeend',TL); }
-        if (artCard) { artCard.insertAdjacentElement('afterbegin',artCardSuperTitle); }
-        if (artCardSubTitle) { artCardSubTitle.insertAdjacentElement('beforeend',BL); }
-        if (artCardSubTitle) { artCardSubTitle.insertAdjacentElement('beforeend',DWN); }
-        if (artCardSubTitle) { artCardSubTitle.insertAdjacentElement('beforeend',BR); }
-        if (artCard) { artCard.insertAdjacentElement('beforeend',artCardMainTitle); }
-        if (artCard) { artCard.insertAdjacentElement('beforeend',artCardSubTitle); }
-        if (artFrame && artCard) { artFrame.insertAdjacentElement('beforeend', artCard); }
-        if (nftDisplay1) { nftDisplay1.insertAdjacentElement('beforeend', artFrame); }
-    } //END CREATE ART CARD
-    //todo move to VIS
-    function createTitleCard(nftCollection){
-        let artFrame = document.createElement('section');
-        artFrame.style.backgroundColor = 'black';
-        artFrame.style.borderRadius = "10px";
-        artFrame.style.padding = "0.111em";
-        artFrame.style.margin = "0.444em";
-        var artCard = document.createElement('article');
-        artCard.style.backgroundColor = viz.getRandoColor();
-        artCard.style.border = "1px solid steelblue"
-        artCard.style.borderRadius = "13px"
-        artCard.style.padding = "0.888em"
-        artCard.style.margin = "0.88em auto"
-        artCard.style.maxWidth = "36em"
-        // artCard.innerText = nftCollection.name; //NAME
-        var artCardIMG1 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
-        artCardIMG1.src = nftCollection.image_url;   //large 600 size
-        artCardIMG1.style.borderRadius = "100%"
-        artCardIMG1.style.marginLeft = "-22%"
-        artCardIMG1.style.width = "17%"
-        // artCardIMG.src = nftCollection.banner_image_url;   //Collection BANNER size 1020+
-        var artCardIMG2 = document.createElement('img'); //IMG  //OTHER IMAGE TYPES HERE
-        artCardIMG2.src = nftCollection.featured_image_url;   //large 600 size
-        artCardIMG2.style.width = "55%"
-        artCardIMG2.style.boxShadow = `2px 2px 8px 4px ${viz.getRandoColor()}`
-        artCardIMG2.style.borderRadius = "4px"
-        artCardIMG2.style.marginBottom = "1em"
-        // artCardIMG.src = nftCollection.image_original_url; //giant original size ~
-        // artCardIMG.src = nftCollection.image_preview_url;      //medium 350 size
-        // artCardIMG.src = nftCollection.image_thumbnail_url;   //small 200 size
-        artCard.insertAdjacentElement('afterbegin', artCardIMG1);
-        artCard.insertAdjacentElement('afterbegin', artCardIMG2);
-        let artCardMainTitle = document.createElement('section'); //Title 1
-        artCardMainTitle.style.padding = "0.444em"
-        artCardMainTitle.style.borderRadius = "13px"
-        artCardMainTitle.style.border = "1px solid steelblue"
-        artCardMainTitle.innerText = nftCollection.name; //NAME
-        artCardMainTitle.style.backgroundColor = "#05112a"
-        let artCardSubTitle = document.createElement('section'); //Title 2
-        artCardSubTitle.style.padding = "0.111em"
-        artCardSubTitle.innerText = "..."; //NAME
-        artCardSubTitle.style.textShadow = "1px 2px 1px black";
-        if (artCard) { artCard.insertAdjacentElement('beforeend',artCardMainTitle); }
-        if (artCard) { artCard.insertAdjacentElement('beforeend',artCardSubTitle); }
-        if (artFrame && artCard) { artFrame.insertAdjacentElement('beforeend', artCard); }
-        if (nftDisplay1) { nftDisplay1.insertAdjacentElement('beforeend', artFrame); }
-    } //END CREATE TITLE CARD
 /***************************************************************************************************\
  * UTILITY - all types of helperFunctions here-. - : )
 \***************************************************************************************************/
-   
+   //todo deletable? improve?
     function getIconLink(node, url){
         node.style.marginTop = "-1em";
         return node.innerHTML=`<a href="${url}" target="_blank"><img src="../images/osblue.png" class="hoverGlow" style="width:2em;border-radius:100%;"/></a>`          
     }
 
-    function getKRYPTOBOOKZ(){
-        //LOAD ARRAY OF IMAGES.
-        //LOAD ARRAY OF TXTS
-        /************************************************************\
-         * ASYNCHRONOUS - IMAGE - LOAD
-         * Promises below. Look for FINAL IMG logic and finishBUILD
-        \************************************************************/
-        //LOAD IMG-PATHS into array of PROMISE OBJECTS, for IMG LOADING
-
-        // let promisedBITZ = [], selectedBIT = null;
-        // for( let i = 0; i<selectedBITZ.length;i++){
-        //     selectedBIT = selectedBITZ[i];
-        //     console.log("IMGPATH:",selectedBIT);
-        //     let imgPromise = loadImage(`${selectedBIT.PATH}`)
-        //     promisedBITZ.push( imgPromise )
-        // }
-        // // if(useOnce){ //ADD on a GLDFRM-.
-        // //     let imgPromise = loadImage(`${rootPATH}\\copyrightNetCinematics\\frame1_gld.png`)
-        // //     promisedBITZ.push( imgPromise )
-        // // } else if(firstLast){ //ADD on a SLVRFRM-.
-        // //     let imgPromise = loadImage(`${rootPATH}\\copyrightNetCinematics\\frame1_slvr.png`)
-        // //     promisedBITZ.push( imgPromise )
-        // // }
-
-        // //-----------LOAD IMGs, called by Promise. When all selected images load, then BUILD.
-        // Promise.all(promisedBITZ) //waits for all IMGZ to load before rendering.
-        // .then( (imageSet) => { // .all([ logo, cp, tm, sky1,bg1,hero1 ])
-        //         console.log('BITZ-LOADED');//,imageSet)
-        //         //display default index
-        //         showKRYPTOBOOK(0);
-
-        // });
-        //TODO (above) LOAD BITZ FROM BLOCKCHAIN. For now... use TEST CONTENT. : ) 
-
-        //LOAD page 0, then by user 1 by 1.
-        // showKRYPTO_Page(0,SPAZEBOOK_KRYPTOBITZ1);
-        //LOAD ALL PAGES, not one by one. Enable scrollability.
-        //TODO pass KRYPTOBITZ and METANET!!!
-
-        //TODO - simplify???
-        showKRYPTOBOOK_All(SPAZEBOOK_KRYPTOBITZ1, [])
+    function getKRYPTOBOOKZ(bID){
+      
+        //METANET_bID_to_BOOKZ_lookup
+        let METANET_BOOKZ = {
+            's1.e1.ch1':SPAZEBOOK_KRYPTOBITZ1, 
+            's1.e1.ch2':SPAZEBOOK_KRYPTOBITZ1, 
+        }
+        let aBOOK = METANET_BOOKZ[bID];
+        //TODO - CONNECT BOOK-ID to SPAZEBOOK-KRYPTOBITZ!!!
+        // showKRYPTOBOOK_All(SPAZEBOOK_KRYPTOBITZ1, [])
+        showKRYPTOBOOK_All(aBOOK, [])
     }
 
 }  //END MASSIVE INITPAGE FN. //todo move above krypto fns?
@@ -977,7 +411,7 @@ function showKRYPTOBOOK_All(bitz, metanet1){
 
 
 //TODO TITLE???
-{/* <header id="pageTitle" style="padding:0.666em;">
+{/* <header  style="padding:0.666em;">
     <section style="margin: 0.222em;">
         <span class="pageTitleTXT" style=" text-shadow: 6px 1px 14px purple;">KRYPTOBOOKZ</span><span class="tradeMark">&trade;</span>
     </section>

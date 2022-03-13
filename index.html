@@ -143,18 +143,16 @@
 <!-- GRID9 MINIMUM EXAMPLE | ui side -->
 <style>.disabledBTN{ color: #677093; background: #444444; border: 1px solid #673ab7; opacity: 0.444; cursor: not-allowed;}</style>
 <style>.glowBTN{box-shadow: 0px -1px 8px 4px #525245;}</style>
+<button id="mainTOPLFTBTN" class="steelNeonIconBtn" style='position:fixed;top:1%;left:0.5%;z-index:1111'><i class="fa fa-bars"></i></button>
 <a href="https://netcinematics.github.io/KRYPTOSPAZE/" target="_blank">
-<button id="mainTOPLFTBTN" class="steelNeonIconBtn" style='position:fixed;top:1%;left:0.5%;z-index:1111'><i class="fa fa-house-damage"></i></button>
+    <button id="mainTOPRGTBTN" class="steelNeonIconBtn" style='position:fixed;top:1%;right:0.5%;z-index:1111'><i class="fa fa-house-damage"></i></button>
 </a>
-<button id="mainTOPRGTBTN" class="steelNeonIconBtn" style='position:fixed;top:1%;right:0.5%;z-index:1111'><i class="fa fa-bars"></i></button>
 <button id="mainLFTBTN" class="steelNeonIconBtn disabledBTN" style='position:fixed;top:33%;left:1%;z-index:1111'><i class="fa fa-chevron-circle-left" style="font-size:1em;"></i></button>
 <button id="mainRGTBTN" class="steelNeonIconBtn  disabledBTN" style='position:fixed;top:33%;right:1%;z-index:1111'><i class="fa fa-chevron-circle-right" style="font-size:1em;"></i></button>
 <button id="mainUPBTN" class="steelNeonIconBtn disabledBTN" style='position:fixed;top:50%;left:1%;z-index:1111'><i class="fa fa-chevron-circle-up" style="font-size:1em;"></i></button>
 <button id="mainDWNBTN" class="steelNeonIconBtn glowBTN" style='position:fixed;top:50%;right:1%;z-index:1111'><i class="fa fa-chevron-circle-down" style="font-size:1em;"></i></button>
 <button id="mainSONICBTN" class="steelNeonIconBtn hoverGlow sonicOff" style='position:fixed;top:16%;right:1%;z-index:1111'><i class="fa fa-volume-off" style="font-size:1em;"></i></button>
-<a href="https://netcinematics.github.io/KRYPTOSPAZE/" target="_blank">
-    <button id="mainBTMLFTBTN" class="steelNeonIconBtn" style='position:fixed;top:1%;left:0.5%;z-index:1111'><i class="fa fa-house-damage"></i></button>
-    </a>
+
 <a href="https://linktr.ee/spazefalcon" target="_blank">
     <img src="./images/linktree.png" class="hoverGlow" style="width:2em;border-radius:100%;position:fixed;bottom:10%;right: 1%;border: 2px solid white;
     padding: 2px;"/></a>
@@ -171,12 +169,7 @@
 <article>
     <section id="GalleryDISPLAYFRAME1" style="display:none; padding:0.222em; border:1px solid darkslateblue; border-radius:13px; width:85%; margin:0 auto; border-radius:22px; max-width: 44em;">hi </section>
 </article>
-<!-- <header id="pageTitle" style="padding:0.666em;">
-    <section style="margin: 0.222em;">
-        <span class="pageTitleTXT" style=" text-shadow: 6px 1px 14px purple;">KRYPTOBOOKZ</span><span class="tradeMark">&trade;</span>
-    </section>
-</header> -->
-    <style>
+<style>
 /*Here is Mobile Breakpoint Template:
 put all your mobile styles above*/
 
@@ -272,12 +265,7 @@ put all your mobile styles above*/
 </body>
 
 <script>
-    window.ui = {}; //GRID9 - pre data integration
-    // ui.mainTOPLFTBTN = document.getElementById('mainTOPLFTBTN');
-    // ui.mainTOPLFTBTN.addEventListener("click", ()=> { 
-    //     debugger;  
-    //     // <a href="https://opensea.io/accounts/kryptospaze" target="_blank" class="button">
-    // })   
+    window.ui = {}; //GRID9 - pre data integration 
     ui.mainSONICBTN = document.getElementById('mainSONICBTN');  
     ui.mainSONICBTN.addEventListener("click", ()=> { 
         var toggleOn = ui.mainSONICBTN.classList.contains('sonicOff'); //if sound is on-.
@@ -301,8 +289,8 @@ put all your mobile styles above*/
     ui.nftDisplay1 = document.getElementById('nftDisplay1'); 
     ui.KRYPTOBOOKFrame1 = document.getElementById('KRYPTOBOOKFrame1'); 
     ui.GalleryDISPLAYFRAME1 = document.getElementById('GalleryDISPLAYFRAME1'); 
-    ui.mainTOPRGTBTN = document.getElementById('mainTOPRGTBTN');
-    ui.mainTOPRGTBTN.addEventListener("click", ()=> {   mainMenuBtnClick();  })      
+    ui.mainTOPLFTBTN = document.getElementById('mainTOPLFTBTN');
+    ui.mainTOPLFTBTN.addEventListener("click", ()=> {    mainMenuBtnClick();  })      
     ui.mainDWNBTN = document.getElementById('mainDWNBTN');
     ui.mainDWNBTN.addEventListener("click", ()=> { 
         kbz.nextPage();
@@ -337,6 +325,7 @@ var mainMenuBtnClick = function(){
         
     }else{
         clearAllDisplays();
+        if(!ui.lastView){ui.lastView = ui.GalleryDISPLAYFRAME1}
         // ui.nftDisplay1.style.display = 'none';
         // ui.topMenuFrame.style.display = 'none';
         // ui.GalleryDISPLAYFRAME1.style.display = 'none';
@@ -365,28 +354,29 @@ function menuFn(e){ //ALL MENU BEHAVIOR in 1 FACTORY fn.
         case 'topNavBtn1':
         case 'btmNavBtn1': window.open("https://netcinematics.github.io/KRYPTOSPAZE/", '_blank'); break;
         case 'topNavBtn2':
-        case 'btmNavBtn2': kbz.MainVw.getNFTFactory(2); break;
+        case 'btmNavBtn2': kbz.MainVw.runDISPLAYFactory(2); break;
         case 'topNavBtn3':
-        case 'btmNavBtn3': kbz.MainVw.getNFTFactory(3); break;
+        case 'btmNavBtn3': kbz.MainVw.runDISPLAYFactory(3); break;
         case 'topNavBtn4':
-        case 'btmNavBtn4': kbz.MainVw.getNFTFactory(4); break;
+        case 'btmNavBtn4': kbz.MainVw.runDISPLAYFactory(4); break;
         case 'topNavBtn5':
-        case 'btmNavBtn5': kbz.MainVw.getNFTFactory(5); break;
+        case 'btmNavBtn5': kbz.MainVw.runDISPLAYFactory(5); break;
         case 'topNavBtn6':
         case 'btmNavBtn6': window.open("https://netcinematics.github.io/KRYPTOSPAZE/", '_blank'); break;
         case 'topNavBtn7':
-        case 'btmNavBtn7': kbz.MainVw.getNFTFactory(2); break;
+        case 'btmNavBtn7': kbz.MainVw.runDISPLAYFactory(2); break;
         case 'topNavBtn8':
-        case 'btmNavBtn8': kbz.MainVw.getNFTFactory(3); break;
+        case 'btmNavBtn8': kbz.MainVw.runDISPLAYFactory(3); break;
         case 'topNavBtn9':
-        case 'btmNavBtn9': kbz.MainVw.getNFTFactory(4); break;
+        case 'btmNavBtn9': kbz.MainVw.runDISPLAYFactory(4); break;
         case 'topNavBtn10':
-        case 'btmNavBtn10' : kbz.MainVw.getNFTFactory(5); break;
+        case 'btmNavBtn10' : kbz.MainVw.runDISPLAYFactory(5); break;
         case 'topNavBtn11':
-        case 'btmNavBtn11' : kbz.MainVw.getNFTFactory(7); break;
-        // case 'btmNavBtn11' : kbz.MainVw.getNFTFactory(11); break;
+        case 'btmNavBtn11' : mainMenuBtnClick();
+        //kbz.MainVw.runDISPLAYFactory(7); break;
+        // case 'btmNavBtn11' : kbz.MainVw.runDISPLAYFactory(11); break;
         case 'topNavBtn12':
-        case 'btmNavBtn12' : kbz.MainVw.getNFTFactory(12); break;
+        case 'btmNavBtn12' : kbz.MainVw.runDISPLAYFactory(12); break;
         default : return;
     }
 }
@@ -420,11 +410,8 @@ let clearAllDisplays = function(){
 
 //TODO move to vis?
 let loadBOOKDisplay = function(LINKPATH){
-    debugger; //1
-    let METANET = {
-        's1.e1.ch1':`<h1>hi!</h1>`, 
-        's1.e1.ch2':`<h1>hi!</h1>`, 
-    }
+
+    kbz.MainVw.runDISPLAYFactory(7,LINKPATH.bID);
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
@@ -438,9 +425,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
     let idx = parseInt(urlParams.get('idx')); //idx for specific items-.
     if(!idx){idx = null}
     kbz.MainVw.idx = idx;
-    if(!mode){mode = 7} //kryptobook
+    if(!mode){mode = 1} //gallery
+    // if(!mode){mode = 7} //kryptobook
     // if(!mode){mode = 6} //display all
-    kbz.MainVw.getNFTFactory(mode); //default load
+    kbz.MainVw.runDISPLAYFactory(mode); //default load
 
 
 

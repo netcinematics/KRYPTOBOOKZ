@@ -139,7 +139,7 @@ function createKRYPTO_PAGE(bitz, pgNum, pgTotal){
  function createKRYPTO_INTRO(bitz){  
 
 //TODO Page Title???
-{/* <header id="pageTitle" style="padding:0.666em;">
+{/* <header  style="padding:0.666em;">
     <section style="margin: 0.222em;">
         <span class="pageTitleTXT" style=" text-shadow: 6px 1px 14px purple;">KRYPTOBOOKZ</span><span class="tradeMark">&trade;</span>
     </section>
@@ -372,6 +372,18 @@ function getRandoColor(){
     return `hsl(${h}deg, ${s}%, ${l}%)`;
 }
 
+function create_Dynamic_TTL(ttltxt, displayFrame){
+
+    let dynamicTitleMarkup=`
+        <header>
+            <section style="margin: 0.222em;">
+                <span class="pageTitleTXT" style=" text-shadow: 6px 1px 14px purple;">${ttltxt}</span><span class="tradeMark">&trade;</span>
+            </section>
+        </header>
+    `;
+    displayFrame.innerHTML = dynamicTitleMarkup;
+
+}
 function create_META_VIEW(nft){
         //BUILD METACARD DISPLAY
         let metaFrame = document.createElement('section');
@@ -536,6 +548,7 @@ function create_META_VIEW(nft){
 
 let viz = {
  create_META_VIEW:create_META_VIEW,
+ create_Dynamic_TTL:create_Dynamic_TTL,
  createKRYPTO_INTRO:createKRYPTO_INTRO,
  createKRYPTO_OUTRO:createKRYPTO_OUTRO,
  createKRYPTO_PAGE:createKRYPTO_PAGE,
